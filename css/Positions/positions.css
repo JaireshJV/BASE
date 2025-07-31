@@ -1,0 +1,124 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+font-size: 1.5rem;
+min-height: 200vh;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+.outer-container{
+    border: 3px dashed grey;
+    width: 75vw;
+    height: 130vh;
+    margin: 40px auto;
+    position: relative;
+}
+
+.inner-container{
+    border: 2px solid blue;
+    width: 40vw;
+    height: 70vh;
+    margin: 200px auto;
+    position: relative;
+
+}
+
+.box{
+    width: 150px;
+    height: 150px;
+    /* border: 2px solid red; */
+    color: white;
+}
+
+.absolute{
+background-color: blue;
+position: absolute;     /*Takes parent as referance where the relative is present */
+top: 0;
+left: 0; 
+z-index: 1;
+/* left: -1000px;      To apply display none */
+}
+
+.relative{
+    background-color: red;
+    position: relative;     /* Takes parent as referance */
+    top: 100px;
+    left: 100px;    
+}
+
+.fixed{
+    background-color: green;
+    position: fixed;    /* Takes webpage as referance */
+    top: 0;
+    left: 0;        
+}
+
+.sticky{
+    background-color: black;
+    position: sticky;       /* Takes webpage as referance (will diappear when the element is gone) */
+    top: 0;
+}
+
+section{
+    height: 100vh;
+}
+
+header{
+    height: 100px;
+    position: sticky;
+    top: 0;
+    text-align: center;
+    padding: 20px;
+}
+
+.red{
+    background-color: red;
+}
+
+.green{
+    background-color: green;
+}
+
+.blue{
+    background-color: blue;
+}
+
+footer{
+    position: fixed;
+    /* position: sticky; */
+    bottom: 0;
+    background-color: black;
+    width: 100%;
+    text-align: center;
+}
+
+a{
+    color: whitesmoke;
+}
+
+.first_button{
+    background-color: aqua;
+    font-size: inherit;
+    border: 2px solid green;
+    position: fixed;
+    top: 30%;
+    left: 0;
+    z-index: 1;
+}
+
+.second_button{
+    background-color: aqua;
+    font-size: inherit;
+    border: 2px solid green;
+    position: fixed;
+    top: 40%;
+    left: 0;
+    z-index: 1;
+}

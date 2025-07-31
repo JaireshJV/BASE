@@ -1,0 +1,13 @@
+html {
+    font-size: 22px;
+}
+
+body {
+    background-color: black;
+    color: whitesmoke;
+}
+
+table,th,td,tr,caption{
+    border: 2px solid silver;
+    border-collapse: collapse;
+}

@@ -1,0 +1,1553 @@
+Skip to main content
+Stack Overflow
+Products
+OverflowAI
+Search…
+Jairesh JV's user avatar
+Jairesh JV
+1, 1 reputation
+1
+Home
+New
+Questions
+Tags
+Saves
+Users
+Companies
+Labs
+Discussions
+Collectives
+Communities for your favorite technologies. Explore all Collectives
+
+Teams
+
+Ask questions, find answers and collaborate at work with Stack Overflow for Teams.
+
+ 
+Looking for your Teams?
+
+Looking for large text files for testing compression in all sizes
+Asked 7 years, 7 months ago
+Modified 3 months ago
+Viewed 97k times
+35
+
+I am looking for large text files for testing the compression and decompression in all sizes from 1kb to 100mb. Can someone please refer me to download it from some link ?
+
+compressiontext-files
+Share
+Edit
+Follow
+asked Jun 12, 2017 at 6:20
+Siranjeevi Rajendran's user avatar
+Siranjeevi Rajendran
+43311 gold badge66 silver badges88 bronze badges
+Add a comment
+6 Answers
+Sorted by:
+
+Highest score (default)
+33
+
+*** Linux users only ***
+
+Arbitrarily large text files can be generated on Linux with the following command:
+
+tr -dc "A-Za-z 0-9" < /dev/urandom | fold -w100|head -n 100000 > bigfile.txt
+This command will generate a text file that will contain 100,000 lines of random text and look like this:
+
+NsQlhbisDW5JVlLSaZVtCLSUUrkBijbkc5f9gFFscDkoGnN0J6GgIFqdCLyhbdWLHxRVY8IwDCrWF555JeY0yD0GtgH21NotZAEe
+iWJR1A4 bxqq9VKKAzMJ0tW7TCOqNtMzVtPB6NrtCIg8NSmhrO7QjNcOzi4N b VGc0HB5HMNXdyEoWroU464ChM5R Lqdsm3iPo
+1mz0cPKqobhjDYkvRs5LZO8n92GxEKGeCtt oX53Qu6T7O2E9nJLKoUeJI6Ul7keLsNGI2BC55qs7fhqW8eFDsGsLPaImF7kFJiz
+...
+...
+On my Ubuntu 18 its size it about 10MB. Bumping up the number of lines, and thereby bumping up the size, is easy. Just increase the head -n 100000 part. So, say, this command:
+
+tr -dc "A-Za-z 0-9" < /dev/urandom | fold -w100|head -n 1000000 > bigfile.txt
+will generate a file with 1,000,000 of random lines of text and be around 100MB. On my commodity hardware the latter command takes about 3 seconds to finish.
+
+Share
+Edit
+Follow
+edited Mar 6, 2021 at 4:29
+answered Oct 29, 2020 at 5:44
+codemonkey's user avatar
+codemonkey
+7,90555 gold badges2626 silver badges4545 bronze badges
+Thanks, it is a nice command. But how can I know the headcount for each size?? for 110 MB of file what will be the head count?? thanks. – 
+Ravi Teja
+ CommentedNov 9, 2020 at 12:06
+It would depend on the length of the line you're putting in. For example with Some text entry here. This will be on each line... on each line, you would need 2300000 lines to get a file 112M in size. That took me about 3 tries to figure out. So just run that command with a random number for head count and the resultant size will guide you as to how to adjust it to get to the target size. – 
+codemonkey
+ CommentedNov 9, 2020 at 17:00 
+3
+Um, no, not at all what you want for testing the effectiveness of your compressor. The resulting text is highly repetitive, and does not represent what a compressor will see in the real world. Do not use this answer. See the compression corpora in the other answers. – 
+Mark Adler
+ CommentedDec 13, 2020 at 17:38
+2
+Results in tr: Illegal byte sequence on MacOS. – 
+Gary
+ CommentedSep 3, 2021 at 19:16
+6
+If you are running this on Mac, you must install coreutils brew install coreutils then use gtr instead of tr with the same command – 
+brencoat
+ CommentedMar 10, 2022 at 4:56
+Show 4 more comments
+25
+
+And don't forget the collection of Corpus
+
+The Canterbury Corpus
+The Artificial Corpus
+The Large Corpus
+The Miscellaneous Corpus
+The Calgary Corpus
+The Canterbury Corpus
+SEE: https://corpus.canterbury.ac.nz/descriptions/
+
+there is a download links for the files available for each set
+
+Share
+Edit
+Follow
+edited Jul 20, 2022 at 20:10
+Mark Adler's user avatar
+Mark Adler
+112k1515 gold badges132132 silver badges173173 bronze badges
+answered Jun 17, 2017 at 3:42
+Phillip Williams's user avatar
+Phillip Williams
+47633 silver badges1010 bronze badges
+1
+FWIW, 1) The individual files are not available for download, only the zipped Corpus files 2)The download is not secure, so, most browsers would complain 3) The sizes of the files are displayed in bytes. – 
+Abhijit Sarkar
+ CommentedJan 22, 2023 at 6:18 
+Add a comment
+21
+
+You can download enwik8 and enwik9 from here. They are respectively 100,000,000 and 1,000,000,000 bytes of text for compression benchmarks. You can always pull subsets of those for smaller tests.
+
+Share
+Edit
+Follow
+answered Jun 13, 2017 at 6:16
+Mark Adler's user avatar
+Mark Adler
+112k1515 gold badges132132 silver badges173173 bronze badges
+Add a comment
+5
+
+Project Gutenberg looks exceptionally promising for this purpose. This resource contains thousands of books in many formats. Here is a sample of what is available:
+enter image description here
+Clicking on any of the links will reveal the the various formats that always include Plain Text UTF-8 and .txt:
+enter image description here
+
+enter image description here
+
+Another possible place to get large amounts of random text data for compression testing would be data dump sites such as Wiki or even Stack Exchange
+
+I've alse found this blog post that lists 10 open source places to get complex text data for analytics testing.
+
+There are a lot of online resources for creating large text files of arbitrary or specific sizes, such as this Lorem Ipsum Generator which I have used for script development, but I've learned that these sources are no good for compression testing because the words tend to be limited and repetitive. Consequently, these files will compress considerably more than natural text would.
+
+Share
+Edit
+Follow
+edited Nov 1, 2022 at 21:30
+Mark Adler's user avatar
+Mark Adler
+112k1515 gold badges132132 silver badges173173 bronze badges
+answered Oct 28, 2022 at 7:45
+Justin Edwards's user avatar
+Justin Edwards
+47222 gold badges77 silver badges1010 bronze badges
+1
+Also not representative of actual text. Do not use for testing compressors with the objective of getting compression ratios for text. – 
+Mark Adler
+ CommentedOct 28, 2022 at 19:19
+@MarkAdler - It's obvious to me from what I see in your answer history, that you know what you're talking about, so respectfully, I'm quite interested in any explanation you would have to offer. Why would this not be a representation of actual text? To my untrained eye, the consonant to vowel ratios, sentence lengths, and paragraph structures all seem to approximate what I see in every day essay documents. – 
+Justin Edwards
+ CommentedOct 29, 2022 at 2:38
+1
+There are only 175 unique words in the generated text, no matter its length. Even 1st grade readers have more vocabulary words than that. As a result, the Lorem ipsum text will compress much better than actual English text. – 
+Mark Adler
+ CommentedOct 29, 2022 at 4:07
+1
+Delete it, or replace it with a different answer. Lorem ipsum is no help here. – 
+Mark Adler
+ CommentedOct 29, 2022 at 6:10
+1
+Much better.... – 
+Mark Adler
+ CommentedNov 1, 2022 at 21:30
+Show 2 more comments
+0
+
+You can use this with python (download at python.org if you haven't already); this will generate a file fully made up of 'M's:
+
+size = ''
+
+while not size.isnumeric():
+    size = input('How big would you like your file to be (mb)? ')
+
+size = int(size)
+
+name = input('Where would you like to locate the file? ')
+
+open(name, 'w').write('')
+
+for mb in range(size):
+    open(name, 'a').write('M' * 1000000)
+
+print('Done!')
+Or, you can use this to generate a completely random file:
+
+import random
+
+size = ''
+characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
+
+while not size.isnumeric():
+    size = input('How big would you like your file to be (mb)? ')
+
+size = int(size)
+
+name = input('Where would you like to locate the file? ')
+
+open(name, 'w').write('')
+
+for mb in range(size):
+    open(name, 'a').write(''.join(random.choices(characters, k=1000000)))
+
+print('Done!')
+And finally, to generate a bunch of words with spaces between them:
+
+import random
+
+size = ''
+
+words = '''
+hello
+goodbye
+yay!
+'''  # Your words list here, separated by newlines
+
+words = words.split('\n')
+
+wl = []
+
+print('Interpreting list...\n')
+
+for word in words:
+    if word.strip():
+        wl.append(word.strip() + ' ')
+    words.remove(word)
+
+while not size.isnumeric():
+    size = input('How big would you like your file to be (\'1\' would be 1000 words)? ')
+
+size = int(size)
+
+name = input('What would you like to be the path to the file? ')
+
+open(name, 'w').write('')
+
+for word in range(size):
+    open(name, 'a').write(''.join(random.choices(wl, k=1000)))
+
+print('Done!')
+Remember that some of these take longer than others; the wordslist one can take quite a while.
+
+Share
+Edit
+Follow
+edited Jul 13, 2023 at 10:41
+answered Jul 13, 2023 at 10:14
+Your Mother's user avatar
+Your Mother
+111 bronze badge
+Add a comment
+0
+
+The following python script generates a 256Mb file. Feel free to adjust the value of range(27) to generate a file size accordingly.
+
+import os
+
+os.system("rm a.txt")
+with open("a.txt","w")  as f:
+    f.write("a\n")
+for i in range(27):
+  print(i)
+  os.system("cat a.txt > b.txt")
+  os.system("cat b.txt >> a.txt")
+
+os.system("rm b.txt")
+Share
+Edit
+Follow
+answered Oct 30, 2024 at 18:06
+ankush1377's user avatar
+ankush1377
+20811 gold badge22 silver badges99 bronze badges
+Add a comment
+Your Answer
+Not the answer you're looking for? Browse other questions tagged compressiontext-files or ask your own question.
+The Overflow Blog
+Feature flags: Theory meets reality
+Featured on Meta
+The landing page at stackoverflow.com will point directly to Q&A beginning...
+Upcoming Experiment for Commenting
+Hot Meta Posts
+19
+Understanding question quality vis-a-vis question difficulty
+
+Report this ad
+
+Report this ad
+8 people chatting
+Related
+0
+Compression File
+3
+How can different compressing formats be compared?
+0
+what are the file compression algorithms available for txt file compression?
+1
+Ways to assit the compression of large custom data files
+0
+Fast compression of large (100 MB ) text file with byte values in it
+4
+How to Compress Large Files C#
+1
+Which algorithm is most suitable for large text compression?
+1
+Compressing large, near-identical files
+3
+Compress many versions of a text with fast access to each
+0
+Looking for large latex file (~200 pages/1mb+) to test compression implementations
+Hot Network Questions
+Why were Moshe and Aharon allowed to testify for the new moon if they were relatives?
+How can we see things with point source light?
+Why do Technicolor films from the 1930s and 1940s have such bright colours?
+How to and what part to replace Challenger type A1515 HACR type Ci/AI-SWD 90103
+Scifi audio story from YouTube
+Search for old robot sci-fi story about an astronaut on a planet, with a robot guarding his camp
+Can determinate states be achieved for position and momentum operator separately?
+Fastest win against xkcd's AlphaMove?
+How to use `unknown .code` in `expl3` to achieve the effect of the key `color` in `tikz`?
+Two definitions of the ECDF - why use 1/(n+1) instead of 1/n, especially for QQ-plots?
+To what BBC competition did Arthur C. Clarke submit The Sentinel, and who won it?
+Is it possible to have 2 points on the secp256k1 curve with same x coordinates but different y coordinates?
+Why is the order of non-commutative simple finite group divisible by 4?
+Pronounciation of words with словоерс particle -с
+Why don’t ISS EVA suits monitor the astronaut’s blood oxygen?
+The only isosceles triangle with a special construction
+How would a village be built if its building materials change properties every other day?
+GPLv3 compatibility under section 7 exceptions with forks
+Cauchy's theorem : Homotopy vs Homology
+Can we assume uniform distribution for stock price movements for the purpose of backtesting?
+Insert full page image
+An impossible(?) triangle
+Calculating the determinant of a matrix using a purely analytical method that involves the "cross product" in nD
+Why are kohanim prohibited from marrying converts?
+ Question feed
+
+Stack Overflow
+Questions
+Help
+Chat
+Products
+Teams
+Advertising
+Talent
+Company
+About
+Press
+Work Here
+Legal
+Privacy Policy
+Terms of Service
+Contact Us
+Cookie Settings
+Cookie Policy
+Stack Exchange Network
+Technology
+Culture & recreation
+Life & arts
+Science
+Professional
+Business
+API
+Data
+Blog
+Facebook
+Twitter
+LinkedIn
+Instagram
+Site design / logo © 2025 Stack Exchange Inc; user contributions licensed under CC BY-SA . rev 2025.1.31.21881
+
+Skip to main content
+Stack Overflow
+Products
+OverflowAI
+Search…
+Jairesh JV's user avatar
+Jairesh JV
+1, 1 reputation
+1
+Home
+New
+Questions
+Tags
+Saves
+Users
+Companies
+Labs
+Discussions
+Collectives
+Communities for your favorite technologies. Explore all Collectives
+
+Teams
+
+Ask questions, find answers and collaborate at work with Stack Overflow for Teams.
+
+ 
+Looking for your Teams?
+
+Looking for large text files for testing compression in all sizes
+Asked 7 years, 7 months ago
+Modified 3 months ago
+Viewed 97k times
+35
+
+I am looking for large text files for testing the compression and decompression in all sizes from 1kb to 100mb. Can someone please refer me to download it from some link ?
+
+compressiontext-files
+Share
+Edit
+Follow
+asked Jun 12, 2017 at 6:20
+Siranjeevi Rajendran's user avatar
+Siranjeevi Rajendran
+43311 gold badge66 silver badges88 bronze badges
+Add a comment
+6 Answers
+Sorted by:
+
+Highest score (default)
+33
+
+*** Linux users only ***
+
+Arbitrarily large text files can be generated on Linux with the following command:
+
+tr -dc "A-Za-z 0-9" < /dev/urandom | fold -w100|head -n 100000 > bigfile.txt
+This command will generate a text file that will contain 100,000 lines of random text and look like this:
+
+NsQlhbisDW5JVlLSaZVtCLSUUrkBijbkc5f9gFFscDkoGnN0J6GgIFqdCLyhbdWLHxRVY8IwDCrWF555JeY0yD0GtgH21NotZAEe
+iWJR1A4 bxqq9VKKAzMJ0tW7TCOqNtMzVtPB6NrtCIg8NSmhrO7QjNcOzi4N b VGc0HB5HMNXdyEoWroU464ChM5R Lqdsm3iPo
+1mz0cPKqobhjDYkvRs5LZO8n92GxEKGeCtt oX53Qu6T7O2E9nJLKoUeJI6Ul7keLsNGI2BC55qs7fhqW8eFDsGsLPaImF7kFJiz
+...
+...
+On my Ubuntu 18 its size it about 10MB. Bumping up the number of lines, and thereby bumping up the size, is easy. Just increase the head -n 100000 part. So, say, this command:
+
+tr -dc "A-Za-z 0-9" < /dev/urandom | fold -w100|head -n 1000000 > bigfile.txt
+will generate a file with 1,000,000 of random lines of text and be around 100MB. On my commodity hardware the latter command takes about 3 seconds to finish.
+
+Share
+Edit
+Follow
+edited Mar 6, 2021 at 4:29
+answered Oct 29, 2020 at 5:44
+codemonkey's user avatar
+codemonkey
+7,90555 gold badges2626 silver badges4545 bronze badges
+Thanks, it is a nice command. But how can I know the headcount for each size?? for 110 MB of file what will be the head count?? thanks. – 
+Ravi Teja
+ CommentedNov 9, 2020 at 12:06
+It would depend on the length of the line you're putting in. For example with Some text entry here. This will be on each line... on each line, you would need 2300000 lines to get a file 112M in size. That took me about 3 tries to figure out. So just run that command with a random number for head count and the resultant size will guide you as to how to adjust it to get to the target size. – 
+codemonkey
+ CommentedNov 9, 2020 at 17:00 
+3
+Um, no, not at all what you want for testing the effectiveness of your compressor. The resulting text is highly repetitive, and does not represent what a compressor will see in the real world. Do not use this answer. See the compression corpora in the other answers. – 
+Mark Adler
+ CommentedDec 13, 2020 at 17:38
+2
+Results in tr: Illegal byte sequence on MacOS. – 
+Gary
+ CommentedSep 3, 2021 at 19:16
+6
+If you are running this on Mac, you must install coreutils brew install coreutils then use gtr instead of tr with the same command – 
+brencoat
+ CommentedMar 10, 2022 at 4:56
+Show 4 more comments
+25
+
+And don't forget the collection of Corpus
+
+The Canterbury Corpus
+The Artificial Corpus
+The Large Corpus
+The Miscellaneous Corpus
+The Calgary Corpus
+The Canterbury Corpus
+SEE: https://corpus.canterbury.ac.nz/descriptions/
+
+there is a download links for the files available for each set
+
+Share
+Edit
+Follow
+edited Jul 20, 2022 at 20:10
+Mark Adler's user avatar
+Mark Adler
+112k1515 gold badges132132 silver badges173173 bronze badges
+answered Jun 17, 2017 at 3:42
+Phillip Williams's user avatar
+Phillip Williams
+47633 silver badges1010 bronze badges
+1
+FWIW, 1) The individual files are not available for download, only the zipped Corpus files 2)The download is not secure, so, most browsers would complain 3) The sizes of the files are displayed in bytes. – 
+Abhijit Sarkar
+ CommentedJan 22, 2023 at 6:18 
+Add a comment
+21
+
+You can download enwik8 and enwik9 from here. They are respectively 100,000,000 and 1,000,000,000 bytes of text for compression benchmarks. You can always pull subsets of those for smaller tests.
+
+Share
+Edit
+Follow
+answered Jun 13, 2017 at 6:16
+Mark Adler's user avatar
+Mark Adler
+112k1515 gold badges132132 silver badges173173 bronze badges
+Add a comment
+5
+
+Project Gutenberg looks exceptionally promising for this purpose. This resource contains thousands of books in many formats. Here is a sample of what is available:
+enter image description here
+Clicking on any of the links will reveal the the various formats that always include Plain Text UTF-8 and .txt:
+enter image description here
+
+enter image description here
+
+Another possible place to get large amounts of random text data for compression testing would be data dump sites such as Wiki or even Stack Exchange
+
+I've alse found this blog post that lists 10 open source places to get complex text data for analytics testing.
+
+There are a lot of online resources for creating large text files of arbitrary or specific sizes, such as this Lorem Ipsum Generator which I have used for script development, but I've learned that these sources are no good for compression testing because the words tend to be limited and repetitive. Consequently, these files will compress considerably more than natural text would.
+
+Share
+Edit
+Follow
+edited Nov 1, 2022 at 21:30
+Mark Adler's user avatar
+Mark Adler
+112k1515 gold badges132132 silver badges173173 bronze badges
+answered Oct 28, 2022 at 7:45
+Justin Edwards's user avatar
+Justin Edwards
+47222 gold badges77 silver badges1010 bronze badges
+1
+Also not representative of actual text. Do not use for testing compressors with the objective of getting compression ratios for text. – 
+Mark Adler
+ CommentedOct 28, 2022 at 19:19
+@MarkAdler - It's obvious to me from what I see in your answer history, that you know what you're talking about, so respectfully, I'm quite interested in any explanation you would have to offer. Why would this not be a representation of actual text? To my untrained eye, the consonant to vowel ratios, sentence lengths, and paragraph structures all seem to approximate what I see in every day essay documents. – 
+Justin Edwards
+ CommentedOct 29, 2022 at 2:38
+1
+There are only 175 unique words in the generated text, no matter its length. Even 1st grade readers have more vocabulary words than that. As a result, the Lorem ipsum text will compress much better than actual English text. – 
+Mark Adler
+ CommentedOct 29, 2022 at 4:07
+1
+Delete it, or replace it with a different answer. Lorem ipsum is no help here. – 
+Mark Adler
+ CommentedOct 29, 2022 at 6:10
+1
+Much better.... – 
+Mark Adler
+ CommentedNov 1, 2022 at 21:30
+Show 2 more comments
+0
+
+You can use this with python (download at python.org if you haven't already); this will generate a file fully made up of 'M's:
+
+size = ''
+
+while not size.isnumeric():
+    size = input('How big would you like your file to be (mb)? ')
+
+size = int(size)
+
+name = input('Where would you like to locate the file? ')
+
+open(name, 'w').write('')
+
+for mb in range(size):
+    open(name, 'a').write('M' * 1000000)
+
+print('Done!')
+Or, you can use this to generate a completely random file:
+
+import random
+
+size = ''
+characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
+
+while not size.isnumeric():
+    size = input('How big would you like your file to be (mb)? ')
+
+size = int(size)
+
+name = input('Where would you like to locate the file? ')
+
+open(name, 'w').write('')
+
+for mb in range(size):
+    open(name, 'a').write(''.join(random.choices(characters, k=1000000)))
+
+print('Done!')
+And finally, to generate a bunch of words with spaces between them:
+
+import random
+
+size = ''
+
+words = '''
+hello
+goodbye
+yay!
+'''  # Your words list here, separated by newlines
+
+words = words.split('\n')
+
+wl = []
+
+print('Interpreting list...\n')
+
+for word in words:
+    if word.strip():
+        wl.append(word.strip() + ' ')
+    words.remove(word)
+
+while not size.isnumeric():
+    size = input('How big would you like your file to be (\'1\' would be 1000 words)? ')
+
+size = int(size)
+
+name = input('What would you like to be the path to the file? ')
+
+open(name, 'w').write('')
+
+for word in range(size):
+    open(name, 'a').write(''.join(random.choices(wl, k=1000)))
+
+print('Done!')
+Remember that some of these take longer than others; the wordslist one can take quite a while.
+
+Share
+Edit
+Follow
+edited Jul 13, 2023 at 10:41
+answered Jul 13, 2023 at 10:14
+Your Mother's user avatar
+Your Mother
+111 bronze badge
+Add a comment
+0
+
+The following python script generates a 256Mb file. Feel free to adjust the value of range(27) to generate a file size accordingly.
+
+import os
+
+os.system("rm a.txt")
+with open("a.txt","w")  as f:
+    f.write("a\n")
+for i in range(27):
+  print(i)
+  os.system("cat a.txt > b.txt")
+  os.system("cat b.txt >> a.txt")
+
+os.system("rm b.txt")
+Share
+Edit
+Follow
+answered Oct 30, 2024 at 18:06
+ankush1377's user avatar
+ankush1377
+20811 gold badge22 silver badges99 bronze badges
+Add a comment
+Your Answer
+Not the answer you're looking for? Browse other questions tagged compressiontext-files or ask your own question.
+The Overflow Blog
+Feature flags: Theory meets reality
+Featured on Meta
+The landing page at stackoverflow.com will point directly to Q&A beginning...
+Upcoming Experiment for Commenting
+Hot Meta Posts
+19
+Understanding question quality vis-a-vis question difficulty
+
+Report this ad
+
+Report this ad
+8 people chatting
+Related
+0
+Compression File
+3
+How can different compressing formats be compared?
+0
+what are the file compression algorithms available for txt file compression?
+1
+Ways to assit the compression of large custom data files
+0
+Fast compression of large (100 MB ) text file with byte values in it
+4
+How to Compress Large Files C#
+1
+Which algorithm is most suitable for large text compression?
+1
+Compressing large, near-identical files
+3
+Compress many versions of a text with fast access to each
+0
+Looking for large latex file (~200 pages/1mb+) to test compression implementations
+Hot Network Questions
+Why were Moshe and Aharon allowed to testify for the new moon if they were relatives?
+How can we see things with point source light?
+Why do Technicolor films from the 1930s and 1940s have such bright colours?
+How to and what part to replace Challenger type A1515 HACR type Ci/AI-SWD 90103
+Scifi audio story from YouTube
+Search for old robot sci-fi story about an astronaut on a planet, with a robot guarding his camp
+Can determinate states be achieved for position and momentum operator separately?
+Fastest win against xkcd's AlphaMove?
+How to use `unknown .code` in `expl3` to achieve the effect of the key `color` in `tikz`?
+Two definitions of the ECDF - why use 1/(n+1) instead of 1/n, especially for QQ-plots?
+To what BBC competition did Arthur C. Clarke submit The Sentinel, and who won it?
+Is it possible to have 2 points on the secp256k1 curve with same x coordinates but different y coordinates?
+Why is the order of non-commutative simple finite group divisible by 4?
+Pronounciation of words with словоерс particle -с
+Why don’t ISS EVA suits monitor the astronaut’s blood oxygen?
+The only isosceles triangle with a special construction
+How would a village be built if its building materials change properties every other day?
+GPLv3 compatibility under section 7 exceptions with forks
+Cauchy's theorem : Homotopy vs Homology
+Can we assume uniform distribution for stock price movements for the purpose of backtesting?
+Insert full page image
+An impossible(?) triangle
+Calculating the determinant of a matrix using a purely analytical method that involves the "cross product" in nD
+Why are kohanim prohibited from marrying converts?
+ Question feed
+
+Stack Overflow
+Questions
+Help
+Chat
+Products
+Teams
+Advertising
+Talent
+Company
+About
+Press
+Work Here
+Legal
+Privacy Policy
+Terms of Service
+Contact Us
+Cookie Settings
+Cookie Policy
+Stack Exchange Network
+Technology
+Culture & recreation
+Life & arts
+Science
+Professional
+Business
+API
+Data
+Blog
+Facebook
+Twitter
+LinkedIn
+Instagram
+Site design / logo © 2025 Stack Exchange Inc; user contributions licensed under CC BY-SA . rev 2025.1.31.21881
+Skip to main content
+Stack Overflow
+Products
+OverflowAI
+Search…
+Jairesh JV's user avatar
+Jairesh JV
+1, 1 reputation
+1
+Home
+New
+Questions
+Tags
+Saves
+Users
+Companies
+Labs
+Discussions
+Collectives
+Communities for your favorite technologies. Explore all Collectives
+
+Teams
+
+Ask questions, find answers and collaborate at work with Stack Overflow for Teams.
+
+ 
+Looking for your Teams?
+
+Looking for large text files for testing compression in all sizes
+Asked 7 years, 7 months ago
+Modified 3 months ago
+Viewed 97k times
+35
+
+I am looking for large text files for testing the compression and decompression in all sizes from 1kb to 100mb. Can someone please refer me to download it from some link ?
+
+compressiontext-files
+Share
+Edit
+Follow
+asked Jun 12, 2017 at 6:20
+Siranjeevi Rajendran's user avatar
+Siranjeevi Rajendran
+43311 gold badge66 silver badges88 bronze badges
+Add a comment
+6 Answers
+Sorted by:
+
+Highest score (default)
+33
+
+*** Linux users only ***
+
+Arbitrarily large text files can be generated on Linux with the following command:
+
+tr -dc "A-Za-z 0-9" < /dev/urandom | fold -w100|head -n 100000 > bigfile.txt
+This command will generate a text file that will contain 100,000 lines of random text and look like this:
+
+NsQlhbisDW5JVlLSaZVtCLSUUrkBijbkc5f9gFFscDkoGnN0J6GgIFqdCLyhbdWLHxRVY8IwDCrWF555JeY0yD0GtgH21NotZAEe
+iWJR1A4 bxqq9VKKAzMJ0tW7TCOqNtMzVtPB6NrtCIg8NSmhrO7QjNcOzi4N b VGc0HB5HMNXdyEoWroU464ChM5R Lqdsm3iPo
+1mz0cPKqobhjDYkvRs5LZO8n92GxEKGeCtt oX53Qu6T7O2E9nJLKoUeJI6Ul7keLsNGI2BC55qs7fhqW8eFDsGsLPaImF7kFJiz
+...
+...
+On my Ubuntu 18 its size it about 10MB. Bumping up the number of lines, and thereby bumping up the size, is easy. Just increase the head -n 100000 part. So, say, this command:
+
+tr -dc "A-Za-z 0-9" < /dev/urandom | fold -w100|head -n 1000000 > bigfile.txt
+will generate a file with 1,000,000 of random lines of text and be around 100MB. On my commodity hardware the latter command takes about 3 seconds to finish.
+
+Share
+Edit
+Follow
+edited Mar 6, 2021 at 4:29
+answered Oct 29, 2020 at 5:44
+codemonkey's user avatar
+codemonkey
+7,90555 gold badges2626 silver badges4545 bronze badges
+Thanks, it is a nice command. But how can I know the headcount for each size?? for 110 MB of file what will be the head count?? thanks. – 
+Ravi Teja
+ CommentedNov 9, 2020 at 12:06
+It would depend on the length of the line you're putting in. For example with Some text entry here. This will be on each line... on each line, you would need 2300000 lines to get a file 112M in size. That took me about 3 tries to figure out. So just run that command with a random number for head count and the resultant size will guide you as to how to adjust it to get to the target size. – 
+codemonkey
+ CommentedNov 9, 2020 at 17:00 
+3
+Um, no, not at all what you want for testing the effectiveness of your compressor. The resulting text is highly repetitive, and does not represent what a compressor will see in the real world. Do not use this answer. See the compression corpora in the other answers. – 
+Mark Adler
+ CommentedDec 13, 2020 at 17:38
+2
+Results in tr: Illegal byte sequence on MacOS. – 
+Gary
+ CommentedSep 3, 2021 at 19:16
+6
+If you are running this on Mac, you must install coreutils brew install coreutils then use gtr instead of tr with the same command – 
+brencoat
+ CommentedMar 10, 2022 at 4:56
+Show 4 more comments
+25
+
+And don't forget the collection of Corpus
+
+The Canterbury Corpus
+The Artificial Corpus
+The Large Corpus
+The Miscellaneous Corpus
+The Calgary Corpus
+The Canterbury Corpus
+SEE: https://corpus.canterbury.ac.nz/descriptions/
+
+there is a download links for the files available for each set
+
+Share
+Edit
+Follow
+edited Jul 20, 2022 at 20:10
+Mark Adler's user avatar
+Mark Adler
+112k1515 gold badges132132 silver badges173173 bronze badges
+answered Jun 17, 2017 at 3:42
+Phillip Williams's user avatar
+Phillip Williams
+47633 silver badges1010 bronze badges
+1
+FWIW, 1) The individual files are not available for download, only the zipped Corpus files 2)The download is not secure, so, most browsers would complain 3) The sizes of the files are displayed in bytes. – 
+Abhijit Sarkar
+ CommentedJan 22, 2023 at 6:18 
+Add a comment
+21
+
+You can download enwik8 and enwik9 from here. They are respectively 100,000,000 and 1,000,000,000 bytes of text for compression benchmarks. You can always pull subsets of those for smaller tests.
+
+Share
+Edit
+Follow
+answered Jun 13, 2017 at 6:16
+Mark Adler's user avatar
+Mark Adler
+112k1515 gold badges132132 silver badges173173 bronze badges
+Add a comment
+5
+
+Project Gutenberg looks exceptionally promising for this purpose. This resource contains thousands of books in many formats. Here is a sample of what is available:
+enter image description here
+Clicking on any of the links will reveal the the various formats that always include Plain Text UTF-8 and .txt:
+enter image description here
+
+enter image description here
+
+Another possible place to get large amounts of random text data for compression testing would be data dump sites such as Wiki or even Stack Exchange
+
+I've alse found this blog post that lists 10 open source places to get complex text data for analytics testing.
+
+There are a lot of online resources for creating large text files of arbitrary or specific sizes, such as this Lorem Ipsum Generator which I have used for script development, but I've learned that these sources are no good for compression testing because the words tend to be limited and repetitive. Consequently, these files will compress considerably more than natural text would.
+
+Share
+Edit
+Follow
+edited Nov 1, 2022 at 21:30
+Mark Adler's user avatar
+Mark Adler
+112k1515 gold badges132132 silver badges173173 bronze badges
+answered Oct 28, 2022 at 7:45
+Justin Edwards's user avatar
+Justin Edwards
+47222 gold badges77 silver badges1010 bronze badges
+1
+Also not representative of actual text. Do not use for testing compressors with the objective of getting compression ratios for text. – 
+Mark Adler
+ CommentedOct 28, 2022 at 19:19
+@MarkAdler - It's obvious to me from what I see in your answer history, that you know what you're talking about, so respectfully, I'm quite interested in any explanation you would have to offer. Why would this not be a representation of actual text? To my untrained eye, the consonant to vowel ratios, sentence lengths, and paragraph structures all seem to approximate what I see in every day essay documents. – 
+Justin Edwards
+ CommentedOct 29, 2022 at 2:38
+1
+There are only 175 unique words in the generated text, no matter its length. Even 1st grade readers have more vocabulary words than that. As a result, the Lorem ipsum text will compress much better than actual English text. – 
+Mark Adler
+ CommentedOct 29, 2022 at 4:07
+1
+Delete it, or replace it with a different answer. Lorem ipsum is no help here. – 
+Mark Adler
+ CommentedOct 29, 2022 at 6:10
+1
+Much better.... – 
+Mark Adler
+ CommentedNov 1, 2022 at 21:30
+Show 2 more comments
+0
+
+You can use this with python (download at python.org if you haven't already); this will generate a file fully made up of 'M's:
+
+size = ''
+
+while not size.isnumeric():
+    size = input('How big would you like your file to be (mb)? ')
+
+size = int(size)
+
+name = input('Where would you like to locate the file? ')
+
+open(name, 'w').write('')
+
+for mb in range(size):
+    open(name, 'a').write('M' * 1000000)
+
+print('Done!')
+Or, you can use this to generate a completely random file:
+
+import random
+
+size = ''
+characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
+
+while not size.isnumeric():
+    size = input('How big would you like your file to be (mb)? ')
+
+size = int(size)
+
+name = input('Where would you like to locate the file? ')
+
+open(name, 'w').write('')
+
+for mb in range(size):
+    open(name, 'a').write(''.join(random.choices(characters, k=1000000)))
+
+print('Done!')
+And finally, to generate a bunch of words with spaces between them:
+
+import random
+
+size = ''
+
+words = '''
+hello
+goodbye
+yay!
+'''  # Your words list here, separated by newlines
+
+words = words.split('\n')
+
+wl = []
+
+print('Interpreting list...\n')
+
+for word in words:
+    if word.strip():
+        wl.append(word.strip() + ' ')
+    words.remove(word)
+
+while not size.isnumeric():
+    size = input('How big would you like your file to be (\'1\' would be 1000 words)? ')
+
+size = int(size)
+
+name = input('What would you like to be the path to the file? ')
+
+open(name, 'w').write('')
+
+for word in range(size):
+    open(name, 'a').write(''.join(random.choices(wl, k=1000)))
+
+print('Done!')
+Remember that some of these take longer than others; the wordslist one can take quite a while.
+
+Share
+Edit
+Follow
+edited Jul 13, 2023 at 10:41
+answered Jul 13, 2023 at 10:14
+Your Mother's user avatar
+Your Mother
+111 bronze badge
+Add a comment
+0
+
+The following python script generates a 256Mb file. Feel free to adjust the value of range(27) to generate a file size accordingly.
+
+import os
+
+os.system("rm a.txt")
+with open("a.txt","w")  as f:
+    f.write("a\n")
+for i in range(27):
+  print(i)
+  os.system("cat a.txt > b.txt")
+  os.system("cat b.txt >> a.txt")
+
+os.system("rm b.txt")
+Share
+Edit
+Follow
+answered Oct 30, 2024 at 18:06
+ankush1377's user avatar
+ankush1377
+20811 gold badge22 silver badges99 bronze badges
+Add a comment
+Your Answer
+Not the answer you're looking for? Browse other questions tagged compressiontext-files or ask your own question.
+The Overflow Blog
+Feature flags: Theory meets reality
+Featured on Meta
+The landing page at stackoverflow.com will point directly to Q&A beginning...
+Upcoming Experiment for Commenting
+Hot Meta Posts
+19
+Understanding question quality vis-a-vis question difficulty
+
+Report this ad
+
+Report this ad
+8 people chatting
+Related
+0
+Compression File
+3
+How can different compressing formats be compared?
+0
+what are the file compression algorithms available for txt file compression?
+1
+Ways to assit the compression of large custom data files
+0
+Fast compression of large (100 MB ) text file with byte values in it
+4
+How to Compress Large Files C#
+1
+Which algorithm is most suitable for large text compression?
+1
+Compressing large, near-identical files
+3
+Compress many versions of a text with fast access to each
+0
+Looking for large latex file (~200 pages/1mb+) to test compression implementations
+Hot Network Questions
+Why were Moshe and Aharon allowed to testify for the new moon if they were relatives?
+How can we see things with point source light?
+Why do Technicolor films from the 1930s and 1940s have such bright colours?
+How to and what part to replace Challenger type A1515 HACR type Ci/AI-SWD 90103
+Scifi audio story from YouTube
+Search for old robot sci-fi story about an astronaut on a planet, with a robot guarding his camp
+Can determinate states be achieved for position and momentum operator separately?
+Fastest win against xkcd's AlphaMove?
+How to use `unknown .code` in `expl3` to achieve the effect of the key `color` in `tikz`?
+Two definitions of the ECDF - why use 1/(n+1) instead of 1/n, especially for QQ-plots?
+To what BBC competition did Arthur C. Clarke submit The Sentinel, and who won it?
+Is it possible to have 2 points on the secp256k1 curve with same x coordinates but different y coordinates?
+Why is the order of non-commutative simple finite group divisible by 4?
+Pronounciation of words with словоерс particle -с
+Why don’t ISS EVA suits monitor the astronaut’s blood oxygen?
+The only isosceles triangle with a special construction
+How would a village be built if its building materials change properties every other day?
+GPLv3 compatibility under section 7 exceptions with forks
+Cauchy's theorem : Homotopy vs Homology
+Can we assume uniform distribution for stock price movements for the purpose of backtesting?
+Insert full page image
+An impossible(?) triangle
+Calculating the determinant of a matrix using a purely analytical method that involves the "cross product" in nD
+Why are kohanim prohibited from marrying converts?
+ Question feed
+
+Stack Overflow
+Questions
+Help
+Chat
+Products
+Teams
+Advertising
+Talent
+Company
+About
+Press
+Work Here
+Legal
+Privacy Policy
+Terms of Service
+Contact Us
+Cookie Settings
+Cookie Policy
+Stack Exchange Network
+Technology
+Culture & recreation
+Life & arts
+Science
+Professional
+Business
+API
+Data
+Blog
+Facebook
+Twitter
+LinkedIn
+Instagram
+Site design / logo © 2025 Stack Exchange Inc; user contributions licensed under CC BY-SA . rev 2025.1.31.21881
+Skip to main content
+Stack Overflow
+Products
+OverflowAI
+Search…
+Jairesh JV's user avatar
+Jairesh JV
+1, 1 reputation
+1
+Home
+New
+Questions
+Tags
+Saves
+Users
+Companies
+Labs
+Discussions
+Collectives
+Communities for your favorite technologies. Explore all Collectives
+
+Teams
+
+Ask questions, find answers and collaborate at work with Stack Overflow for Teams.
+
+ 
+Looking for your Teams?
+
+Looking for large text files for testing compression in all sizes
+Asked 7 years, 7 months ago
+Modified 3 months ago
+Viewed 97k times
+35
+
+I am looking for large text files for testing the compression and decompression in all sizes from 1kb to 100mb. Can someone please refer me to download it from some link ?
+
+compressiontext-files
+Share
+Edit
+Follow
+asked Jun 12, 2017 at 6:20
+Siranjeevi Rajendran's user avatar
+Siranjeevi Rajendran
+43311 gold badge66 silver badges88 bronze badges
+Add a comment
+6 Answers
+Sorted by:
+
+Highest score (default)
+33
+
+*** Linux users only ***
+
+Arbitrarily large text files can be generated on Linux with the following command:
+
+tr -dc "A-Za-z 0-9" < /dev/urandom | fold -w100|head -n 100000 > bigfile.txt
+This command will generate a text file that will contain 100,000 lines of random text and look like this:
+
+NsQlhbisDW5JVlLSaZVtCLSUUrkBijbkc5f9gFFscDkoGnN0J6GgIFqdCLyhbdWLHxRVY8IwDCrWF555JeY0yD0GtgH21NotZAEe
+iWJR1A4 bxqq9VKKAzMJ0tW7TCOqNtMzVtPB6NrtCIg8NSmhrO7QjNcOzi4N b VGc0HB5HMNXdyEoWroU464ChM5R Lqdsm3iPo
+1mz0cPKqobhjDYkvRs5LZO8n92GxEKGeCtt oX53Qu6T7O2E9nJLKoUeJI6Ul7keLsNGI2BC55qs7fhqW8eFDsGsLPaImF7kFJiz
+...
+...
+On my Ubuntu 18 its size it about 10MB. Bumping up the number of lines, and thereby bumping up the size, is easy. Just increase the head -n 100000 part. So, say, this command:
+
+tr -dc "A-Za-z 0-9" < /dev/urandom | fold -w100|head -n 1000000 > bigfile.txt
+will generate a file with 1,000,000 of random lines of text and be around 100MB. On my commodity hardware the latter command takes about 3 seconds to finish.
+
+Share
+Edit
+Follow
+edited Mar 6, 2021 at 4:29
+answered Oct 29, 2020 at 5:44
+codemonkey's user avatar
+codemonkey
+7,90555 gold badges2626 silver badges4545 bronze badges
+Thanks, it is a nice command. But how can I know the headcount for each size?? for 110 MB of file what will be the head count?? thanks. – 
+Ravi Teja
+ CommentedNov 9, 2020 at 12:06
+It would depend on the length of the line you're putting in. For example with Some text entry here. This will be on each line... on each line, you would need 2300000 lines to get a file 112M in size. That took me about 3 tries to figure out. So just run that command with a random number for head count and the resultant size will guide you as to how to adjust it to get to the target size. – 
+codemonkey
+ CommentedNov 9, 2020 at 17:00 
+3
+Um, no, not at all what you want for testing the effectiveness of your compressor. The resulting text is highly repetitive, and does not represent what a compressor will see in the real world. Do not use this answer. See the compression corpora in the other answers. – 
+Mark Adler
+ CommentedDec 13, 2020 at 17:38
+2
+Results in tr: Illegal byte sequence on MacOS. – 
+Gary
+ CommentedSep 3, 2021 at 19:16
+6
+If you are running this on Mac, you must install coreutils brew install coreutils then use gtr instead of tr with the same command – 
+brencoat
+ CommentedMar 10, 2022 at 4:56
+Show 4 more comments
+25
+
+And don't forget the collection of Corpus
+
+The Canterbury Corpus
+The Artificial Corpus
+The Large Corpus
+The Miscellaneous Corpus
+The Calgary Corpus
+The Canterbury Corpus
+SEE: https://corpus.canterbury.ac.nz/descriptions/
+
+there is a download links for the files available for each set
+
+Share
+Edit
+Follow
+edited Jul 20, 2022 at 20:10
+Mark Adler's user avatar
+Mark Adler
+112k1515 gold badges132132 silver badges173173 bronze badges
+answered Jun 17, 2017 at 3:42
+Phillip Williams's user avatar
+Phillip Williams
+47633 silver badges1010 bronze badges
+1
+FWIW, 1) The individual files are not available for download, only the zipped Corpus files 2)The download is not secure, so, most browsers would complain 3) The sizes of the files are displayed in bytes. – 
+Abhijit Sarkar
+ CommentedJan 22, 2023 at 6:18 
+Add a comment
+21
+
+You can download enwik8 and enwik9 from here. They are respectively 100,000,000 and 1,000,000,000 bytes of text for compression benchmarks. You can always pull subsets of those for smaller tests.
+
+Share
+Edit
+Follow
+answered Jun 13, 2017 at 6:16
+Mark Adler's user avatar
+Mark Adler
+112k1515 gold badges132132 silver badges173173 bronze badges
+Add a comment
+5
+
+Project Gutenberg looks exceptionally promising for this purpose. This resource contains thousands of books in many formats. Here is a sample of what is available:
+enter image description here
+Clicking on any of the links will reveal the the various formats that always include Plain Text UTF-8 and .txt:
+enter image description here
+
+enter image description here
+
+Another possible place to get large amounts of random text data for compression testing would be data dump sites such as Wiki or even Stack Exchange
+
+I've alse found this blog post that lists 10 open source places to get complex text data for analytics testing.
+
+There are a lot of online resources for creating large text files of arbitrary or specific sizes, such as this Lorem Ipsum Generator which I have used for script development, but I've learned that these sources are no good for compression testing because the words tend to be limited and repetitive. Consequently, these files will compress considerably more than natural text would.
+
+Share
+Edit
+Follow
+edited Nov 1, 2022 at 21:30
+Mark Adler's user avatar
+Mark Adler
+112k1515 gold badges132132 silver badges173173 bronze badges
+answered Oct 28, 2022 at 7:45
+Justin Edwards's user avatar
+Justin Edwards
+47222 gold badges77 silver badges1010 bronze badges
+1
+Also not representative of actual text. Do not use for testing compressors with the objective of getting compression ratios for text. – 
+Mark Adler
+ CommentedOct 28, 2022 at 19:19
+@MarkAdler - It's obvious to me from what I see in your answer history, that you know what you're talking about, so respectfully, I'm quite interested in any explanation you would have to offer. Why would this not be a representation of actual text? To my untrained eye, the consonant to vowel ratios, sentence lengths, and paragraph structures all seem to approximate what I see in every day essay documents. – 
+Justin Edwards
+ CommentedOct 29, 2022 at 2:38
+1
+There are only 175 unique words in the generated text, no matter its length. Even 1st grade readers have more vocabulary words than that. As a result, the Lorem ipsum text will compress much better than actual English text. – 
+Mark Adler
+ CommentedOct 29, 2022 at 4:07
+1
+Delete it, or replace it with a different answer. Lorem ipsum is no help here. – 
+Mark Adler
+ CommentedOct 29, 2022 at 6:10
+1
+Much better.... – 
+Mark Adler
+ CommentedNov 1, 2022 at 21:30
+Show 2 more comments
+0
+
+You can use this with python (download at python.org if you haven't already); this will generate a file fully made up of 'M's:
+
+size = ''
+
+while not size.isnumeric():
+    size = input('How big would you like your file to be (mb)? ')
+
+size = int(size)
+
+name = input('Where would you like to locate the file? ')
+
+open(name, 'w').write('')
+
+for mb in range(size):
+    open(name, 'a').write('M' * 1000000)
+
+print('Done!')
+Or, you can use this to generate a completely random file:
+
+import random
+
+size = ''
+characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
+
+while not size.isnumeric():
+    size = input('How big would you like your file to be (mb)? ')
+
+size = int(size)
+
+name = input('Where would you like to locate the file? ')
+
+open(name, 'w').write('')
+
+for mb in range(size):
+    open(name, 'a').write(''.join(random.choices(characters, k=1000000)))
+
+print('Done!')
+And finally, to generate a bunch of words with spaces between them:
+
+import random
+
+size = ''
+
+words = '''
+hello
+goodbye
+yay!
+'''  # Your words list here, separated by newlines
+
+words = words.split('\n')
+
+wl = []
+
+print('Interpreting list...\n')
+
+for word in words:
+    if word.strip():
+        wl.append(word.strip() + ' ')
+    words.remove(word)
+
+while not size.isnumeric():
+    size = input('How big would you like your file to be (\'1\' would be 1000 words)? ')
+
+size = int(size)
+
+name = input('What would you like to be the path to the file? ')
+
+open(name, 'w').write('')
+
+for word in range(size):
+    open(name, 'a').write(''.join(random.choices(wl, k=1000)))
+
+print('Done!')
+Remember that some of these take longer than others; the wordslist one can take quite a while.
+
+Share
+Edit
+Follow
+edited Jul 13, 2023 at 10:41
+answered Jul 13, 2023 at 10:14
+Your Mother's user avatar
+Your Mother
+111 bronze badge
+Add a comment
+0
+
+The following python script generates a 256Mb file. Feel free to adjust the value of range(27) to generate a file size accordingly.
+
+import os
+
+os.system("rm a.txt")
+with open("a.txt","w")  as f:
+    f.write("a\n")
+for i in range(27):
+  print(i)
+  os.system("cat a.txt > b.txt")
+  os.system("cat b.txt >> a.txt")
+
+os.system("rm b.txt")
+Share
+Edit
+Follow
+answered Oct 30, 2024 at 18:06
+ankush1377's user avatar
+ankush1377
+20811 gold badge22 silver badges99 bronze badges
+Add a comment
+Your Answer
+Not the answer you're looking for? Browse other questions tagged compressiontext-files or ask your own question.
+The Overflow Blog
+Feature flags: Theory meets reality
+Featured on Meta
+The landing page at stackoverflow.com will point directly to Q&A beginning...
+Upcoming Experiment for Commenting
+Hot Meta Posts
+19
+Understanding question quality vis-a-vis question difficulty
+
+Report this ad
+
+Report this ad
+8 people chatting
+Related
+0
+Compression File
+3
+How can different compressing formats be compared?
+0
+what are the file compression algorithms available for txt file compression?
+1
+Ways to assit the compression of large custom data files
+0
+Fast compression of large (100 MB ) text file with byte values in it
+4
+How to Compress Large Files C#
+1
+Which algorithm is most suitable for large text compression?
+1
+Compressing large, near-identical files
+3
+Compress many versions of a text with fast access to each
+0
+Looking for large latex file (~200 pages/1mb+) to test compression implementations
+Hot Network Questions
+Why were Moshe and Aharon allowed to testify for the new moon if they were relatives?
+How can we see things with point source light?
+Why do Technicolor films from the 1930s and 1940s have such bright colours?
+How to and what part to replace Challenger type A1515 HACR type Ci/AI-SWD 90103
+Scifi audio story from YouTube
+Search for old robot sci-fi story about an astronaut on a planet, with a robot guarding his camp
+Can determinate states be achieved for position and momentum operator separately?
+Fastest win against xkcd's AlphaMove?
+How to use `unknown .code` in `expl3` to achieve the effect of the key `color` in `tikz`?
+Two definitions of the ECDF - why use 1/(n+1) instead of 1/n, especially for QQ-plots?
+To what BBC competition did Arthur C. Clarke submit The Sentinel, and who won it?
+Is it possible to have 2 points on the secp256k1 curve with same x coordinates but different y coordinates?
+Why is the order of non-commutative simple finite group divisible by 4?
+Pronounciation of words with словоерс particle -с
+Why don’t ISS EVA suits monitor the astronaut’s blood oxygen?
+The only isosceles triangle with a special construction
+How would a village be built if its building materials change properties every other day?
+GPLv3 compatibility under section 7 exceptions with forks
+Cauchy's theorem : Homotopy vs Homology
+Can we assume uniform distribution for stock price movements for the purpose of backtesting?
+Insert full page image
+An impossible(?) triangle
+Calculating the determinant of a matrix using a purely analytical method that involves the "cross product" in nD
+Why are kohanim prohibited from marrying converts?
+ Question feed
+
+Stack Overflow
+Questions
+Help
+Chat
+Products
+Teams
+Advertising
+Talent
+Company
+About
+Press
+Work Here
+Legal
+Privacy Policy
+Terms of Service
+Contact Us
+Cookie Settings
+Cookie Policy
+Stack Exchange Network
+Technology
+Culture & recreation
+Life & arts
+Science
+Professional
+Business
+API
+Data
+Blog
+Facebook
+Twitter
+LinkedIn
+Instagram
+Site design / logo © 2025 Stack Exchange Inc; user contributions licensed under CC BY-SA . rev 2025.1.31.21881

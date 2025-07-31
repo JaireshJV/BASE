@@ -1,0 +1,100 @@
+/* Reset begins */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+}
+
+/* Reset ends */
+
+/* Utility Classes starts */
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.offscreen {
+  position: absolute;
+  left: -10000px;
+}
+
+/* Utility Classes ends */
+
+body{
+min-height: 100vh;
+/* background-color: aliceblue;
+background-image: linear-gradient(to right,steelblue,pink,white); */
+
+/* Try */
+/* background-image:url(../Assets/example_pic.jpeg) ,linear-gradient(to right,steelblue,pink,white);
+background-repeat: repeat-y,no-repeat;
+background-position: right;
+background-size: 20%,auto; */
+}
+
+.example {
+  margin-top: 1rem;
+  padding-left: 20px;
+  border: 3px solid red;
+}
+
+.example img {
+  width: 25%;
+  height: auto; /* Important for responsive */
+}
+.container{
+  background-color: aquamarine;
+  background-image: url(../Assets/example_pic.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;   /*For responsive */
+  background-position: center;
+}
+.hero {
+  border-bottom: 2px solid black;
+  padding: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 30px;
+  background-color: hsla(0, 0%, 0%, 0.4);
+}
+
+.profile_pic {
+  width: 35%;
+}
+
+.profile_pic img {
+  width: 100%;
+  height: auto;
+  min-height: 100px;
+  border: 5px double green;
+  border-radius: 50%;
+}
+
+.h1 {
+    font-size: 400%;
+    color: hsla(34, 78%, 91%, 0.185);
+    text-shadow: 2px 2px 5px black;
+    padding: 2rem;
+    border-radius: 10%;
+
+}
+
+.clip{
+  font-weight: 800;
+  font-size: 10rem;
+  text-align: center;
+  background-image: url(../Assets/example_pic.jpeg);
+  background-size: 100%;    /* or cover */
+  -webkit-background-clip: text ;   
+   /*Refer can i use.com */
+  background-clip: text;
+  /* position: relative; */
+  color: hsla(0, 0%, 0%, 0.094);
+  background-position: bottom;
+}

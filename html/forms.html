@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <h1> FORM </h1>
+    </header>
+    <main>
+        <article>
+            <h3>Contact :</h3>
+            <form action="https://httpbin.org/get" method="get">
+                <fieldset>
+                    <legend>Personal Info</legend>
+                    <p>
+                        <label for="firstName">First Name :</label>
+                        <input name="firstName" placeholder="Enter the first name" type="text" id="firstName" autofocus
+                            required autocomplete="on">
+                    </p>
+                    <p>
+                        <label for="lastName">Last Name :</label>
+                        <input name="lastName" placeholder="Enter the last name" type="text" id="lastName" required
+                            autocomplete="on">
+                    </p>
+                    <p>
+                        <label for="phoneNumber">Telephone Number :</label>
+                        <input name="phoneNumber" placeholder="Enter the phone number" type="tel" id="phoneNumber"
+                            autocomplete="on" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required>
+                    </p>
+                    <p>
+                        <label for="favDecade">Fav Decade :</label>
+                        <input name="favDecade" placeholder="Enter the fav decade" type="number" id="favDecade"
+                            min="1960" max="2020" value="1990" step="10" required>
+                    </p>
+                    <p>
+                        <label for="favContent">Favourite content :</label>
+                    </p>
+                    <select name="favContent" id="favContent" autocomplete="on" multiple size="5" required>
+                        <optgroup label="Till Three">
+                            <option value="first">First</option>
+                            <option value="second">Second</option>
+                            <option value="third" selected>Third</option>
+                        </optgroup>
+                        <optgroup label="After three">
+                            <option value="fourth">Fourth</option>
+                            <option value="fifth">Fifth</option>
+                        </optgroup>
+                    </select>
+
+                    <label for="favContentAlternative"> Favourite content (Alt): </label>
+
+                    <input name="favContentAlt" type="text" id="favContentAlternative" list='content_list'
+                        autocomplete="on" required>
+                    <datalist id="content_list">
+                        <option value="first">
+                        <option value="second">
+                        <option value="third" selected>
+                        <option value="fourth">
+                        <option value="fifth">
+                    </datalist>
+
+
+                    <label for="password">Password :</label>
+
+                    <input name="password" placeholder="Enter the password" type="password" id="password" required>
+
+                </fieldset>
+                <fieldset>
+                    <legend>Your Favourite Dish</legend>
+                    <p>
+                        <label for="chicken">Chicken</label>
+                    </p>
+                    <input name="dish" type="radio" id="chicken" value="chicken">
+
+                    <p>
+                        <label for="mutton">Mutton</label>
+                    </p>
+                    <input name="dish" type="radio" id="mutton" value="mutton">
+
+                    <p>
+                        <label for="beaf">Beaf</label>
+                    </p>
+                    <input name="dish" type="radio" id="beaf" value="beaf">
+
+                </fieldset>
+                <fieldset>
+                    <legend>Your Favourite Sport</legend>
+                    <p>
+                        <label for="cricket">Cricket</label>
+                    </p>
+                    <input name="sports" type="checkbox" id="cricket" value="cricket">
+
+                    <p>
+                        <label for="volley_ball">Volley-Ball</label>
+                    </p>
+                    <input name="sports" type="checkbox" id="volley_ball" value="volley_ball">
+
+                    <p>
+                        <label for="carrom">Carrom</label>
+                    </p>
+                    <input name="sports" type="checkbox" id="carrom" value="carrom">
+
+                    <!-- ID name should not collide , should be unique-->
+                </fieldset>
+                <fieldset>
+                    <legend>Send a note</legend>
+                    <p>
+                        <label for="message">Your Message</label>
+                    </p>
+                    <textarea name="message" id="message" cols="30" rows="10" placeholder="Enter a message"></textarea>
+
+                </fieldset>
+                <button type="submit">SUBMIT</button>
+                <button type="submit" formmethod="post" formaction="https://httpbin.org/post">POST METHOD</button>
+                <button type="reset">CLEAR</button>
+            </form>
+        </article>
+    </main>
+    <footer>
+        <!-- <p>Footer</p> -->
+    </footer>
+</body>
+
+</html>

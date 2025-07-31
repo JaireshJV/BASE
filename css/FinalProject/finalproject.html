@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Project</title>
+    <link rel="stylesheet" href="finalproject.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About LTS</a></li>
+                <li><a href="#menu">Our Menu</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="top_section">
+            <section class="top_heading">
+                <h1>The Little Taco Shop Hours</h1>
+            </section>
+            <figure>
+                <img src="../Assets/food_first.jpg" width="500" height="300" alt="image_of_food" title="food" />
+                <figcaption>* A Tray of Tasty Tacos</figcaption>
+            </figure>
+            <!-- <hr /> -->
+        </section>
+        <section class="timing_details_container">
+        <div class="timing_details">
+            <p>We are open 7 days a week !</p>
+            <dl>
+                <dt>
+                    Sunday - Thursday
+                </dt>
+                <dd>
+                    <time datetime="11:00">11am</time> - <time datetime="21:00">9pm</time>
+                </dd>
+                <dt>
+                    Friday - Saturday
+                </dt>
+                <dd>
+                    <time datetime="11:00">11am</time> - <time datetime="23:00">11pm</time>
+                </dd>
+            </dl>
+        </div>
+    </section>
+        <!-- <hr /> -->
+        <section id="about" class="about">
+            <section class="about_heading">
+                <h1>About <abbr title="The Little Taco Shop">LTS</abbr></h1>
+            </section>
+            <p><abbr title="The Little Taco Shop">LTS</abbr> was found in 2022.Our shop was built from a <strong>love of
+                tacos🌮🌮🌮</strong>. We hope our shop
+            adds a unique and interesting place to our little town .</p>
+            <h3>Taco Trivia</h3>
+            <aside>
+                <details>
+                    <summary>
+                        When did Taco first appear in United States ?
+                    </summary>
+                    <time datetime="1945">1945.</time>(Source : <cite>
+                        <a href="https://www.twistedtaco.com/the-history-of-the-taco" target="_blank">
+                            Refer
+                        </a>
+                    </cite>)
+                </details>
+            </aside>
+        </section>
+        <!-- <hr /> -->
+
+        <section id="menu" class="menu">
+
+            <table>
+                <section class="top_heading">
+                    <h1>Our Menu</h1>
+                </section>
+                <caption>Our Tacos</caption>
+                <thead>
+                    <tr>
+                        <th>Tacos</th>
+                        <th scope="col"><abbr title="Quantity">Qty</abbr></th>
+                        <th scope="col">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row" rowspan="3">Crunchy</th>
+                        <td>1</td>
+                        <td>$1.50</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>$2.50</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>3.25</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" rowspan="3">Soft</th>
+                        <td>1</td>
+                        <td>$2</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>$3.50</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>$4.5</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3">Chips and Salsa $2</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+    </main>
+    <footer class="footer">
+        <a href="#">Back to Top ↑</a>
+        <p>Copyrights &copy; The Little Taco Shop</p>
+    </footer>
+</body>
+
+</html>

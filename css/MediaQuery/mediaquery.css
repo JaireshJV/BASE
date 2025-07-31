@@ -1,0 +1,93 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* VARIABLES STARTS */
+:root{
+    --BGCOLOR : green;
+    /* var(--BGCOLOR) */
+    /* usage ^ */
+}
+/* VARIABLES ENDS */
+body{
+    font: 1.5rem;
+    min-height: 100vh;
+    background-color: blue;
+    background-image: radial-gradient(whitesmoke,blue);
+    display: flex;
+    flex-direction: column;
+}
+
+header,nav,main,footer{
+display: grid;
+place-content: center;
+grid-template-columns: 100%;
+text-align: center;
+}
+
+header,footer{
+    position: sticky;
+    background-color: aqua;
+    color: whitesmoke;
+}
+
+header{
+    top: 0;
+}
+
+nav{
+background-color: white;
+color: greenyellow;
+padding: 0.5rem;
+border-bottom: 2px solid black;
+}
+
+main{
+flex-grow: 1;
+}
+
+footer{
+    bottom: 0;
+}
+
+/* Small Screen */
+
+@media screen and (min-width:576px) {
+   body{
+    background-color: var(--BGCOLOR);
+    background-image: radial-gradient(whitesmoke,var(--BGCOLOR));
+   } 
+
+   nav{
+    display: none;
+   }
+}
+
+/* Medium Screen */
+
+@media screen and (min-width:768px) {
+    body{
+     background-color: red;
+     background-image: radial-gradient(whitesmoke,red);
+    } 
+ }
+
+ /* Large Screen */
+
+@media screen and (min-width:992px) {
+    body{
+     background-color: gold;
+     background-image: radial-gradient(whitesmoke,gold);
+    } 
+ }
+
+  /* Mobile Screen Landscape */
+
+@media screen and (max-height:425px) and (min-aspect-ratio : 7/4){
+    body{
+     background-color: purple;
+     background-image: radial-gradient(whitesmoke,purple);
+    } 
+ }

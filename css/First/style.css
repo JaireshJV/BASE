@@ -1,0 +1,50 @@
+*{
+font-family: 'Courier New', Courier, monospace;    /*Wont use usually */
+/* border: 2px solid red; */
+}
+
+html{
+    border: 2px solid black;            /* html or body (only slight changes) */
+}
+
+p{
+    color: hsl(0, 100%, 50%);
+}
+
+/* for form */
+button, input , textarea {
+    font : inherit ;
+}
+
+h1,h2{
+color: blueviolet;
+/* coolors.co || Tools=> Contrast checker*/
+}
+
+.highlight{
+color: #000000;
+/* Hexadecimal */
+/*hsl also can be used */
+
+}
+
+.gray{
+    color: gray;
+    /* 255 max rgb*/
+}
+
+#second{
+    color: rgb(67, 135, 67);          /* Avoid using id selector as it may affect while using javascript or form */     
+}
+
+p span{
+    color: rgba(162, 76, 14,0.75);       /* Not a good way */
+    /* a ==> Transperancy */
+}
+
+/* Specificity Calculator (To know the preferance)  */
+/* rem and em */
+/* width = 40ch [character] */
+
+
+

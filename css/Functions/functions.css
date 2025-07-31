@@ -1,0 +1,11 @@
+.tooltip{
+    border-bottom: 1px dashed white;
+    position: relative;
+}
+
+.tooltip:hover::before{
+    content: attr(data-tooltip);
+    position: absolute;
+    top: 20%;
+    background-color: gray;
+}

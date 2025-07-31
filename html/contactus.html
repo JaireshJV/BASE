@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+</head>
+
+<body>
+    <header>
+        <h1>The Little Taco Shop Hours</h1>
+        <nav>
+            <ul>
+                <li><a href="/sample.html">Home</a></li>
+                <li><a href="/sample.html">About LTS</a></li>
+                <li><a href="/sample.html">Our Menu</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <figure>
+            <img src="Assets/food_second.avif" width="500" height="300" alt="image_of_foody" title="foody" />
+            <figcaption>Little Taco Shop Tacos</figcaption>
+        </figure>
+        <hr />
+        <form>
+            <h2>Our Contact Form</h2>
+            <article>
+                <fieldset>
+                    <legend>Send Us a message</legend>
+                    <p>
+                        <label for="name">Name : </label>
+                        <input name="name" type="text" id="name" placeholder="your name" required>
+                    </p>
+                    <p>
+                        <label for="email">Email :</label>
+                        <input name="email" id="email" placeholder="your email" type="email" required>
+                    </p>
+                    <p>
+                        <label for="message">Your message :</label>
+                    </p>
+                    <textarea name="message" id="message" placeholder="Type your message here" cols="30"
+                        rows="10"></textarea>
+                </fieldset>
+                <button type="submit" formmethod="post" formaction="https://httpbin.org/post">SEND</button>
+                <button type="reset">RESET</button>
+            </article>
+        </form>
+        <section>
+            <h2>Our Location</h2>
+            <address>
+                555 Taco Temptation Lane , Suite T <br/>
+                Kansas City , MO 55555-5555 <br/><br/>
+                Phone: <a href="tel:555-555-5555">555-555-5555</a>
+            </address>
+        </section>
+    </main>
+    <footer>
+        <a href="#">Back to Top ↑</a>
+        <p>Copyrights &copy; The Little Taco Shop</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container{
+max-width: 800px;
+min-height: 400px;
+margin-inline: auto ;
+border: 2px solid red;
+display: flex;
+justify-content: space-evenly;
+/* gap: 10px; */
+/* flex-direction: column; */
+flex-wrap: wrap;
+flex-flow: row wrap;
+align-content: space-around;
+}
+
+.box{
+    /* min-width: 100px; */
+    min-height: 100px;
+    background-color: black;
+    color: aliceblue;
+    font-size: 2rem;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-basis: 100px;      /*Alternative for giving width */
+    /* flex-grow: 1; */
+    /* flex: 1 1 200px;    Grow , Shink , Basis */
+}
+
+.box:nth-child(2){
+flex-grow: 2;
+}
+
+.box:nth-child(1){
+    flex-shrink: 2;
+    order: 1;   /*for last 1,for begining -1,0 for initial place  */
+    }
+
+    /* FLEXBOX FROGGY ===> for better understanding */

@@ -1,0 +1,261 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* VARIABLE DECLARATION STARTS */
+:root{
+--background_clr : #C4D9FF;
+--dark_background_clr :rgb(22, 79, 130);
+--light_text : blanchedalmond;
+}
+/* VARIABLE DECLARATION ENDS */
+
+caption,
+tr,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: separate;
+  padding: 10px;
+}
+
+body{
+  background-color: var(--light_text);
+}
+
+header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+nav {
+  background-color: var(--dark_background_clr);
+  
+}
+
+ul {
+  height: 3rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style-type: none;
+}
+
+ul a {
+  text-decoration: none;
+  color: var(--light_text);
+}
+
+/* li a:hover {
+  transform: scale(1.1);
+  transition: all 0.5s ease-in-out;
+}
+
+li a{
+  transform: scale(1.1);
+  transition: all 0.5s ease-in-out;
+}
+
+nav a:hover,nav a:focus {
+  transform: scale(1.1) !important;
+  transition: all 0.5s ease-in-out; 
+} */
+
+li a:active,li a:focus{
+color: red !important;
+text-decoration: underline;
+}
+
+img {
+  background-size: cover;
+  width: 50%;
+  height: auto;
+  display: flex;
+  margin: auto;
+  padding: 2rem;
+  border: 2px dashed gray;
+  border-radius: 20px;
+}
+
+/* .top_section{
+background-color: rgb(62, 192, 192);
+} */
+
+.top_heading {
+  width: 23%;
+  background-color: rgb(22, 79, 130);
+  color: aliceblue;
+  border-radius: 10px 10px 10px 30px;
+  margin-top: 10px;
+  margin-left: 10px;
+  display: flex;
+  position: relative;
+  position: sticky;
+  top: 10%;
+}
+
+.top_heading h2 {
+  position: absolute;
+  top: -35%;
+  left: 2%;
+  font-weight: 1000px;
+  color: var(--dark_background_clr);
+}
+
+.about_heading{
+  width: 23%;
+  background-color: rgb(22, 79, 130);
+  color: aliceblue;
+  border-radius: 10px 10px 10px 30px;
+  margin-top: 10px;
+  margin-left: 10px;
+  position: sticky;
+}
+
+@media screen and (max-width: 768px) {
+  .top_heading,.about_heading {
+    width: 70%;
+    font-size: 10px;
+    margin-bottom: 10px;
+  }
+
+  .top_heading h2 {
+    top: -20%;
+  }
+
+  img {
+    width: 70%;
+    padding: 1rem;
+  }
+}
+
+h1 {
+  padding: 0.5rem;
+}
+
+.top_heading:hover {
+  transform: scale(1.1);
+  transition: all 0.5s ease-in-out;
+}
+
+figure{
+margin-top: 1rem;
+}
+
+figcaption {
+  text-align: center;
+  padding: 0.25rem;
+}
+
+.timing_details_container {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--background_clr);
+  width: 50%;
+  margin: auto;
+}
+
+.timing_details_container dd,
+.timing_details_container p {
+  padding: 0.5rem;
+}
+
+.timing_details{
+background-color: var(--dark_background_clr);
+width: 70%;
+/* box-shadow: 2px 2px 2px 0px var(--dark_background_clr); */
+margin: auto;
+border-radius: 50%;
+border: 4px dashed #C4D9FF;
+color: var(--light_text);
+}
+
+@media screen and (max-width:768px) {
+  .timing_details_container{
+    font-size: 10px;
+    padding: 0px !important;
+  }
+
+  .timing_details{
+    border-radius: 30%;
+  }
+}
+.about {
+  text-align: left;
+  width: 50%;
+  margin: auto;
+  padding: 0.5rem;
+  background-color: var(--background_clr);
+}
+
+.about h2,
+h3,
+p,
+summary {
+  padding: 1rem;
+}
+
+.menu table {
+  align-items: center;
+  margin: auto;
+  width: 50%;
+  background-color: var(--background_clr);
+  margin-top: 10px;
+  margin-bottom: 5rem;
+}
+
+.menu caption {
+  background-color: var(--dark_background_clr);
+  color: var(--light_text);
+}
+  
+.footer {
+  text-align: center;
+  height: 3.5rem;
+  background-color: var(--dark_background_clr);
+  position: fixed;
+  bottom: 0%;
+  padding-bottom: 10px;
+  color: var(--light_text);
+  width: 100%;
+}
+
+.footer a{
+  float: right;
+  padding: 5px;
+  color: var(--light_text);
+}
+
+.contact_form,.our_location{
+  text-align: left;
+  width: 50%;
+  margin: auto;
+  padding: 1rem;
+  background-color: var(--background_clr);
+}
+
+.our_location{
+margin-bottom: 5rem;
+}
+
+.our_location address{
+  margin-top: 10px;
+}
+
+.buttons{
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .about,.timing_details_container,.menu table,
+  .contact_form,.our_location{
+    width: 70%;
+  }
+  }

@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-size: 2rem;
+}
+
+nav{
+list-style-type: none;
+text-align: right;
+background-color: black;
+padding: 1rem;
+}
+
+li{
+    display: inline-block;   /*to make vertical */
+    margin-inline: 0.5rem;
+}
+
+li a{
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+li a:hover,li a:focus{
+text-decoration: underline;
+}

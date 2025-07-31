@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <!-- sematic cheatsheet-->
+    <header>
+        <nav aria-label="primary">
+
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h1>TRY</h1>
+        </section>
+        <article>
+            <h2>THIS</h2>
+            <time datetime="08:00">
+                08:00 am
+            </time>
+            <time datetime="PT3H">
+                3 hrs
+            </time>
+        </article>
+        <aside>
+            <!-- Can use as Collapse -->
+            <details>
+                <summary>
+                    Guess the
+                    <mark>
+                        No of hours
+                    </mark>
+                    I code per day
+                </summary>
+                <p>
+                    <time datetime="PT3H">
+                        3 hrs
+                    </time>
+                </p>
+            </details>
+        </aside>
+        <table>
+            <caption>
+                My daily schedule
+            </caption>
+            <thead>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th scope="col">
+                        SR NO
+                    </th>
+                    <th scope="col">
+                        TIME
+                    </th>
+                    <th scope="col">
+                        DURATION
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Morning</th>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        <time datetime="08:00">08:00am</time> - <time datetime="11:00">11:00 am</time>
+                    </td>
+                    <td>
+                        7
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Afternoon</th>
+                    <td colspan="3" style="text-align: center;">
+                        FREE
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Evening</th>
+                    <td rowspan="2">ALL OTHER TIME</td>
+                    <td colspan="2">SLEEP</td>
+                </tr>
+                <tr>
+                    <th scope="row">Night</th>
+                    <td>eat</td>
+                    <td>fight</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4">
+                        This is what i do everyday
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <!-- Alternative way -->
+        <!-- 
+        <tr>
+            <th id="time">
+                TIME
+            </th>
+        </tr> -->
+        <!-- <tr>
+            <th id="morning">Morning</th>
+            <td headers="time morning">
+                1
+            </td>
+            <td>
+                <time datetime="08:00">08:00am</time> - <time datetime="11:00">11:00 am</time>
+            </td>
+            <td>
+                7
+            </td>
+        </tr> -->
+
+    </main>
+    <footer>
+        <nav aria-label="secondary">
+
+        </nav>
+    </footer>
+</body>
+
+</html>
