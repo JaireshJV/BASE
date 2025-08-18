@@ -1541,7 +1541,6 @@
 //   }
 // }
 
-
 // console.log("JAIABI");
 
 // let w = "Welcome to JavaScript";
@@ -1583,9 +1582,6 @@
 //   console.log("Kathi swag");
 // }
 
-
-
-
 // // ARRAY
 
 // const arr = [5, 6, 0, 7, 8, 0, 9, 2, 3, 0, 4, 1, 3, 4, 0, 5, 6, 7];
@@ -1596,7 +1592,7 @@
 // while (n < arr.length) {
 
 // if(arr[n] !==0){
-//     hug.unshift(arr[n]);    
+//     hug.unshift(arr[n]);
 // }else{
 //     hug.push(arr[n]);
 // }
@@ -1618,7 +1614,7 @@
 //     if(hug[m] == 0){
 //         console.log('ccccccccccccc');
 //         count ++ ;
-//     } 
+//     }
 //     m++ ;
 // }
 
@@ -1630,57 +1626,49 @@
 
 // console.log("count hug :" ,hug);
 
-
 // console.log("mAYAYA MAYA MAYA")
-
 
 const arr = [5, 6, 0, 7, 8, 0, 9, 2, 3, 0, 4, 1, 3, 4, 0, 5, 6, 7];
 let n = 0;
 let count = 0;
 let hug = [];
 
-while(n<arr.length){
-
-  if(arr[n] !== 0){
+while (n < arr.length) {
+  if (arr[n] !== 0) {
     hug.unshift(arr[n]);
-  }else{
+  } else {
     hug.push(arr[n]);
-    count++
-  }     
-   n++;
-  console.log(hug)
+    count++;
+  }
+  n++;
+  console.log(hug);
 }
 
 let zero = hug.indexOf(0);
 let rem = hug.splice(zero);
-console.log("Rem",rem);
-
+console.log("Rem", rem);
 
 // while(count>0){
 // hug.pop()
 // count--;
 // }
 
+console.log("Splice", hug);
 
+const mem = [1, 2, 4, 5, 6, 7];
+console.log("Added", mem.splice(2, 0, 3));
+console.log("Add", mem);
 
+console.log("Updated", mem.splice(2, 1, 9));
+console.log("Update", mem);
 
-
-console.log("Splice",hug);
-
-const mem = [1,2,4,5,6,7]
-console.log("Added",mem.splice(2,0,3));
-console.log("Add" ,mem);
-
-console.log("Updated",mem.splice(2,1,9));
-console.log("Update" ,mem);
-
-console.log("Removed",mem.splice(2,1));
-console.log("Remove" , mem);
+console.log("Removed", mem.splice(2, 1));
+console.log("Remove", mem);
 
 console.log(mem.length);
-console.log("Deleted",delete(mem[2]));   // Creates An empty item
-console.log("Delete",mem);
-console.log("Index" ,mem[2]);
+console.log("Deleted", delete mem[2]); // Creates An empty item
+console.log("Delete", mem);
+console.log("Index", mem[2]);
 console.log(mem.length);
 
 // let copy = [2,5,7,9,4,1,8]
@@ -1691,23 +1679,256 @@ console.log(mem.length);
 
 let copy = [2, 5, 7, 9, 4, 1, 8];
 
-console.log(copy.copyWithin(5, 0, 6));          // Array's length doesnot change,instead it replaced 
-                                                // [targeted index,start copy from,stop copy from]
+console.log('copywithin : " ', copy.copyWithin(2, 0, 4)); // Array's length doesnot change,instead it replaced
+// [targeted index,start copy from,stop copy from]
 
-let c = [45,65,23,90,65,55,89,16];  // 45,65,23,65,55,89,89,16
-console.log(c.copyWithin(3,4,6));
+let c = [45, 65, 23, 90, 65, 55, 89, 16]; // 45,65,23,65,55,89,89,16
+// console.log(c.copyWithin(3,4,6));
+console.log("arrayorobject", typeof c);
+
+console.log(c.fill(-77, 2, 4));
+
+let unjoined = "999 , lll , jjj";
+
+console.log(unjoined.split(","));
+let stored = unjoined.split(",");
+console.log("Stored", typeof stored);
+
+let joined = stored.join("+");
+console.log("Joined", typeof joined);
+
+console.log(isString(stored));
+
+function isString(value) {
+  if (typeof value === "string") {
+    return true;
+  }
+  return false;
+}
+
+console.log(isString(joined));
+
+let a = [55, 66, 77, 33, 5, 7, 99, 33, 22, 0, 99];
+
+const sortcorrect = (x, y) => {
+  return x - y;
+};
+
+const sor = sortcorrect(a);
+
+// console.log("sort1method",sor)
+
+const ascending = a.sort((a, b) => a - b);
+console.log("ascending_sorting", ascending);
+
+const descending = a.sort((a, b) => {
+  return b - a;
+});
+
+console.log(descending);
+
+console.log("Rest // Spread operator ", (d = [...c, ...a]));
+
+console.log(d[1]);
+
+let countt = 0;
+a.forEach((element) => {
+  if (element % 2 == 0) {
+    countt++;
+  }
+});
+
+console.log(countt);
+
+let nums = [2, 3, 4];
+let sum = 0;
+nums.forEach((element) => {
+  sum += Math.pow(element, 2);
+});
+
+console.log(sum);
+
+let names = ["Alice", "Bob", "Charlie"];
+
+names.forEach((element) => {
+  console.log("Hello", element);
+});
+
+let arry = [22, 5, 67, 90, 34];
+let max = arry[0];
+arry.forEach((element) => {
+  if (element > max) {
+    max = element;
+  }
+});
+
+console.log("max val :", max);
+
+let original = [1, 2, 3, 4];
+let doubledarray = [];
+
+let each = original.forEach((element) => element * 2);
+
+let map = original.map((element) => element * 2);
+
+console.log(each, "each");
+console.log(map, "map");
+
+const av = [5, 67, 23, 89, 45, 67, 90, 12, 34];
+
+const desc = av.sort((a, b) => b - a);
+console.log(av);
+console.log(desc);
+
+const asc = av.sort((a, b) => {
+  return a - b;
+});
+
+console.log(asc);
+
+console.log(av);
+
+// Map , ForEach
+
+const arrr = [2, 4, 6, 8];
+
+const mappedsquared = arrr.map((element) => {
+  return Math.pow(element, 2);
+});
+
+console.log(mappedsquared);
+
+const foreach = arrr.forEach((e) => {
+  console.log(Math.pow(e, 2));
+});
+
+const filtere = arrr.filter((e) => {
+  return e > 5;
+});
+
+console.log(filtere);
+
+const findy = arrr.find((e) => {
+  return e > 5;
+});
+
+console.log(findy);
+
+const somey = arrr.some((e) => {
+  return e > 4;
+});
+
+console.log(somey);
+
+const everyy = arr.every((e) => {
+  return e > 0;
+});
+
+console.log(everyy);
+
+const unq = arr.filter((elem) => {
+  return arr.indexOf(elem) == arr.lastIndexOf(elem);
+});
+
+console.log("unq", unq);
+
+const red = arrr.reduce((e, i) => {
+  return Math.abs(e - i);
+});
+
+console.log("red", red);
+
+function welcome(name) {
+  return "Helo" + name;
+}
+
+function firstmeet(greatday) {
+  const e = " Welcome";
+  return welcome(e + greatday);
+}
+
+console.log(firstmeet(" Jai"));
 
 
+// Higher Order Function
+
+function operate(a, b, operation) {
+  return operation(a, b);
+}
+
+function multiply(x, y) {
+  return x * y;
+}
+
+function add(x, y) {
+  return x + y;
+}
+
+var inputvalue1 = 11;
+var inputvalue2 = 3;
+var operatesymbol = "*";
+var val = "";
+
+switch (operatesymbol) {
+  case "+":
+    val = add;
+    break;
+  case "-":
+    val = sub;
+    break;
+  case "*":
+    val = multiply;
+    break;
+  case "/":
+    val = division;
+    break;
+  default:
+    console.log("Nothing matches the operation");
+}
+
+console.log(operate(inputvalue1, inputvalue2, val));
 
 
+// Factorial (Recursive Function)
+
+function factorial(n) {
+
+  if(n==1)
+    return 1 ;
+    return n * factorial(n-1);
+}
+
+console.log(factorial(6));
 
 
+function* counts(){
+  let i = 1;
+  while(true){
+  yield i++;
+  }
+}
 
+const counter = counts();
+console.log(counter.next().value);
+console.log(counter.next().value);
+console.log(counter.next().value);
+console.log(counter.next().value);
+console.log(counter.next().value);
+console.log(counter.next().value);
+console.log(counter.next().value);
 
+// Currying function 
 
+function summ(a) {
+  return function (b) {
+    return function(c){
+      // return a+b; 
+      return a+b+c;
+    }
+  }
+}
 
+const summy = a=>b=>c=>a+b+c ;
+console.log(summy(2)(3)(7));
 
-
-
-
-
+console.log(summ(2)(3)(7)); // 12
