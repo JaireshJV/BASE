@@ -1543,9 +1543,9 @@
 
 // console.log("JAIABI");
 
-// let w = "Welcome to JavaScript";
+let w = "Welcome to JavaScript";
 
-// console.log(w.substring(18, 45));
+console.log("substring", w.substring(18, 1));
 // console.log(w.slice(18));
 // // console.log(w.splice(18));
 // console.log(w.length);
@@ -1849,7 +1849,6 @@ function firstmeet(greatday) {
 
 console.log(firstmeet(" Jai"));
 
-
 // Higher Order Function
 
 function operate(a, b, operation) {
@@ -1888,23 +1887,21 @@ switch (operatesymbol) {
 
 console.log(operate(inputvalue1, inputvalue2, val));
 
-
 // Factorial (Recursive Function)
 
 function factorial(n) {
-
-  if(n==1)
-    return 1 ;
-    return n * factorial(n-1);
+  if (n == 1) return 1;
+  return n * factorial(n - 1);
 }
 
 console.log(factorial(6));
 
+// Generator Function
 
-function* counts(){
+function* counts() {
   let i = 1;
-  while(true){
-  yield i++;
+  while (true) {
+    yield i++;
   }
 }
 
@@ -1917,18 +1914,222 @@ console.log(counter.next().value);
 console.log(counter.next().value);
 console.log(counter.next().value);
 
-// Currying function 
+// Currying function
 
 function summ(a) {
   return function (b) {
-    return function(c){
-      // return a+b; 
-      return a+b+c;
-    }
-  }
+    return function (c) {
+      // return a+b;
+      return a + b + c;
+    };
+  };
 }
 
-const summy = a=>b=>c=>a+b+c ;
+const summy = (a) => (b) => (c) => a + b + c;
 console.log(summy(2)(3)(7));
 
 console.log(summ(2)(3)(7)); // 12
+
+// Functions
+
+// Arrow Function
+
+const arrowfunct = (a, b) => a + b;
+console.log(arrowfunct(7, 3));
+
+const arrowwithreturn = (a, b) => {
+  return a * b;
+};
+console.log(arrowwithreturn(5, 6));
+
+const arrrt = (a, b) => a + b;
+console.log(arrrt(5, 9));
+
+const ar = (a, b) => {
+  return a * b;
+};
+
+console.log(ar(4, 7));
+
+// Named Function
+
+function Jai(name) {
+  // return `My name is ${name}`;
+  return console.log(`My name is ${name}`);
+}
+
+Jai("Jairesh");
+
+// Annonyms
+(function () {
+  console.log("lalialala");
+})();
+
+// setTimeout(function(){
+//   console.log("Print After 2 Seconds")
+// }), 2000;
+
+function outer() {
+  return function inner() {
+    console.log("I ran");
+  };
+}
+
+const run = outer();
+
+run();
+
+function Joe(cal) {
+  console.log("I came inside");
+  cal();
+}
+
+function callback(wal) {
+  console.log("Naan thaanda Call Back !!!");
+  wal();
+}
+
+function wallback() {
+  console.log("Na varmaten");
+}
+
+Joe(function () {
+  callback(wallback);
+});
+
+// setTimeout(function(){
+//   console.log('Itz Jai Timeout');
+// }),2000 ;
+
+const typedfunc = function (a, b) {
+  return a - b;
+};
+
+console.log(typedfunc(10, 2));
+
+function fact(n) {
+  if (n == 1) return 1;
+  return n * fact(n - 1);
+}
+
+console.log(fact(7));
+
+function kootu(s) {
+  if (s == 1) return 1;
+  return s + kootu(s - 1);
+}
+
+console.log(kootu(6));
+
+// Fibonocci
+
+function fibino(n) {
+  if (n == 0) return 0;
+  if (n == 1) return 1;
+  return fibino(n - 1) + fibino(n - 2);
+}
+
+console.log("fibino:", fibino(8));
+console.log("substring", w.substring(18, 20));
+
+function countdown(n) {
+  if (n === 0) {
+    console.log("Done!");
+    return;
+  }
+  console.log(n);
+  countdown(n - 1);
+}
+
+countdown(5);
+
+// Currying Function
+
+const cur = (a, b) => {
+  return a + b;
+};
+console.log(cur(2, 5));
+
+const curr = (a, b) => a + b;
+console.log(curr(11, 2));
+
+const curry = (a) => (b) => (c) => a + b + c;
+const curyi = function (a) {
+  return function (b) {
+    return function (c) {
+      return a + b + c;
+    };
+  };
+};
+
+console.log(curyi(18)(13)(9));
+console.log(curry(8)(3)(9));
+
+
+// Sum using recursive function
+
+function sumr(n) {
+  if (n == 1) return 1;
+  return n + sumr(n - 1);
+}
+
+console.log(sumr(7));
+
+// Fibonacci series using recursive functon
+
+function fib(n){
+  if(n == 0) return 0 ;
+  if(n == 1 ) return 1;
+  return fib(n-1) + fib(n-2);
+}
+
+console.log('fib: ',fib(6));
+
+// 0   ==> 0 ;
+// 1   ==> 1 ;
+// 2   ==> 1 ;
+// 3   ==> 2 ;
+// 4   ==> 3 ;
+// 5   ==> 5 ;
+// 6   ==> 8 ;
+
+// Reverse a strring using recursion
+
+// const str = "hello" ;
+
+// const st = str.split(",");
+// const s = st.reverse();
+// const sr = s.join();
+
+
+// console.log(str[0]); 
+// console.log(str.substring(1)); 
+// console.log(str.substring(1) + str[0] );
+
+
+
+// return str = str.substring(1) + str[0]
+// str = h+e+l+l+o;
+
+function reverseString(str) {
+  console.log("Input:", str);
+
+  if (str === "") {
+    console.log("Base case reached, returning empty string");
+    return "";
+  }
+
+  const withoutFirst = str.substr(1);   // remove first char
+  const firstChar = str[0];             // save first char
+
+  console.log(`Peeling off '${firstChar}', remaining: "${withoutFirst}"`);
+
+  const reversedRest = reverseString(withoutFirst);
+
+  const result = reversedRest + firstChar;
+  console.log(`Adding back '${reversedRest}'->'${firstChar}' → "${result}"`);
+
+  return result;
+}
+
+console.log("Final result:", reverseString("hello"));
