@@ -663,7 +663,7 @@ console.log(car.doors);
 // // Destructuring the object
 
 // const {music : myFavMusicDirector } = movie ;
-
+ 
 // console.log(myFavMusicDirector);
 
 // const FavMusic = movie.music
