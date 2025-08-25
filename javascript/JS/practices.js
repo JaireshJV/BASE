@@ -196,3 +196,40 @@ for (i = 0 ; i < num ; i++){
 }
 
 console.log(row);
+
+var abi = 7 ;
+ abi = 9 ;
+
+console.log(abi,'abi');
+
+const jai = 7 ;
+//  jai = 9 ;
+
+ console.log(jai,'jai');
+ 
+
+ var dna = ""; //Declaration
+
+ dna = 45; //Value Assignment
+
+ var dna = 39;  //Initialization
+
+
+ var cnd = dna;
+
+ dna = 40;
+ var dna = 45;
+
+ console.log(dna) 
+
+ let vad = 20;
+ vad = 78;
+
+  console.log(vad) 
+
+  // const rat = 89;
+  // rat = 90;
+
+  const bat = [''];
+  bat.push('7')
+  console.log(bat);
