@@ -1182,13 +1182,12 @@ while (n < nimmy) {
 // console.log(isPrime(17));
 
 
-// let ni = 7;
-// for(let i=2; i<n; i++){
-//   if(ni%i == 0){
-//     console.log("The number is not prime" +  ni);
-//   }
-// }  console.log('Prime');   wrongggg
-
+let ni = 7;
+for(let i=2; i<n; i++){
+  if(ni%i == 0){
+    console.log("The number is not prime" +  ni);
+  }
+}  console.log('Prime');   
 
 // function prime(num){
 //     for(let index = 2; index<num; index++){
