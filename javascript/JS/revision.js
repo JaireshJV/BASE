@@ -781,7 +781,6 @@ const power = (base) => (expo) => Math.pow(base, expo);
 
 console.log("power :", power(2)(3));
 
-
 // 5. Filter by Minimum Length (Curried HOF)
 
 // Write a curried function filterByLength that takes a minimum length and
@@ -793,15 +792,408 @@ console.log("power :", power(2)(3));
 // // ["tiger", "elephant"]
 
 function filterLength(ln) {
-  console.log(ln,'length');
-  
+  console.log(ln, "length");
+
   return function (arry) {
-    console.log("arr",arry);
-    
+    console.log("arr", arry);
+
     return arry.filter((fil) => {
       return fil.length > ln;
     });
   };
 }
 
-console.log("filterLength : " ,filterLength(4)(["cat", "tiger", "lion", "elephant"]));
+console.log(
+  "filterLength : ",
+  filterLength(4)(["cat", "tiger", "lion", "elephant"])
+);
+
+function condit(a, b, operate) {
+  return operate(a, b);
+}
+
+function multii(a, b) {
+  return a * b;
+}
+console.log(condit(45, 67, multii));
+
+let arryv = [34, 56, 67, 23];
+const serv = arryv.filter(function (e) {
+  return e % 2 == 0;
+});
+
+console.log(serv);
+
+function Greet(greet) {
+  return function (name) {
+    return `${greet} ${name}`;
+  };
+}
+
+const said = Greet("Hlo");
+console.log(said("Jai"));
+
+setTimeout(
+  function (a, b) {
+    console.log("iife", a + b);
+    // return a + b ;
+  },
+  2000,
+  6,
+  7
+);
+
+// VIII.Callback Function
+
+// Example :
+// function greetUser(name){
+//   console.log("Nan thanda");
+//   return name();
+// }
+
+// function Great(vet){
+//   console.log("Gayyyyuuuu");
+//   return vet();
+// }
+
+// function Work(){
+//   console.log("Workda ");
+// }
+
+// console.log(greetUser (function (){
+//    Great(Work)
+// }));
+
+// 1. Greeting with Callback
+
+// Write a function greetUser that takes a name and a callback function.
+// The callback should decide how the greeting message is displayed.
+// Example:
+
+// greetUser("Alice", (name) => console.log("Hello " + name));
+// // Output: Hello Alice
+
+function greetUser(cal) {
+  return cal();
+}
+
+function callBack(name) {
+  console.log("callBack 1)", `Hello ${name}`);
+}
+
+console.log(
+  greetUser(function () {
+    callBack("Alice");
+  })
+);
+
+// 2. Calculator with Callback
+
+// Create a function calculator(a, b, operation) that performs a calculation.
+// The operation argument should be a callback (like add, subtract, multiply).
+// Example:
+
+// calculator(10, 5, (x, y) => x + y); // 15
+// calculator(10, 5, (x, y) => x * y); // 50
+
+function calculator(a, b, operation) {
+  return operation(a, b);
+}
+
+function adid(a, b) {
+  return a + b;
+}
+
+function subtract(a, b) {
+  return a - b;
+}
+
+console.log(calculator(45, 23, adid));
+console.log(calculator(45, 23, subtract));
+
+// 3. Array Processing (Callback)
+
+// Write a function processArray(arr, callback) that applies the callback to each element of the array.
+// Example:
+
+// processArray([1, 2, 3], (x) => x * 2);
+// // Output: [2, 4, 6]
+
+function processArr(arr, operat) {
+  return arr.map(operat);
+}
+
+function callb(e) {
+  return e * 2;
+}
+
+const arrty = [1, 2, 3];
+console.log("process Array", processArr(arrty, callb));
+
+function processArray(arr, call) {
+  return arr.map(call);
+}
+
+function callBackk(e) {
+  return e * 2;
+}
+
+const sampleArray = [1, 2, 3];
+const result = processArray(sampleArray, (x) => x * 2);
+console.log("call back 3) ", result);
+
+// 4. Delayed Execution
+
+// Use setTimeout with a callback to print "Task finished" after 2 seconds.
+// Example:
+
+// delayedTask(() => console.log("Task finished"));
+
+function setTime(par) {
+  setTimeout(par, 2000);
+}
+
+setTime(() => console.log("Task Finished Man"));
+
+// function delayedTask(callback) {
+//   setTimeout(callback, 2000);
+// }
+
+// delayedTask(() => console.log("Task Finished"));
+
+// 5. Filter with Callback
+
+// Write a function customFilter(arr, callback) that filters elements of an array based on the callback’s condition.
+// Example:
+
+// customFilter([1, 2, 3, 4, 5], (x) => x % 2 === 0);
+// // Output: [2, 4]
+
+function fillt(arr, custom) {
+  return arr.filter(custom);
+}
+
+function custome(e) {
+  return e % 2 == 0;
+}
+
+const arryi = [1, 2, 3, 4, 5];
+
+console.log("Filtered Arryi ", fillt(arryi, custome));
+
+// IX. Generator Function
+
+// 1. Fibonacci Sequence Generator
+
+// Write a generator function that yields numbers in the Fibonacci sequence.
+
+// function* fibonacci(limit) {
+//   // your code here
+// }
+
+// const fib = fibonacci(10);
+// console.log([...fib]);
+// // Expected: [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+
+function* fibonacci(limit) {
+  let a = 0,
+    b = 1;
+  for (let i = 0; i < limit; i++) {
+    yield a;
+    [a, b] = [b, a + b]; // swap and update
+  }
+}
+
+const fib = fibonacci(10);
+console.log([...fib]);
+// [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+
+// 2. Infinite ID Generator
+
+// Write a generator that produces an infinite sequence of unique IDs starting from 1.
+
+// function* idGenerator() {
+//   // your code here
+// }
+
+// const ids = idGenerator();
+// console.log(ids.next().value); // 1
+// console.log(ids.next().value); // 2
+// console.log(ids.next().value); // 3
+
+function* idGenerator() {
+  let i = 1;
+  while (true) {
+    yield i++;
+  }
+}
+
+const ids = idGenerator();
+console.log(ids.next().value);
+console.log(ids.next().value);
+console.log(ids.next().value);
+
+// 3. Iterate over an Array with a Generator
+
+// Create a generator that yields each element of an array one by one.
+
+// function* arrayIterator(arr) {
+//   // your code here
+// }
+
+// const it = arrayIterator(["apple", "banana", "cherry"]);
+// console.log(it.next().value); // "apple"
+// console.log(it.next().value); // "banana"
+// console.log(it.next().value); // "cherry"
+
+function* arrayIterator(arr) {
+  for (let item of arr) {
+    yield item;
+  }
+}
+
+const it = arrayIterator(["apple", "banana", "cherry"]);
+console.log(it.next().value); // "apple"
+console.log(it.next().value); // "banana"
+console.log(it.next().value); // "cherry"
+
+// 4. Range Generator
+
+// Implement a generator that mimics Python’s range(start, end, step) function.
+
+// function* range(start, end, step = 1) {
+//   // your code here
+// }
+
+// for (let num of range(2, 10, 2)) {
+//   console.log(num);
+// }
+// // Expected: 2, 4, 6, 8
+
+function* range(start, end, step = 1) {
+  for (let i = start; i < end; i += step) {
+    yield i;
+  }
+}
+
+for (let num of range(2, 10, 2)) {
+  console.log(num);
+}
+// 2, 4, 6, 8
+
+// 5. Controlling Flow with Generator
+
+// Use a generator to pause and resume execution.
+
+function* taskManager() {
+  console.log("Task 1 started");
+  yield;
+  console.log("Task 2 started");
+  yield;
+  console.log("Task 3 started");
+}
+
+const tasks = taskManager();
+tasks.next(); // "Task 1 started"
+tasks.next(); // "Task 2 started"
+tasks.next(); // "Task 3 started"
+
+// Pure vs Impure Function
+
+// 🔹 Pure Function
+
+// A pure function is one that:
+
+// Always returns the same output for the same input.
+
+// Doesn’t change anything outside itself (no side effects).
+
+// Example:
+
+// function add(a, b) {
+//   return a + b;
+// }
+
+// console.log(add(2, 3)); // 5
+// console.log(add(2, 3)); // 5 (always same!)
+
+// ✅ Pure because:
+
+// Input (2,3) → always output 5.
+
+// Doesn’t modify any external data.
+
+// 🔹 Impure Function
+
+// An impure function is one that:
+
+// May give different results for the same input (depends on outside stuff like random, time, global variable).
+
+// Has side effects (changes external state, console log, DB write, etc).
+
+// Example 1 (Depends on external variable):
+
+// let counter = 0;
+
+// function increase(num) {
+//   counter += num; // modifies external state
+//   return counter;
+// }
+
+// console.log(increase(2)); // 2
+// console.log(increase(2)); // 4 (different result for same input!)
+
+// Example 2 (Uses Date → output changes every time):
+
+// function getTime() {
+//   return new Date().toLocaleTimeString();
+// }
+
+// console.log(getTime()); // different result each call
+
+// ✅ Impure because:
+
+// Output not only depends on input.
+
+// Affects/uses external stuff.
+
+// >> Prime number
+
+let nimmy = 9;
+for (i = 2; i < nimmy; i++) {
+  if (nimmy % i == 0) {
+    console.log(`Not a prime number`);
+    break;
+  } else {
+    console.log("Its a prime Number");
+    break;
+  }
+}
+
+let n = 1;
+while (n < nimmy) {
+  n++;
+  console.log('while',n);
+  if (nimmy % i == 0){
+
+  }
+}
+
+// console.log(isPrime(17));
+
+
+// let ni = 7;
+// for(let i=2; i<n; i++){
+//   if(ni%i == 0){
+//     console.log("The number is not prime" +  ni);
+//   }
+// }  console.log('Prime');   wrongggg
+
+
+// function prime(num){
+//     for(let index = 2; index<num; index++){
+//         if(num%index == 0){
+//             return `The given number ${num} is an Ordinary number`
+//         }
+//     }return `The given number ${num} is a Prime number`
+//  }console.log(prime(2))
