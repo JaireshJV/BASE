@@ -1196,3 +1196,108 @@ for(let i=2; i<n; i++){
 //         }
 //     }return `The given number ${num} is a Prime number`
 //  }console.log(prime(2))
+
+
+
+
+// Prime Number
+function prime(num) {
+  for (let i = 2; i < num; i++) {
+    if (num % i == 0) {
+      return "The Given Value is Ordinary Number";
+    }
+  }
+  return "The Given Value is Prime Number";
+}
+
+console.log(prime(17));
+
+// Anagram
+
+// const str = "silert";
+// const lst = "listen";
+
+// if(str.length == lst.length){
+
+//     const str1 = str.split("").sort().join("");
+//     const lst1 = lst.split("").sort().join("");
+
+//     if(str1 == lst1){
+//     console.log("The given values are Anagram");
+// }else{
+//     console.log("The given values are same Length But Not Anagram");
+// }
+// }else{
+//         console.log("The given values are not Anagram");
+// }
+
+function anagram(a, b) {
+  if (a.length == b.length) {
+    let a1 = a.toLowerCase().split("").sort().join("");
+    let b1 = b.toLowerCase().split("").sort().join("");
+
+    if (a1 == b1) {
+      return "The Given Values Are Anagram";
+    } else {
+      return "The Same Lengthed values But Not a Anagram";
+    }
+  } else {
+    return "The given Values are Not Anagram";
+  }
+}
+
+const aa = "Silent";
+const bb = "listen";
+console.log(anagram(aa, bb));
+
+// let s = 40
+// let e = s;
+// while(e > 0){
+//     e = e-8;
+// }
+
+// if(e == 0){
+// console.log(`The given number ${s} is divisibled by 8`);
+// }else{
+//     console.log(`The given number ${s} is Not divisibled by 8`);
+// }
+
+function divisible(num, divider) {
+  const number = num;
+  while (num > 0) {
+    num = num - divider;
+  }
+  if (num == 0) return `The given number ${number} is divisibled by ${divider}`;
+  return `The given number ${number} is not divisibled by ${divider}`;
+}
+
+const numm = 60;
+const divider = 7;
+console.log(divisible(numm, divider));
+
+// Number Reverse Method
+let sum = 0;
+let rum = 638;
+
+function numreverse(num, sum) {
+  while (num > 0) {
+    sum = sum * 10 + (num % 10);
+    num = parseInt(num / 10);
+  }
+  return sum;
+}
+console.log(numreverse(rum, sum));
+
+
+
+// Synchronous/Asynchrunous
+console.log("Sync");
+setTimeout(() => {
+  console.log("Async1");
+});
+
+setTimeout(() => {
+  console.log("Async2");
+}, 2000);
+console.log("Sync");
+

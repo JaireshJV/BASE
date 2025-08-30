@@ -869,11 +869,11 @@ console.log(car.doors);
 //         name = "Jai"
 //     }
 //     catch(err){
-//         // console.log(err);
-//         // console.warn(err);    // In yellow
-//         // console.error(err);   // In red
-//         // console.table(err);
-//         // console.error(err.stack);     // In detail
+//         console.log(err);
+//         console.warn(err);    // In yellow
+//         console.error(err);   // In red
+//         console.table(err);
+//         console.error(err.stack);     // In detail
 //     }
 // }
 
