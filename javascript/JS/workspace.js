@@ -2135,3 +2135,100 @@ function reverseString(str) {
 console.log("Final result:", reverseString("hello"));
 
 function reverseString(str) { if (str === "") return ""; return reverseString(str.substr(1)) + str[0]; } console.log(reverseString("hello"));
+
+let string = 'jaiiii' ;
+console.log(typeof string);
+console.log(typeof 9);
+console.log(typeof [{name:"jai"},{name:"Abi"}]);  
+console.log(typeof {name:"jai"});
+
+const arr1 = [1,2,3,{name:"jai"}];
+console.log(arr1[3]);
+
+const arr2 = ["1","2","3"];
+const arr3 = [{name:"jai"},{name:"Abi"}];
+const arr4 = [{"name":"jai"},{"name":"Abi"}];
+
+const obj1 = {name:"jai"};
+const obj2 = {"name":"jai","age":27};
+console.log(typeof obj2.name ,'objnametype');
+
+
+console.log(Object.keys(obj2));       // key
+console.log(Object.keys(arr3));       // indixes
+console.log(Object.keys(obj1));       // key
+console.log(Object.keys(obj2));
+
+console.log(typeof(Object.keys(obj2)),'type of key');    
+
+
+console.log(Array.isArray(arr1));
+console.log(typeof(typeof(obj3)));
+
+console.log(typeof isNaN,'nan');
+
+console.log(typeof(typeof(true)));
+console.log(typeof null);
+console.log(typeof undefined);
+let num = 9 ;
+
+console.log(Number.isNaN(num));
+console.log(Number.isInteger('9'));
+
+let check = 'hello'
+console.log(!isNaN(7),'checking'); 
+const checkres = isNaN(' ')
+console.log(checkres);
+
+
+console.log(!isString(7),'isStringgg');
+
+console.log(isNaN(NaN));
+
+
+console.log(typeof NaN);
+
+
+const objstr = {"name":"jai","age":27};
+// console.log(JSON.stringify(objstr))
+const conv = JSON.stringify(objstr)
+console.log(JSON.parse(conv));
+
+console.log(typeof(JSON));
+console.log(objstr.name);
+
+
+
+function getA(...a){
+console.log(a,'getA');
+}
+
+// Three dot operator
+
+const arr5 = [2,6,9];
+const arr6 = [8,9,0];
+
+console.log(...arr5,...arr6);
+
+const arr7 = [...arr5,...arr6]
+console.log(arr7,'arr7');
+
+// getA(2,4,6,8);
+// getA({"name":"jai","age":27},{"name":"jai","age":27});
+getA(arr5,arr6)
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+
