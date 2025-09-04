@@ -2200,6 +2200,7 @@ console.log(objstr.name);
 
 
 function getA(...a){
+  
 console.log(a,'getA');
 }
 

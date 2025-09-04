@@ -1181,13 +1181,12 @@
 
 // // console.log(isPrime(17));
 
-
 // let ni = 7;
 // for(let i=2; i<n; i++){
 //   if(ni%i == 0){
 //     console.log("The number is not prime" +  ni);
 //   }
-// }  console.log('Prime');   
+// }  console.log('Prime');
 
 // // function prime(num){
 // //     for(let index = 2; index<num; index++){
@@ -1196,9 +1195,6 @@
 // //         }
 // //     }return `The given number ${num} is a Prime number`
 // //  }console.log(prime(2))
-
-
-
 
 // // Prime Number
 // function prime(num) {
@@ -1288,8 +1284,6 @@
 // }
 // console.log(numreverse(rum, sum));
 
-
-
 // // Synchronous/Asynchrunous
 // console.log("Sync");
 // setTimeout(() => {
@@ -1301,20 +1295,148 @@
 // }, 2000);
 // console.log("Sync");
 
-const car = {
-  brand: "Toyota",
-  start: function() {
-    return "Car started!";
-  },
-  arr : [7,5,6,7]
-};
-console.log(car.arr[0]);
+// const car = {
+//   brand: "Toyota",
+//   start: function() {
+//     return "Car started!";
+//   },
+//   arr : [7,5,6,7]
+// };
+// console.log(car.arr[0]);
 
-let eg = [{"name" :"jai","age" :"27"},{name :"abi",age :"25"}]
+// let eg = [{"name" :"jai","age" :"27"},{name :"abi",age :"25"}]
 
-console.log(eg[0],eg[1]);
+// console.log(eg[0],eg[1]);
 
-const Handle =(par)=>{
-par
+// const Handle =(par)=>{
+// par
+// }
+// <button onClick={()=>Handle(e.target.value)}></button>
+
+// Spread Operator and Rest operator
+
+// 1. Function Parameters (Rest)
+
+// Write a function multiplyAll that accepts any number of arguments and
+// returns the product of all numbers using the rest operator.
+
+// multiplyAll(2, 3, 4); // Output: 24
+// multiplyAll(5, 10);   // Output: 50
+
+// function multiplyAll(...num) {
+//   return num.reduce((acc, cur) => acc * cur, 1);
+// }
+
+// console.log(multiplyAll(2, 3, 4));
+// console.log(multiplyAll(5, 10));
+
+// // 2. Array Copying & Merging (Spread)
+// // Given:
+
+// const arr1 = [1, 2, 3];
+// const arr2 = [4, 5];
+
+// // Use the spread operator to create a new array [1, 2, 3, 4, 5, 6] (where 6 is also added manually).
+
+// const newArray = [...arr1, ...arr2, 6];
+// console.log(newArray, "New Arr");
+
+// // 3. Object Destructuring with Rest
+
+// // Given:
+
+// const person = { name: "Jai", age: 28, city: "Chennai", country: "India" };
+
+// // Use destructuring with rest to extract name, and put the remaining properties in another object.
+
+// const { name, ...otherProp } = person;
+
+// console.log(otherProp, "otherProp");
+
+// // 4. Spread in Function Calls
+
+// // Suppose you have:
+
+// const numbers = [12, 5, 8, 21, 17];
+// // Use the spread operator to find the maximum number with Math.max.
+
+// const max = Math.max(...numbers);
+
+// console.log(max, "maxnum");
+
+// // 5. Mixing Rest & Spread
+
+// // Write a function combineArrays that:
+
+// // Takes 2 arrays as arguments.
+
+// // Uses spread to merge them.
+
+// // Uses the rest operator in parameters to allow extra arrays to be added.
+// // Example:
+// // combineArrays([1, 2], [3, 4], [5, 6]);
+// // Output: [1, 2, 3, 4, 5, 6]/
+
+// function combineArrays(...arrays) {
+//   // const flat = [...arr].flat(Infinity);
+//   // return [...flat];
+//   let arry = [];
+//   for (let array of arrays) {
+//     arry = [...arry,...array]
+//   }
+//   return arry;
+// }
+
+// console.log(combineArrays([1, 2], [3, 4], [5, 6]));
+
+// String sorting
+
+// function alphabetical(str){
+// return str.split('').sort().join('') ;
+// }
+
+// console.log(alphabetical('webmaster'));
+
+// function VowelsCount(str){
+
+// let vowel = 'aeiouAEIOU' ;
+// let count = 0 ;
+// for(let st of str){
+//   if(vowel.includes(st)){
+//     count++ ;
+//   }
+
+// }
+// return count;
+// }
+
+// console.log(VowelsCount('The quick brown fox'))
+
+// Proper Case
+
+function ProperCase(pro) {
+  const spl = pro.split(" ").map((elem) => {
+    if(elem.charAt(0) === 'a ') return "A" ;
+    return elem.charAt(0).toUpperCase() + elem.slice(1)
+  });
+  return spl.join(" ");
 }
-<button onClick={()=>Handle(e.target.value)}></button>
+
+console.log(ProperCase("Write a javascript program"));
+
+
+// Difference between two dates in days ;
+
+function differenceInDates(date1,date2) {
+  const getTime1 = new Date(date1).getTime();
+  const getTime2 = new Date(date2).getTime();
+console.log(getTime1,'getTime1');
+console.log(getTime2,'getTime2');
+
+
+  const diff = (getTime2 - getTime1) / (1000 * 3600 * 24) ;
+  return diff ;
+}
+
+console.log(differenceInDates("08-08-1996","09-09-1957"));
+
