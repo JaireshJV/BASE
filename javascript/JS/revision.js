@@ -1427,16 +1427,49 @@ console.log(ProperCase("Write a javascript program"));
 
 // Difference between two dates in days ;
 
-function differenceInDates(date1,date2) {
-  const getTime1 = new Date(date1).getTime();
-  const getTime2 = new Date(date2).getTime();
-console.log(getTime1,'getTime1');
-console.log(getTime2,'getTime2');
+// function differenceInDates(date1,date2) {
+//   const getTime1 = new Date(date1).getTime();
+//   const getTime2 = new Date(date2).getTime();
+
+//   const diff = (getTime2 - getTime1) / (1000 * 3600 * 24) ;
+//   return diff ;
+// }
+
+// console.log(differenceInDates("2025-08-08","2025-09-08"));
 
 
-  const diff = (getTime2 - getTime1) / (1000 * 3600 * 24) ;
-  return diff ;
+// function daydiff(stdate,eddate){
+// const start = new Date(stdate);
+// console.log(start,'start');
+// }
+
+// console.log(daydiff("2025.09.04"));
+
+
+function Occurance(str){
+
+  let obj = {} ;
+  for(let st of str){
+    console.log(st , obj[st],'check');
+    
+    obj[st] = (obj[st] ?? 0) + 1  ;
+  }
+  return obj ;
 }
+console.log(Occurance("javascriptjavascript"));
 
-console.log(differenceInDates("08-08-1996","09-09-1957"));
+
+
+function occur(occ){
+let ob={};
+for(let oc of occ){
+  ob[oc] = (ob[oc] ?? 0) + 1 ;
+}
+return ob ;
+}
+console.log(occur('jaireshjai'));
+
+
+
+
 
