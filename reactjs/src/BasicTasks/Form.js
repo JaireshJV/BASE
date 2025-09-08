@@ -19,9 +19,9 @@ setForm({...form,[e.target.name] : e.target.value})
   }
 
   const handleSubmitDefault = (e) => {
+    
     e.preventDefault()
     console.log(form,'formvalue');
-    
     setValue(form);
   };
 
@@ -32,11 +32,11 @@ setForm({...form,[e.target.name] : e.target.value})
     //   <h1>FORM</h1>
     //   <FormAnt onFinish={handleOnSubmit}>
     //     <label>NAME : </label>
-    //     <FormAnt.Item type="text" name="name">
+    //     <FormAnt.Item name="name">
     //     <Input />
     //     </FormAnt.Item>
     //     <label>AGE : </label>
-    //     <FormAnt.Item type="number" name="age" >
+    //     <FormAnt.Item  name="age" >
     //     <InputNumber />
     //      </FormAnt.Item>
     //      <FormAnt.Item>
@@ -56,15 +56,15 @@ setForm({...form,[e.target.name] : e.target.value})
     <div>
       <form onSubmit={handleSubmitDefault}>
         <label>NAME</label>
-        <input type="text" name="name" onChange={handleOnChange}/>
+        <input type="text" name="name" onChange={handleOnChange} />
         <label>AGE</label>
         <input type="number" name="age" onChange={handleOnChange}/>
         <button type="submit">SUBMIT</button>
       </form>
-      {form && (
+      {value && (
         <>
-        {form.name}
-        {form.age}
+        NAME : {value.name} <br/>
+        AGE : {value.age}
         </>
       )}
     </div>

@@ -233,3 +233,8 @@ const jai = 7 ;
   const bat = [''];
   bat.push('7')
   console.log(bat);
+
+  //
+
+  console.log();
+  

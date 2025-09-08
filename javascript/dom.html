@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #jai {
+            color: red;
+        }
+
+        #abi {
+            color: rgb(211, 227, 33);
+        }
+
+        #jaire {
+            color: rgb(61, 13, 31);
+        }
+
+        #abii {
+            color: rgb(24, 24, 60);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Differences of textContent , innerText , innerHTML -->
+    <p id="tcontent" style="font-size: 34px; color: green;">Text Contents Returns Only <span
+            style="color: red;display: none;">Ghost</span> Texts </p>
+    <p id="insert_content"></p>
+    <p id="insert_from_other"></p>
+    <div id="create_new_tag"></div>
+
+    <script>
+
+        //  Differences of textContent , innerText , innerHTML 
+
+        let text = document.getElementById("tcontent");
+        // textContent : ==> Return All Contents of the Elements including hidden content .
+        console.log(text.textContent, 'textContent');
+        // innerText : ==> Return Only Contents of the Elements excluding hidden content (like user view) .
+        console.log(text.innerText, 'innerText');
+        // innerText : ==> Return the whole content along with the inner tag if exists.
+        console.log(text.innerHTML, 'innerHTML');
+
+        // Insert content using script 
+        let base = document.getElementById('insert_content').textContent = 'Content Inserted Successfully !!!';
+        document.getElementById('insert_from_other').textContent = base;
+        const newTag = document.createElement('h3');
+        newTag.innerText = 'Tag created with content Successfully !!!';
+        document.getElementById('create_new_tag').appendChild(newTag);
+
+        // Without tag , how to write content
+        document.write('Jai');
+        document.writeln('Jai')
+    </script>
+
+    <!-- Hidden -->
+    <div id="hide" style="background-color: bisque;text-align: center;padding: 10px;font-size: large;">
+        <p style="color: rebeccapurple;">Hidden content</p>
+    </div>
+    <script>
+        const pos = true;
+        const neg = false;
+        document.getElementById('hide').hidden = neg;
+    </script>
+
+    <!-- Class based  -->
+    <div>
+        <p class="class_based"></p>
+        <p class="class_based"></p>
+    </div>
+    <script>
+        document.getElementsByClassName('class_based')[0].style.color = "yellow" ;
+    </script>
+</body>
+
+</html>
