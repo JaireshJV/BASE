@@ -200,12 +200,12 @@
 // }
 
 // Do While
-let j = 50;
+// let j = 50;
 
-do {
-  console.log(j); // Only Once
-  j += 1;
-} while (j < 50);
+// do {
+//   console.log(j); // Only Once
+//   j += 1;
+// } while (j < 50);
 
 // For Loop
 
@@ -246,31 +246,31 @@ do {
 
 // console.log('final array :' ,array);
 
-const demo = "malayalam";
-let array = [];
+// const demo = "malayalam";
+// let array = [];
 
-for (i = 0; i < demo.length; i++) {
-  let count = 0;
+// for (i = 0; i < demo.length; i++) {
+//   let count = 0;
 
-  for (j = 0; j < demo.length; j++) {
-    if (demo[i] == demo[j] && i !== j) {
-      count++;
-    }
-  }
+//   for (j = 0; j < demo.length; j++) {
+//     if (demo[i] == demo[j] && i !== j) {
+//       count++;
+//     }
+//   }
 
-  let repeated = false;
-  for (let k = 0; k < array.length; k++) {
-    if (array[k] == demo[i]) {
-      repeated = true;
-    }
-  }
+//   let repeated = false;
+//   for (let k = 0; k < array.length; k++) {
+//     if (array[k] == demo[i]) {
+//       repeated = true;
+//     }
+//   }
 
-  if (count > 0 && repeated == false) {
-    array.push(demo[i]);
-    console.log("ans:", demo[i]);
-  }
-}
-console.log(array);
+//   if (count > 0 && repeated == false) {
+//     array.push(demo[i]);
+//     console.log("ans:", demo[i]);
+//   }
+// }
+// console.log(array);
 
 // // Break
 
@@ -341,38 +341,6 @@ console.log(array);
 
 // console.log(toProperCaseee("jairesh"));
 
-// // Scope
-
-// // let
-// let a = 5 ;
-// let b = a
-
-// {
-//     let d = 7 ;
-//     console.log("Let1:", a);                // 7,5
-// }
-
-// console.log("Let2",d);
-
-// // var
-// var b = 5 ;
-// {
-//     var b = 7 ;
-//     console.log(b);                 // 7,7
-// }
-
-// console.log(b);
-
-// const
-// const c = 5 ;
-
-// {
-//     const d = 7 ;
-//     console.log("const1 :",c);                 // 7,5
-// }
-
-// console.log("const2 :", d);
-
 // let x = 2 ;
 
 // function myFunc(){
@@ -395,115 +363,6 @@ console.log(array);
 //   }
 // saa()
 
-// // Arrays
-
-const myArray = [];
-
-myArray[0] = "Hi";
-myArray[1] = "Hello";
-myArray[2] = "Vanakkam";
-
-// console.log(myArray);
-// console.log(myArray.length);
-// console.log(myArray[0]);
-// console.log(myArray[myArray.length - 1]);    // To show last element
-
-const AddElement = myArray.push("Makkalae"); // To add element
-// console.log(myArray);
-// console.log(AddElement);                       // Show the length
-
-// const DelElement = myArray.pop()               // To delete element
-// console.log(myArray);
-// console.log(DelElement);                       // Show the element deleted
-
-// const AddElementAtFirst = myArray.unshift("Ahhh !")     // To add element at first
-// console.log(myArray);
-// console.log(AddElementAtFirst);                        // Show the length
-
-// const DelElementAtFirst = myArray.shift()               // To delete element of first
-// console.log(myArray);
-// console.log(DelElementAtFirst);                         // Show the element deleted
-
-// // Splice [add,remove,or replace in between]
-
-// // Add
-// console.log('splice add :',myArray.splice(1,0,"Haiiii","Byeeeeeeeee","Varatamamaedrrrrrrrrr"));
-// console.log(myArray);
-
-// // Remove
-// console.log('splice remove :',myArray.splice(1,2));
-// console.log(myArray);
-
-// // Replace
-// console.log('splice replace :',myArray.splice(1,1,"Haiiiii"));
-// console.log(myArray);
-
-// // Delete [not advicable at it create empty undefined]
-// console.log(delete myArray[2]);
-// //       // or
-// // console.log(delete(myArray[2]))             // Creates An empty item
-// console.log(myArray[2]);
-
-// // Slice
-
-const a = "987654";
-const newArray = a.slice(1,4);
-console.log('slice' ,newArray);     // Can be used for Array and String as well
-
-// console.log(newArray[2]);
-console.log(a);
-
-
-// // Reverse
-console.log("myArray :", myArray);
-
-// const reversedArray = myArray.reverse()
-// console.log(reversedArray);
-
-// // Join
-
-// const joinedArray = myArray.join("")
-// console.log(joinedArray);
-
-// // Split
-
-// const splittedArray = joinedArray.split("a")
-// console.log(splittedArray);
-
-// // Joining two arrays
-
-// const myArrayA = ['Its','Array','One']
-// const myArrayB = ['Its','Array','Two']
-
-// console.log(myArrayA);
-// console.log(myArrayB);
-
-// Concat method :
-// const joinedArraysUsingConcat = myArrayA.concat(myArrayB)
-// console.log(joinedArraysUsingConcat);
-
-// Spread operator method :
-// const joinedArraysUsingSpreadOperator = [...myArrayA,...myArrayB]
-// console.log(joinedArraysUsingSpreadOperator);
-
-// const earnMoneyA = ["FronEnd","BackEnd","FullStack"]
-// const earnMoneyB = ["AI","Blockchain","DataAnalystics"]
-
-// const growMoneyA = ["Stock","RealEstate","FixedIncome"]
-// const growMoneyB = ["Options","Futures"]
-
-// const giveMoney = ["QualityEducation"]
-
-// console.log(earnMoneyA[1],growMoneyB[1]);           // One Dimensional
-
-// const earnMoney = [earnMoneyA,earnMoneyB]
-// const growMoney = [growMoneyA,growMoneyB]
-
-// console.log(earnMoney[0][1],growMoney[1][1]);       // Two Dimensional
-
-// const dhuddu = [earnMoney,growMoney,giveMoney]
-
-// console.log(dhuddu[0][0][1],dhuddu[1][1][1]);       //  Three Dimensional
 
 // // Rock,paper and scissor game
 
@@ -565,67 +424,24 @@ console.log("myArray :", myArray);
 // let computerChoice = Math.floor(Math.floor * 3 + 1 )
 // console.log(computerChoice);
 
-// // Objects
-
-// const myObj = {
-//    subscriber : 7 ,
-//    number : 7 ,
-//    content : {
-//     earnMoney : "Study",
-//     growMoney : "Invest",
-//     giveMoney : "To Needy"
-//    },
-//    subdivision : ["earnMoney","growMoney","giveMoney"],
-//    action : function(){
-//     return "Hellooo ! World"
-//    },
-//    action1 : function(){
-//     return `Do ${this.content.giveMoney}`
-//    }
-
-// }
-
-// console.log(myObj.subscriber);
-// console.log(myObj["subscriber"])
-// console.log(myObj.content.growMoney);
-// console.log(myObj.subdivision[1]);
-// console.log(myObj.action());
-// console.log(myObj.action1());
-
-// let courses = {
-//   frontend : "JS",
-//   backend : "Java"
-// }
-
-// console.log(courses);
-
-// Object.seal(courses)
-// courses["database"] = "MYSQL" ;
-// courses["frontend"] = "CSS" ;
-// console.log(courses);
-
-// Object.freeze(courses)
-// courses["frontend"] = "HTML" ;
-// console.log(courses);
-
 // // Inheritance
 
-const vehicle = {
-  doors: 2,
-  engine: function () {
-    return "vrooom !!!";
-  },
-};
+// const vehicle = {
+//   doors: 2,
+//   engine: function () {
+//     return "vrooom !!!";
+//   },
+// };
 
-console.log(vehicle.engine());
+// console.log(vehicle.engine());
 
-const car = Object.create(vehicle); // Inherited
+// const car = Object.create(vehicle); // Inherited
 
-console.log(car.engine());
+// console.log(car.engine());
 
-car.wheels = 4;
-console.log(car);
-console.log(car.doors);
+// car.wheels = 4;
+// console.log(car);
+// console.log(car.doors);
 
 // car.engine = function(){return "vroom vroom !!!"}
 
@@ -649,42 +465,6 @@ console.log(car.doors);
 // console.log(movie);
 // console.log(Object.keys(movie))
 // console.log(Object.values(movie))
-
-// // for in loop
-
-// for(job in movie){
-//     console.log(`${job},itz ${movie[job]}`);
-// }
-
-// delete movie.producer
-// console.log(movie);
-// console.log(movie.hasOwnProperty("producer"));      // false
-
-// // Destructuring the object
-
-// const {music : myFavMusicDirector } = movie ;
- 
-// console.log(myFavMusicDirector);
-
-// const FavMusic = movie.music
-// console.log(FavMusic);
-
-// const {music : MyFavMusic, director : myFavDirector} = movie ;
-
-// console.log(MyFavMusic);
-// console.log(myFavDirector);
-
-// const {actor,director,music,producer} = movie ;
-// console.log(actor);
-// console.log(director);
-// console.log(music);
-// console.log(producer);
-
-// function sings({music}) {               // Difference is in curly braces
-//     return music
-// }
-
-// console.log(sings(movie));
 
 // // Classes
 

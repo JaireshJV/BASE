@@ -644,3 +644,4 @@ Promise.race([firstPromise, secondPromise , thirdPromise])
 })
 
 console.log('changed');
+console.log('changed2');

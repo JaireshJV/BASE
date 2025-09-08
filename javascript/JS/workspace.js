@@ -683,7 +683,7 @@
 // /*
 // Notes : 1) By default , all the arithematic operations will happen
 //            between numbers and string number except addition
-//         2) Between number and actual string , the arithematic
+//         2) Between number and actual string , the 
 //            operations will return "NaN" only except addition
 //         3) In this both operations, addition only do append
 //            operation like 1+"Eleven" ==> 1Eleven , 1+"11" ==> 111  */
@@ -798,69 +798,6 @@
 
 // // console.log(v);
 
-// // // Conditional Statements
-
-// // // if
-
-// // let num = "23";
-// // if (!num) {
-// //   console.log(`There is no value`);
-// // }
-
-// // // if else
-// // if (num > 9) {
-// //   console.log(`The given ${num} is an integer`);
-// // } else {
-// //   console.log(`The given ${num} is not an integer`);
-// // }
-
-// // if (num == "9") {
-// //   console.log("They are same");
-// // } else if (typeof num === "number") {
-// //   console.log("Its string");
-// // } else if (!isNaN(num)) {
-// //   console.log("Itz definitely number");
-// // } else {
-// //   console.log("Itz wrong");
-// // }
-
-// // if(2<7){
-// //   console.log('llll');
-// // }
-// // else if(8>0){
-// // console.log("kkk");
-// // }
-// // else{
-// //   console.log("else");
-// // }
-
-// // if (40 > 60) {
-// //   console.log("Greater than 60");
-// // } else if (40 > 50) {
-// //   console.log("Greater than 50");
-// // } else if (40 > 40) {
-// //   console.log("Greater than 40");
-// // } else if (40 > 30) {
-// //   console.log("Greater than 30");
-// // } else {
-// //   console.log("None of the above");
-// // }
-
-// // let vari = "born";
-// // let eligiblity = 18;
-// // if (vari === "born") {
-// //   if (typeof vari !== "string") {
-// //     if (vari.length == 4) {
-// //       if (57 >= eligiblity) {
-// //         console.log("Allow to vote");
-// //       }
-// //     }
-// //   } else {
-// //     console.log("Itz not a string");
-// //   }
-// // } else {
-// //   console.log("Dont Allow to vote");
-// // }
 
 // // //
 
