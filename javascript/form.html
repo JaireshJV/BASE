@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+  </head>
+  <body>
+    <!-- ONINPUT -->
+    <div>
+      <h3>Employee Details</h3>
+      <label for="name">NAME :</label>
+      <input
+        type="text"
+        oninput="changetext(this)"
+        name="name"
+        placeholder="Enter the name"
+      />
+      <p id="display"></p>
+    </div>
+    <script>
+      function changetext(e) {
+        console.log(e.placeholder, "placeholder");
+        document.getElementById("display").textContent = e.value;
+      }
+    </script>
+
+    <!-- ONCHANGE -->
+    <div>
+      <select onchange="handleselect(this)">
+        <option value="Jairesh">Jai</option>
+        <option value="Abisheth">Abi</option>
+      </select>
+    </div>
+
+    <script>
+      function handleselect(e) {
+        console.log(e.value, "handleee");
+      }
+    </script>
+
+    <!-- VALIDATION -->
+    <form action="">
+      <h1 style="color: RED">FORM VALIDATION</h1>
+      <label for="name">Name</label>
+      <input
+        type="text"
+        placeholder="Enter Your Name"
+        onblur="validation(this,'warn_name')"
+        onfocus="hideWarn('warn_name')"
+      />
+      <p id="warn_name"></p>
+
+      <label for="contact">Contact Number</label>
+      <input
+        type="number"
+        maxlength="10"
+        placeholder="Enter Contact Number"
+        onblur="validation(this,'warn_contact')"
+        onfocus="hideWarn('warn_contact')"
+      />
+      <p id="warn_contact"></p>
+
+      <label for="email">Email</label>
+      <input
+        type="email"
+        placeholder="Enter Email ID"
+        onblur="validation(this,'warn_email')"
+        onfocus="hideWarn('warn_email')"
+      />
+      <p id="warn_email"></p>
+
+      <label for="password">Password</label>
+      <input
+        type="password"
+        placeholder="Enter Password"
+        onblur="validation(this,'warn_password')"
+        onfocus="hideWarn('warn_password')"
+      />
+      <p id="warn_password"></p>
+
+      <button id="btn" type="submit" disabled>POST</button>
+    </form>
+    <script>
+      function validation(e, id) {
+        console.log(e, id, "eiddddddd");
+        console.log(e.value, "valuessss");
+
+        let button_cond = true;
+        let entered_value = e.value;
+        let length = e.value.length;
+
+        switch (id) {
+          case "warn_name":
+            if (length > 15) {
+              console.log("cameinif");
+
+              document.getElementById(id).textContent =
+                "Name Limit Exceded Max 15 Allowed";
+              document.getElementById(id).style.color = "red";
+              document.getElementById(id).style.display = "block";
+              document.getElementById("btn").disabled = true;
+              
+            } else {
+              console.log("cameinelse");
+              document.querySelectorAll(id).textContent = "";
+            }
+            break;
+          case "warn_contact":
+            if (length > 10) {
+              document.getElementById(
+                id
+              ).textContent = `Contact Limit Exceded Max 10 Allowed`;
+              document.getElementById(id).style.color = "red";
+              document.getElementById(id).style.display = "block";
+              document.getElementById("btn").disabled = true;
+            } else {
+              document.querySelectorAll(id).textContent = "";
+            }
+            break;
+          case "warn_email":
+            if (!entered_value.includes("@")) {
+              document.getElementById(id).textContent =
+                "Email ID should be valid ";
+              document.getElementById(id).style.color = "red";
+              document.getElementById(id).style.display = "block";
+              document.getElementById("btn").disabled = true;
+            } else {
+              document.querySelectorAll(id).textContent = "";
+            }
+            break;
+          case "warn_password":
+            if (length > 10) {
+              document.getElementById(
+                id
+              ).textContent = `Contact Limit Exceded Max 10 Allowed`;
+              document.getElementById(id).style.color = "red";
+              document.getElementById(id).style.display = "block";
+              document.getElementById("btn").disabled = true;
+            } else {
+              document.querySelectorAll(id).textContent = "";
+            }
+            break;
+        }
+        console.log("switchfinishes");
+
+        return button_cond = false ;
+
+      }
+
+
+
+    if(button_cond == false){
+      document.getElementById("btn").disabled = false;
+    }
+
+
+      function hideWarn(id) {
+        document.getElementById(id).style.display = "none";
+      }
+    </script>
+  </body>
+</html>

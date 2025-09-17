@@ -120,6 +120,7 @@
 // console.log(Math.PI);    // 3.14159...
 // console.log(Math.trunc(Math.PI));    //3
 // console.log((Math.PI).toFixed(2)) ;  //3.14
+//console.log((Math.PI).toFixed(2))
 // console.log('Round Off',Math.round(Math.PI));    //3
 // console.log('Round Off',Math.round(value));    //7
 

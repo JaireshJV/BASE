@@ -1,79 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <style>
-        #jai {
-            color: red;
-        }
+      #jai {
+        color: red;
+      }
 
-        #abi {
-            color: rgb(211, 227, 33);
-        }
+      #abi {
+        color: rgb(211, 227, 33);
+      }
 
-        #jaire {
-            color: rgb(61, 13, 31);
-        }
+      #jaire {
+        color: rgb(61, 13, 31);
+      }
 
-        #abii {
-            color: rgb(24, 24, 60);
-        }
+      #abii {
+        color: rgb(24, 24, 60);
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
+    <p id="querywithid">Itz Query Selector ID</p>
+    <p id="querywithid">Itz Query Selector ID</p>
+    <p class="querywithclass">Itz Query Selector Class</p>
+    <p class="querywithclass">Itz Query Selector Class</p>
+
     <!-- Differences of textContent , innerText , innerHTML -->
-    <p id="tcontent" style="font-size: 34px; color: green;">Text Contents Returns Only <span
-            style="color: red;display: none;">Ghost</span> Texts </p>
+    <p id="tcontent" style="font-size: 34px; color: green">
+      Text Contents Returns Only
+      <span style="color: red; display: none">Ghost</span> Texts
+    </p>
     <p id="insert_content"></p>
     <p id="insert_from_other"></p>
     <div id="create_new_tag"></div>
 
     <script>
+      //  Differences of textContent , innerText , innerHTML
 
-        //  Differences of textContent , innerText , innerHTML 
+      let text = document.getElementById("tcontent");
 
-        let text = document.getElementById("tcontent");
-        // textContent : ==> Return All Contents of the Elements including hidden content .
-        console.log(text.textContent, 'textContent');
-        // innerText : ==> Return Only Contents of the Elements excluding hidden content (like user view) .
-        console.log(text.innerText, 'innerText');
-        // innerText : ==> Return the whole content along with the inner tag if exists.
-        console.log(text.innerHTML, 'innerHTML');
+      // textContent : ==> Return All Contents of the Elements including hidden content .
+      console.log(text.textContent, "textContent");
 
-        // Insert content using script 
-        let base = document.getElementById('insert_content').textContent = 'Content Inserted Successfully !!!';
-        document.getElementById('insert_from_other').textContent = base;
-        const newTag = document.createElement('h3');
-        newTag.innerText = 'Tag created with content Successfully !!!';
-        document.getElementById('create_new_tag').appendChild(newTag);
+      // innerText : ==> Return Only Contents of the Elements excluding hidden content (like UI) .
+      console.log(text.innerText, "innerText");
 
-        // Without tag , how to write content
-        document.write('Jai');
-        document.writeln('Jai')
+      // innerHTML : ==> Return the whole content along with the inner tag if exists.
+      console.log(text.innerHTML, "innerHTML");
+
+      // Insert content using script
+      let base = (document.getElementById("insert_content").textContent =
+        "First Content Inserted Successfully !!!");
+      document.getElementById("insert_from_other").textContent = base;
+
+      const newDiv = document.getElementById("cls");
+
+      const newTag = document.createElement("h3");
+      document.getElementById("create_new_tag").appendChild(newTag);
+      newTag.innerText = "Tag created with content Successfully !!!";
+      newTag.style.padding = "10px";
+
+      // Without tag , how to write content
+      document.write("Jai");
+      document.writeln("Jai");
     </script>
 
     <!-- Hidden -->
-    <div id="hide" style="background-color: bisque;text-align: center;padding: 10px;font-size: large;">
-        <p style="color: rebeccapurple;">Hidden content</p>
+    <div
+      id="hide"
+      style="
+        background-color: bisque;
+        text-align: center;
+        padding: 10px;
+        font-size: large;
+      "
+    >
+      <p style="color: rebeccapurple">Hidden content</p>
     </div>
     <script>
-        const pos = true;
-        const neg = false;
-        document.getElementById('hide').hidden = neg;
+      const pos = true;
+      const neg = false;
+      document.getElementById("hide").hidden = neg;
     </script>
 
     <!-- Class based  -->
     <div>
-        <p class="class_based"></p>
-        <p class="class_based"></p>
+      <p class="class_based">Hello Javascript</p>
+      <p class="class_based">Come to home</p>
+      <p class="class_based">Hello Javascript</p>
+      <p class="class_based">Come to home</p>
+      <p class="class_based">Hello Javascript</p>
+      <p class="class_based">Come to home</p>
+      <p class="class_based">Hello Javascript</p>
+      <p class="class_based">Come to home</p>
+      <p class="class_based">Hello Javascript</p>
+      <p class="class_based">Come to home</p>
     </div>
     <script>
-        document.getElementsByClassName('class_based')[0].style.color = "yellow" ;
-    </script>
-</body>
+      var byclass = document.getElementsByClassName("class_based");
 
+      for (var i = 0; i < byclass.length; i++) {
+        byclass[i].style.color = i % 2 == 0 ? "red" : "green";
+      }
+    </script>
+
+    <!-- Tag Based  -->
+    <div>
+      <h3>H3 Content</h3>
+      <h3>H3 2 Tag Content</h3>
+      <a>Anchor Tag</a>
+    </div>
+    <script>
+      const bytagname = document.getElementsByTagName("a"); //We can get the elements by tag names directly like(h2, p , a)in array format.
+      bytagname[0].style.color = "gold"; //So if we want any styles we need call index based like byTagname[0].
+      //Index base is the only way access the tags
+    </script>
+
+    <!-- Query Selector -->
+
+    <div>
+      <!-- <p>Itz Query Selector</p>    top  -->
+    </div>
+    <script>
+
+      // document.querySelectorAll("#querywithid")[0].style.color = "violet";
+      // document.querySelector(".querywithclass").style.color = "brown";
+
+      // const byqueryall = document.querySelectorAll(".querywithclass");
+      // for (var i = 0; i < byqueryall.length; i++) {
+      //   byqueryall[i].style.color = "orange";
+      // }
+
+      // byqueryall.forEach(el => el.style.color = "orange");   
+
+      //  [ Additionally We can run the loop through the forEach
+      //  along for loop. But in getelementclassname
+      //  and getelementtagname for loop only applicable ]
+
+    </script>
+
+<script>
+  console.log((Math.random()*10000).toFixed());
+  console.log((Math.PI).toFixed());
+  console.log(Math.round(Math.PI,2) );
+</script>
+
+
+<script>
+let d1 = new Date("03-09-2003").getTime();
+let d2 = new Date("04-10-2003").getTime();
+
+let df = Math.abs(d2-d1)/(1000*60*60*24)
+
+console.log(df);
+</script>
+
+
+<button id="btn">Click me</button>
+<button id="bttn">Click Us</button>
+
+
+
+<div id="form" class="border border-dark">
+<div class="d-flex">
+  <h4>Form Submission</h4>
+<button id="cls"><i class="bi bi-x-circle"></i></button>
+</div>
+  <form action="submit"> 
+    <label for="name">Name</label>
+    <input type="text">
+  </form>
+</div>
+
+<script>
+
+// document.getElementById("btn").onclick = function(){
+//   alert("Clicked Me");
+// }
+
+document.getElementById("bttn").onclick = function(){
+  alert("Clicked Us");
+}
+
+document.getElementById("cls").addEventListener("click",function(){
+      document.getElementById("form").hidden = "true";
+})
+
+
+</script>
+
+<dialog id="myDialog">
+  <p>This is a dialog</p>
+  <button id="closeBtn">Close</button>
+</dialog>
+
+<button id="openBtn">Open Dialog</button>
+
+<script>
+  const dialog = document.getElementById("myDialog");
+  const openBtn = document.getElementById("openBtn");
+  const closeBtn = document.getElementById("closeBtn");
+
+  openBtn.addEventListener("click", () => dialog.showModal());
+
+  closeBtn.addEventListener("click", () => dialog.close());
+
+  dialog.addEventListener("close", () => {
+    console.log("Dialog was closed");
+    alert("Dialog closed!");
+  });
+
+  
+</script>
+
+<div>
+
+</div>
+
+<script>
+
+</script>
+
+  </body>
 </html>
