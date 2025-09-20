@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple User Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            padding: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        input.error {
+            border-color: #ff4444;
+        }
+
+        input.valid {
+            border-color: #44ff44;
+        }
+
+        .error-message {
+            color: #ff4444;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        button:enabled:hover {
+            background: #0056b3;
+        }
+
+        .success {
+            color: #28a745;
+            text-align: center;
+            margin-top: 15px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>User Details Form</h2>
+        <form id="userForm">
+            <div class="form-group">
+                <label for="name">Full Name * (max 15 characters)</label>
+                <input type="text" id="name" name="name" required maxlength="15">
+                <div class="error-message" id="nameError">Name is required and max 15 characters</div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required>
+                <div class="error-message" id="emailError">Valid email is required</div>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number * (exactly 10 digits)</label>
+                <input type="tel" id="phone" name="phone" required maxlength="10">
+                <div class="error-message" id="phoneError">Phone must be exactly 10 numbers</div>
+            </div>
+
+            <button type="submit" id="submitBtn" disabled>Submit</button>
+            <div class="success" id="successMsg">Form submitted successfully!</div>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById('userForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const fields = ['name', 'email', 'phone'];
+        const touchedFields = new Set();
+
+        console.log(typeof touchedFields, 'touched feilds');
+
+        // Add event listeners to all fields
+        fields.forEach(fieldName => {
+            const field = document.getElementById(fieldName);
+            const errorMsg = document.getElementById(fieldName + 'Error');
+            console.log(errorMsg,'errorMsg');
+            
+
+            // Restrict phone input to numbers only
+            if (fieldName === 'phone') {
+                field.addEventListener('input', (e) => {
+                    e.target.value = e.target.value.replace(/\D/g, '');
+                    if (touchedFields.has(fieldName)) {
+                        validateField(fieldName);
+                        checkFormValid();
+                    }
+                });
+            }
+
+            // When user leaves a field
+            field.addEventListener('blur', () => {
+                touchedFields.add(fieldName);
+                validateField(fieldName);
+                checkFormValid();
+            });
+
+            // When user types in a field (only if already touched)
+            field.addEventListener('input', () => {
+                if (touchedFields.has(fieldName)) {
+                    validateField(fieldName);
+                    checkFormValid();
+                }
+            });
+        });
+        
+        // Validate individual field
+        function validateField(fieldName) {
+            const field = document.getElementById(fieldName);
+            const errorMsg = document.getElementById(fieldName + 'Error');
+            const value = field.value.trim();
+            let isValid = false;
+
+            // Basic validation rules
+            if (fieldName === 'name') {
+                isValid = value.length >= 2 && value.length <= 15;
+            } else if (fieldName === 'email') {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                isValid = emailRegex.test(value);
+            } else if (fieldName === 'phone') {
+                const phoneRegex = /^\d{10}$/;
+                isValid = phoneRegex.test(value);
+            }
+
+            // Show/hide error and apply styling
+            if (touchedFields.has(fieldName)) {
+                if (isValid) {
+                    field.classList.remove('error');
+                    field.classList.add('valid');
+                    errorMsg.classList.remove('show');
+                } else {
+                    field.classList.remove('valid');
+                    field.classList.add('error');
+                    errorMsg.classList.add('show');
+                }
+            }
+
+            return isValid;
+        }
+
+        // Check if entire form is valid
+        function checkFormValid() {
+            const allValid = fields.every(fieldName => validateField(fieldName));
+            submitBtn.disabled = !allValid;
+        }
+
+        // Handle form submission
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Mark all fields as touched and validate
+            fields.forEach(fieldName => {
+                touchedFields.add(fieldName);
+                validateField(fieldName);
+            });
+
+            // If all valid, show success
+            if (fields.every(fieldName => validateField(fieldName))) {
+                document.getElementById('successMsg').style.display = 'block';
+                
+                // Reset form after 2 seconds
+                setTimeout(() => {
+                    form.reset();
+                    touchedFields.clear();
+                    fields.forEach(fieldName => {
+                        const field = document.getElementById(fieldName);
+                        const errorMsg = document.getElementById(fieldName + 'Error');
+                        field.classList.remove('error', 'valid');
+                        errorMsg.classList.remove('show');
+                    });
+                    document.getElementById('successMsg').style.display = 'none';
+                    checkFormValid();
+                }, 2000);
+            }
+        });
+    </script>
+</body>
+</html>
