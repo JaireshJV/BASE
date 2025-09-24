@@ -219,11 +219,18 @@ document.getElementById("cls").addEventListener("click",function(){
   
 </script>
 
-<div>
+<form>
+  <h1>JAI DEMO</h1>
+<input type="text" id="demo" />
+<input type="text" id="demo2" />
 
-</div>
+</form>
 
 <script>
+const demo = document.querySelector('#demo');
+demo.addEventListener('focus',(event)=>{
+  console.log('Click Event',event.target.value);
+})
 
 </script>
 
