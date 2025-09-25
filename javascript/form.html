@@ -154,6 +154,17 @@
                 />
                 <div class="errormsg red" id="ageError"></div>
               </div>
+
+              <div>
+                <label for="inputEmail">Email :</label><br />
+                <input
+                  type="email"
+                  placeholder="Email"
+                  name="UserEmail"
+                  id="useremail"
+                />
+                <div class="errormsg red" id="emailError"></div>
+              </div>
             </div>
           </div>
 
@@ -171,45 +182,130 @@
     </div>
 
     <script>
-      function validName(e) {
+      function Validation(e) {
+        console.log(e, "valueee");
+
         e.preventDefault();
         const userName = document.getElementById("username").value;
         const nameerror = document.getElementById("nameError");
         const userAge = document.getElementById("userage").value;
         const ageError = document.getElementById("ageError");
+        const userEmail = document.getElementById("useremail").value;
+        const emailError = document.getElementById("emailError");
         const submitbutton = document.getElementById("submitbtn");
 
+        const values = {
+          name: userName,
+          age: userAge,
+          email: userEmail,
+        };
+
+        console.log(values, "valuesvalues");
+
         console.log("User Name", userName);
-          console.log("Age", ageError);
+        console.log("Age", ageError);
 
-        submitbutton.disabled = true;
+        let isValid = true;
+        let isValidName = false ;
+        let isValidAge = false ;
+        let isValidEmail = false ;
 
-        // let lengtherr = document.createElement('p');
-        // lengtherr.textContent = `Max Length of ${feild} is 15`;
+        document
+          .getElementById("username")
+          .addEventListener("input", ValidName(e));
 
-        if (userName == "") {
-          console.log("Name Error", nameerror);
-          // nameerror.textContent = "";
-          nameerror.textContent = "Name is required";
-          nameerror.classList.add("showmsg");
-        } else if (userName.length <= 2 || userName.lenght >= 15) {
-          console.log("length Error", nameerror);
-          nameerror.textContent = "User Name must be between 2 to 15";
-          nameerror.classList.add("showmsg");
+        document
+          .getElementById("userage")
+          .addEventListener("input", ValidAge(e));
+
+        document
+          .getElementById("useremail")
+          .addEventListener("input", ValidEmail(e));
+
+        function ValidName(e) {
+          console.log("insidename");
+
+          if (userName == "") {
+            console.log("Name Error", nameerror);
+            nameerror.textContent = "Name is required";
+            nameerror.classList.add("showmsg");
+            isValid = false;
+          } else if (userName.length <= 2 || userName.length >= 15) {
+            console.log("length Error", nameerror);
+            nameerror.textContent = "User Name must be between 2 to 15";
+            nameerror.classList.add("showmsg");
+            isValid = false;
+          } else {
+            nameerror.classList.remove("showmsg");
+            isValidName = true ;
+          }
         }
 
-        // if (userAge == "") {
-        //   console.log("Age Error", ageError);
-        //   ageError.textContent = "Age is required";
-        //   ageError.classList.add("showmsg");
-        // }
+        function ValidAge(e) {
+          if (userAge == "") {
+            console.log("Age Error", ageError);
+            ageError.textContent = "Age is required";
+            ageError.classList.add("showmsg");
+            isValid = false;
+          } else {
+            ageError.classList.remove("showmsg");
+            isValidAge = true ;
+          }
+        }
 
-        console.log("valid");
+        function ValidEmail(e) {
+          if (userEmail == "") {
+            console.log("Email Error", emailError);
+            emailError.textContent = "Email is required";
+            emailError.classList.add("showmsg");
+            isValid = false;
+          } else if (!userEmail.includes("@") || !userEmail.includes(".")) {
+            emailError.textContent = "Not valid Email ID";
+            emailError.classList.add("showmsg");
+          } else {
+            emailError.classList.remove("showmsg");
+            isValidEmail = true ;
+          }
+        }
 
-        return (submitbutton.disabled = false);
+        console.log(isValidName,isValidAge,isValidEmail,'checkkkk');
+        
+        if(isValidName,isValidAge,isValidEmail){
+        return PostValues(values);
+        }
+
+        // submitbutton.disabled = !isValid;
       }
 
-      document.getElementById("submitbtn").addEventListener("click", validName);
+      document
+        .getElementById("submitbtn")
+        .addEventListener("click", Validation);
+
+      function PostValues(values) {
+        console.log(values,'finallyyyy');
+        
+      }
+    </script>
+
+    <!-- Toggle -->
+
+    <button id="btn">Toggle Highlight</button>
+    <p id="para">Hello World</p>
+
+    <style>
+      .highlight {
+        color: red;
+        font-weight: bold;
+      }
+    </style>
+
+    <script>
+      const btn = document.getElementById("btn");
+      const para = document.getElementById("para");
+
+      btn.addEventListener("click", () => {
+        para.classList.toggle("highlight");
+      });
     </script>
   </body>
 </html>
