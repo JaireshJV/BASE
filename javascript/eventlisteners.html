@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Listeners</title>
+  </head>
+  <body>
+    <!-- Event : The event is we are giving that button purpose in the html file .
+    Event Listeners : Giving details inside the script while the event happens . -->
+
+    <button id="btn">ADD</button><br />
+
+    <script>
+      document.getElementById("btn").addEventListener("click", () => {
+        console.log("Here the function exist");
+      });
+    </script>
+
+    <!-- Stopwatch -->
+
+    <button onclick="StartFunc()">START</button>
+    <button onclick="PauseFunc()">PAUSE</button>
+    <button onclick="ResetFunc()">RESET</button>
+
+    <p id="watch"></p>
+    <script>
+      let i = 0;
+      let setIntv;
+      function StartFunc() {
+        setIntv = setInterval(() => {
+          i++;
+          if (i >= 12) {
+            ResetFunc();
+          } else {
+            document.getElementById("watch").innerText = i;
+          }
+        }, 1000);
+      }
+
+      function PauseFunc() {
+        clearInterval(setIntv);
+      }
+
+      function ResetFunc() {
+        document.getElementById("watch").innerText = 0;
+      }
+    </script>
+  </body>
+</html>

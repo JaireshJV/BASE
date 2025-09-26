@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .input {
+        display: block;
+        color: red;
+      }
+      .hideit {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" onchange="changetext(this)" placeholder="Enter Name" />
+    <p id="input"></p>
+    <button id="btn">SUBMIT</button>
+    <script>
+      function changetext(par) {
+        const MsgField = document.getElementById("input");
+        const ButtonBtn = document.getElementById("btn");
+        if (par.value.length > 15) {
+          MsgField.innerText = "Max Value Exceeds [Max 15]";
+          MsgField.classList.add("input");
+          ButtonBtn.disabled = true;
+        } else {
+          MsgField.classList.add("hideit");
+          ButtonBtn.disabled = false;
+        }
+        console.log(par.value, "entered");
+      }
+    </script>
+  </body>
+</html>

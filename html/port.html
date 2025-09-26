@@ -1,0 +1,362 @@
+Delivered-To: jeffrinwebster@gmail.com
+Received: by 2002:a05:6918:9e85:b0:336:51f6:c281 with SMTP id fi5csp899642ysc;
+        Mon, 8 Sep 2025 00:59:05 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AJvYcCUluVkTyX7tqXdBOsjIN6QfOuJ5SM5xLAhzwP+FRDPAthGRfE8XrD28ACpAWXjuZPVsWB4syBIvFDpS5Ova4w==@gmail.com
+X-Google-Smtp-Source: AGHT+IHCMydSQxeWyuR52wbvkQnOifENoUFY1WSCE1Nk7CBZd9QSFP1DObyW4hRkifXaSy39Onem
+X-Received: by 2002:a17:907:6e90:b0:af9:29c1:1103 with SMTP id a640c23a62f3a-b04b16e4b03mr599217766b.55.1757318345185;
+        Mon, 08 Sep 2025 00:59:05 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1757318345; cv=none;
+        d=google.com; s=arc-20240605;
+        b=eq3neYGr6dJQ4dzVH8pOO2tVf0L8SmvGZ6++titz8pRyJpoJnDTqMHtkyvcEdd7NrR
+         DQDdsEIHSG1FcOO+V9BJUnUJtE3oadAoGdEJEX5o7o2JOzYHjBtjngFlsXa4btAmn0Pb
+         CigltzCf+bVHsM5d/mYMAva6IB9O8MMSa30TImiL9sSQoy6nTt80De/fCAvzyoxjDoQR
+         K5fjZ5deyp0IVmIoJtDDyp7go/RbBwwRqqYh1jt+lT1JUXIsF7jVA1/GOPXG8/+ssypM
+         f9xlPH2/so1EYrACsLxRBO1TOU0Pids4TqovQTqPx20Z93sh5ynLoc0/vN4762w1ua18
+         /ZVA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=EAsVVk5IxY3HSGSSYs6opza1hkkx8A+SIylK0IA/7JY=;
+        fh=bhj6nXL1vm5jtmJKnzRV+7HmQzdlpL28rGxWdbLCbMQ=;
+        b=eGBvtc3uBnXjrRXnq/ez+DeTu6R3Ds3SXDw6XKYHTvrQR6uC36rLDQ/sLIuvADrwb6
+         UOmL6jOzNxaHfv7eTQr/ovdGhRC76oqK1DrXJGtZ8PzCt0plQreUb/J2zfjm1+GZAckR
+         eS+rgUZXqvfwWYvsSbJzIZXe7hD1HX4HRLbLNshH17qZaWwzkRHyiBbXup22bMNDzsQZ
+         zwND45JCWU6yD+sxuWr+LBR0T0WLo4tpJKhZV1dLNcHbh23IoqS9W9HQftyG9A3xXXRQ
+         wDMJ3nrR+0c4oOYEUUFfvU1RsuSFmCKm9RLNX8YNg1mYVWITdN7R+bMwPQkPjerVxfWP
+         5nIA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@imarticus.com header.s=google header.b=G16zaS2y;
+       spf=pass (google.com: domain of gauthami.p@imarticus.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=gauthami.p@imarticus.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=imarticus.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <gauthami.p@imarticus.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-b046f1cef23sor305871166b.17.2025.09.08.00.59.05
+        for <jeffrinwebster@gmail.com>
+        (Google Transport Security);
+        Mon, 08 Sep 2025 00:59:05 -0700 (PDT)
+Received-SPF: pass (google.com: domain of gauthami.p@imarticus.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@imarticus.com header.s=google header.b=G16zaS2y;
+       spf=pass (google.com: domain of gauthami.p@imarticus.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=gauthami.p@imarticus.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=imarticus.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=imarticus.com; s=google; t=1757318345; x=1757923145; dara=google.com;
+        h=cc:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=EAsVVk5IxY3HSGSSYs6opza1hkkx8A+SIylK0IA/7JY=;
+        b=G16zaS2y8FUdunbduQFdxouYbEkNLB7N7W1uJW7i3IZTEev6CfymZ7bLSrfMQgLHL6
+         sTn/eD0SS82kTI0ZGF5y32ps470fClRAUgCZ6OJgeKmsU3NCfPPXyqmZzOEJPXqwvxF5
+         EwgfmaUFFxoD/kOr9Ams1ocqaoBdZvDOInUZ4=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757318345; x=1757923145;
+        h=cc:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=EAsVVk5IxY3HSGSSYs6opza1hkkx8A+SIylK0IA/7JY=;
+        b=EXwcEqGAtH9sP4S7tm049Pe7JGqrSEiW5EzY7e1RTqIQHwD6HfEDLGFehB9vxYxPwz
+         rZI3Yc41VqBv8wGIBpYx3mpe9U7hRSQRRBsV76yUw3JBeyq3O8zLoflAoarPiMFdzk3/
+         he/2WmsyIf0gaBmFonAGqEDKva8xwgZGgSEAVdm5RAiwV9HmIt50hZzogT0HG+lo/PIe
+         5A7gXHH0wk30VMB3ZH24v+shjZ9g8bfPQOvrbuQYB8Tx/0Pgz/MUnlpcvn+2QYY9E5bi
+         Kl07/dYi1/e+nCwcDTpVq3fzxoWN/xnaOrXZBJ5iem/br/oMhH6V3/IWw+T2GZ6Z745v
+         wvVA==
+X-Forwarded-Encrypted: i=1; AJvYcCVXFMr5Z6CX+wQcvdpz8kwoTd2bqqYYJrZ/RTAX6sfKpZkr7ZTuz1ieWaHZME20YncqzNNJskRZ0o9b+4gI8Q==@gmail.com
+X-Gm-Message-State: AOJu0YwaewLtAE3UUGl8uz+TompRm3NR541ORqKHX1SkQG0sfWGELBQg
+	unmDZ6kq0OY6HavjqjT2uAO5W3y5hASxSoi5Kn63wVv8dL3OA/N8eJTqCRm11rJjPzhNpp3LNob
+	Pz7VTyVgb97DvSaj69TkrI/slMdwVso8Ysh0CYUNWCC6JirrRn8W7pQ0=
+X-Gm-Gg: ASbGncu5mzhxkxLkGIheNPHXzdJ0yqegSm3c7rHAAndLfrxcXvo+HLczo/xn5reGvZD
+	ytVaUajX4EHWCKxkD8L7NoFRc28X/x79R6gQNsO5Jhv2+ThznqjUle4WnQdYkPkXXyIUTGksCk1
+	PcMwJcTF5ITUT7LG9X9+Yl2fSkMSo0iBOLuwYyJueD8uJtKNsgFeqnbp8c7K7HaoGizCuqUz6T3
+	NMF6wSxzjdg62X7WkCCtVN6J4IBTpF5H3pLzh/H4FTOnf19CQ==
+X-Received: by 2002:a17:907:971f:b0:b04:3cd2:2662 with SMTP id
+ a640c23a62f3a-b04b1445b09mt637989266b.14.1757318344529; Mon, 08 Sep 2025
+ 00:59:04 -0700 (PDT)
+MIME-Version: 1.0
+From: Gauthami P <gauthami.p@imarticus.com>
+Date: Mon, 8 Sep 2025 13:28:25 +0530
+X-Gm-Features: AS18NWDtLLphrvD0b52j9hfYx_ivQv3JcKvhGMYtO86Isfvhqt2WlQERCKxPT-Y
+Message-ID: <CAPm=nUzYcCafv-HrcK_M_gcAE+-iVaoUYV+LV8XD6o8P0MvBsg@mail.gmail.com>
+Subject: Action Required: Create & Submit Your Enhanced Learner Profile for
+ PGA Placement
+Cc: Raghavendra BM <raghavendra.bm@imarticus.com>
+Content-Type: multipart/alternative; boundary="000000000000b05bee063e458fdd"
+Bcc: jeffrinwebster@gmail.com
+
+--000000000000b05bee063e458fdd
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Dear Learners,
+
+Greetings for the day,
+
+Kindly complete the given activity by *12th September 25*, please note it
+is shared with only selected learners.
+
+This portfolio will be used alongside your resume when sharing your profile
+with clients.
+=F0=9F=9A=80 Build a Standout Portfolio on Lovable AI
+
+This guide explains everything - what to prepare, how to build it on
+Lovable, creativity tips, and how to submit your URL.
+*Why this matters*
+Your resume lists facts - the portfolio tells a memorable story. Recruiters
+remember impact, clarity, and personality. Use the portfolio to go beyond
+bullet points.
+Step-by-step: What to Prepare (before you open Lovable)
+Collect these items so you can paste them into Lovable quickly:
+
+   - *Full name & short tagline* (1 line, e.g., =E2=80=9CAspiring Data Scie=
+ntist |
+   ML Enthusiast=E2=80=9D).
+   - *Professional photo* =E2=80=94 clear headshot. Preferred: upload direc=
+tly in
+   Lovable chat, or provide a public direct image URL (Imgur/raw
+   GitHub/Supabase). Avoid Drive viewer URLs for images.
+   - *About me* =E2=80=94 2=E2=80=934 lines (who you are, what you build, w=
+hat you want).
+   - *Education* =E2=80=94 degree, institution, year.
+   - *Skills* =E2=80=94 comma separated (technical + relevant soft skills).
+   - *Projects (2=E2=80=933)* =E2=80=94 for each: title, 1=E2=80=932 senten=
+ce description, tech
+   tags, GitHub or live demo link.
+   - *Blogs* =E2=80=94 title + public URL for any articles you wrote.
+   - *Certificates* =E2=80=94 name, issuer, year, public certificate link
+   (Credly/Coursera share etc.).
+   - *Profiles* =E2=80=94 GitHub, LinkedIn, HackerRank/LeetCode (if applica=
+ble).
+   - *Resume link* =E2=80=94 upload to Google Drive and set to =E2=80=9CAny=
+one with the
+   link can view=E2=80=9D OR use Drive direct-download (recommended format:
+   https://drive.google.com/uc?export=3Ddownload&id=3DFILE_ID).
+
+How to build it on Lovable (exact words you can use)
+Use simple prompts in the Lovable chat. Copy/paste this (replace the
+bracketed parts) or* create your own (recommended)*:
+*Example prompt to paste:*
+=E2=80=9CCreate a recruiter-friendly portfolio website (static HTML/CSS/JS)=
+.
+Sections: Hero (name, tagline, profile photo), About Me, Education, Skills,
+Projects (cards with GitHub/live link), Blogs (cards), Certificates
+(cards), Competitive Profiles, Contact, and Resume button (link opens in
+new tab). Use card-based layout, responsive design, readable fonts, and
+accessible markup. Use the uploaded photo as the profile image. Populate
+all content from the details I paste next.=E2=80=9D
+Paste your details
+When Lovable asks for details, paste the items you prepared (name, tagline,
+about, education, skills, projects, blogs, certificates, profiles, resume
+link). If you uploaded a photo in the chat, say: =E2=80=9CUse the uploaded =
+file as
+my profile photo.=E2=80=9D
+Check & adjust
+
+   - Preview the generated site in Lovable=E2=80=99s preview panel.
+   - Verify your profile photo displays (if not, re-upload or use a public
+   direct image link).
+   - Open all GitHub/blog/resume links to confirm they open in a new tab.
+   - Ask Lovable to hide any empty sections (e.g., =E2=80=9Chide blogs =E2=
+=80=94 I have
+   none=E2=80=9D) or adjust colors/spacing in plain language.
+
+*Make it stand out =E2=80=94 creative ideas (use 1=E2=80=932)*
+
+   - One-line career story: why you build things.
+   - Outcomes: 1=E2=80=932 measurable results per project (e.g., reduced lo=
+ad time
+   by 30%).
+   - Creative element: timeline, badges, mentor quote, or a short demo
+   GIF/screencast.
+   - Optional testimonial: 1 short mentor/peer quote with name & role.
+
+*Important:* Be creative =E2=80=94 but keep everything true and verifiable.
+=F0=9F=93=A4 Submit Your Portfolio (Form) <https://forms.gle/ppo6TsYbYdw7qQ=
+3c7>
+Clear Submission Checklist (must be TRUE before you submit)
+
+   1. *Portfolio URL is public* and opens without authentication in an
+   incognito browser window.
+   2. *Profile photo displays correctly* on the portfolio (not a broken
+   image or Drive viewer page).
+   3. *Resume link is public* - test the Drive direct-download link or
+   public view link. Recommended format:
+   https://drive.google.com/uc?export=3Ddownload&id=3DFILE_ID.
+   4. *Top 2 projects have working GitHub or live demo links* (check they
+   are public & clickable).
+   5. *No false claims* - all certificates, projects, and metrics can be
+   verified if requested.
+   6. *If a section is empty (e.g., blogs), hide it* - don=E2=80=99t show
+   placeholders that say =E2=80=9CNo blogs yet=E2=80=9D.
+   7. *Include one creative element* (timeline, badges, testimonial, GIF),
+   or a short one-line career story - *optional but highly recommended*.
+
+If your submission fails any of the checklist items, we will ask you to fix
+it before consolidation. Please double-check everything before you hit
+submit.
+
+Questions? Reply to this email raghavendra.bm@imarticus.com*[Raghavendra BM
+/ PGA Training South]*.
+Warm Regards,
+
+*Gauthami P*
+
+Lead - Career Service
+
+www.imarticus.org <https://imarticus.org/>
+
+Eshanya, No 421, 2nd & 3rd Floor, 80 Feet Road, NGV Signal
+6th Block, Koramangala, Bengaluru - 560095
+
+--000000000000b05bee063e458fdd
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div>Dear Learners,</div><div><br></div><div>Greetings for=
+=C2=A0the day,</div><div><br></div><div>Kindly complete the given activity =
+by <b>12th September 25</b>, please note it is shared with only selected le=
+arners.</div><div><br></div><div>This portfolio will be used alongside your=
+ resume when sharing your profile with clients.=C2=A0=C2=A0</div><div><tabl=
+e role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" =
+style=3D"border-radius:12px;overflow:hidden"><tbody><tr><td style=3D"backgr=
+ound:linear-gradient(90deg,rgb(11,111,191),rgb(43,179,255));color:rgb(255,2=
+55,255);padding:22px"><h1 style=3D"margin:0px;font-size:22px;line-height:1.=
+15">=F0=9F=9A=80=C2=A0Build a Standout Portfolio on Lovable AI</h1><p style=
+=3D"margin:8px 0px 0px;font-size:15px;opacity:0.95">This guide explains eve=
+rything - what to prepare, how to build it on Lovable, creativity tips, and=
+ how to submit your URL.</p></td></tr><tr><td style=3D"background-image:ini=
+tial;background-position:initial;background-size:initial;background-repeat:=
+initial;background-origin:initial;background-clip:initial;padding:22px 20px=
+"><div style=3D"background:rgb(255,249,242);border-left:4px solid rgb(255,1=
+38,61);padding:12px 14px;border-radius:6px;margin-bottom:16px"><strong styl=
+e=3D"display:block;color:rgb(154,52,18);font-size:15px">Why this matters</s=
+trong><div style=3D"color:rgb(52,64,84);margin-top:8px;font-size:15px;line-=
+height:1.5">Your resume lists facts - the portfolio tells a memorable story=
+. Recruiters remember impact, clarity, and personality. Use the portfolio t=
+o go beyond bullet points.</div></div><h2 style=3D"font-size:18px;margin:8p=
+x 0px 10px;color:rgb(11,58,102)">Step-by-step: What to Prepare (before you =
+open Lovable)</h2><div style=3D"color:rgb(71,85,105);font-size:15px;line-he=
+ight:1.6;margin-bottom:12px">Collect these items so you can paste them into=
+ Lovable quickly:</div><ul style=3D"color:rgb(71,85,105);font-size:15px;lin=
+e-height:1.6;margin:0px 0px 16px 18px"><li style=3D"margin-left:15px"><stro=
+ng>Full name &amp; short tagline</strong>=C2=A0(1 line, e.g., =E2=80=9CAspi=
+ring Data Scientist | ML Enthusiast=E2=80=9D).</li><li style=3D"margin-left=
+:15px"><strong>Professional photo</strong>=C2=A0=E2=80=94 clear headshot. P=
+referred: upload directly in Lovable chat, or provide a public direct image=
+ URL (Imgur/raw GitHub/Supabase). Avoid Drive viewer URLs for images.</li><=
+li style=3D"margin-left:15px"><strong>About me</strong>=C2=A0=E2=80=94 2=E2=
+=80=934 lines (who you are, what you build, what you want).</li><li style=
+=3D"margin-left:15px"><strong>Education</strong>=C2=A0=E2=80=94 degree, ins=
+titution, year.</li><li style=3D"margin-left:15px"><strong>Skills</strong>=
+=C2=A0=E2=80=94 comma separated (technical + relevant soft skills).</li><li=
+ style=3D"margin-left:15px"><strong>Projects (2=E2=80=933)</strong>=C2=A0=
+=E2=80=94 for each: title, 1=E2=80=932 sentence description, tech tags, Git=
+Hub or live demo link.</li><li style=3D"margin-left:15px"><strong>Blogs</st=
+rong>=C2=A0=E2=80=94 title + public URL for any articles you wrote.</li><li=
+ style=3D"margin-left:15px"><strong>Certificates</strong>=C2=A0=E2=80=94 na=
+me, issuer, year, public certificate link (Credly/Coursera share etc.).</li=
+><li style=3D"margin-left:15px"><strong>Profiles</strong>=C2=A0=E2=80=94 Gi=
+tHub, LinkedIn, HackerRank/LeetCode (if applicable).</li><li style=3D"margi=
+n-left:15px"><strong>Resume link</strong>=C2=A0=E2=80=94 upload to Google D=
+rive and set to =E2=80=9CAnyone with the link can view=E2=80=9D OR use Driv=
+e direct-download (recommended format:=C2=A0<code><a href=3D"https://drive.=
+google.com/uc?export=3Ddownload&amp;id=3DFILE_ID" target=3D"_blank">https:/=
+/drive.google.com/uc?export=3Ddownload&amp;id=3DFILE_ID</a></code>).</li></=
+ul><h2 style=3D"font-size:18px;margin:8px 0px 10px;color:rgb(11,58,102)">Ho=
+w to build it on Lovable (exact words you can use)</h2><div style=3D"color:=
+rgb(71,85,105);font-size:15px;line-height:1.6;margin-bottom:8px">Use simple=
+ prompts in the Lovable chat. Copy/paste this (replace the bracketed parts)=
+ or<i>=C2=A0create your own (recommended)</i>:</div><div style=3D"backgroun=
+d:rgb(248,250,252);border:1px solid rgb(238,242,255);padding:12px;border-ra=
+dius:8px;color:rgb(71,85,105);font-size:14px;line-height:1.6;margin-bottom:=
+14px"><strong>Example prompt to paste:</strong><br>=E2=80=9CCreate a recrui=
+ter-friendly portfolio website (static HTML/CSS/JS). Sections: Hero (name, =
+tagline, profile photo), About Me, Education, Skills, Projects (cards with =
+GitHub/live link), Blogs (cards), Certificates (cards), Competitive Profile=
+s, Contact, and Resume button (link opens in new tab). Use card-based layou=
+t, responsive design, readable fonts, and accessible markup. Use the upload=
+ed photo as the profile image. Populate all content from the details I past=
+e next.=E2=80=9D</div><h3 style=3D"font-size:16px;margin:8px 0px;color:rgb(=
+11,58,102)">Paste your details</h3><div style=3D"color:rgb(71,85,105);font-=
+size:15px;line-height:1.6;margin-bottom:10px">When Lovable asks for details=
+, paste the items you prepared (name, tagline, about, education, skills, pr=
+ojects, blogs, certificates, profiles, resume link). If you uploaded a phot=
+o in the chat, say: =E2=80=9CUse the uploaded file as my profile photo.=E2=
+=80=9D</div><h3 style=3D"font-size:16px;margin:8px 0px;color:rgb(11,58,102)=
+">Check &amp; adjust</h3><ul style=3D"color:rgb(71,85,105);font-size:15px;l=
+ine-height:1.6;margin:0px 0px 16px 18px"><li style=3D"margin-left:15px">Pre=
+view the generated site in Lovable=E2=80=99s preview panel.</li><li style=
+=3D"margin-left:15px">Verify your profile photo displays (if not, re-upload=
+ or use a public direct image link).</li><li style=3D"margin-left:15px">Ope=
+n all GitHub/blog/resume links to confirm they open in a new tab.</li><li s=
+tyle=3D"margin-left:15px">Ask Lovable to hide any empty sections (e.g., =E2=
+=80=9Chide blogs =E2=80=94 I have none=E2=80=9D) or adjust colors/spacing i=
+n plain language.</li></ul><div style=3D"background:linear-gradient(rgb(240=
+,249,255),rgb(255,255,255));border:1px solid rgb(230,242,255);padding:12px;=
+border-radius:8px;margin-bottom:16px"><strong style=3D"color:rgb(11,82,91);=
+font-size:15px">Make it stand out =E2=80=94 creative ideas (use 1=E2=80=932=
+)</strong><ul style=3D"color:rgb(71,85,105);font-size:15px;line-height:1.6;=
+margin:8px 0px 0px 18px"><li style=3D"margin-left:15px">One-line career sto=
+ry: why you build things.</li><li style=3D"margin-left:15px">Outcomes: 1=E2=
+=80=932 measurable results per project (e.g., reduced load time by 30%).</l=
+i><li style=3D"margin-left:15px">Creative element: timeline, badges, mentor=
+ quote, or a short demo GIF/screencast.</li><li style=3D"margin-left:15px">=
+Optional testimonial: 1 short mentor/peer quote with name &amp; role.</li><=
+/ul><div style=3D"color:rgb(154,52,18);margin-top:8px;font-size:14px"><stro=
+ng>Important:</strong>=C2=A0Be creative =E2=80=94 but keep everything true =
+and verifiable.</div></div><div style=3D"text-align:center;margin:6px 0px 1=
+2px"><a href=3D"https://forms.gle/ppo6TsYbYdw7qQ3c7" target=3D"_blank" styl=
+e=3D"color:rgb(255,255,255);display:inline-block;background:rgb(255,138,61)=
+;padding:14px 22px;border-radius:10px;text-decoration-line:none;font-weight=
+:700;font-size:16px">=F0=9F=93=A4=C2=A0Submit Your Portfolio (Form)</a></di=
+v><h2 style=3D"font-size:18px;margin:8px 0px 10px;color:rgb(11,58,102)">Cle=
+ar Submission Checklist (must be TRUE before you submit)</h2><div style=3D"=
+border-radius:8px;padding:12px;background:rgb(248,250,252);border:1px solid=
+ rgb(230,238,249);color:rgb(71,85,105);font-size:15px;line-height:1.6"><ol =
+style=3D"margin:0px 0px 0px 18px;padding:0px"><li style=3D"margin-left:15px=
+"><strong>Portfolio URL is public</strong>=C2=A0and opens without authentic=
+ation in an incognito browser window.</li><li style=3D"margin-left:15px"><s=
+trong>Profile photo displays correctly</strong>=C2=A0on the portfolio (not =
+a broken image or Drive viewer page).</li><li style=3D"margin-left:15px"><s=
+trong>Resume link is public</strong>=C2=A0- test the Drive direct-download =
+link or public view link. Recommended format:=C2=A0<code><a href=3D"https:/=
+/drive.google.com/uc?export=3Ddownload&amp;id=3DFILE_ID" target=3D"_blank">=
+https://drive.google.com/uc?export=3Ddownload&amp;id=3DFILE_ID</a></code>.<=
+/li><li style=3D"margin-left:15px"><strong>Top 2 projects have working GitH=
+ub or live demo links</strong>=C2=A0(check they are public &amp; clickable)=
+.</li><li style=3D"margin-left:15px"><strong>No false claims</strong>=C2=A0=
+- all certificates, projects, and metrics can be verified if requested.</li=
+><li style=3D"margin-left:15px"><strong>If a section is empty (e.g., blogs)=
+, hide it</strong>=C2=A0- don=E2=80=99t show placeholders that say =E2=80=
+=9CNo blogs yet=E2=80=9D.</li><li style=3D"margin-left:15px"><strong>Includ=
+e one creative element</strong>=C2=A0(timeline, badges, testimonial, GIF), =
+or a short one-line career story -=C2=A0<b>optional but highly recommended<=
+/b>.</li></ol></div><p style=3D"color:rgb(71,85,105);font-size:15px;margin:=
+14px 0px 0px">If your submission fails any of the checklist items, we will =
+ask you to fix it before consolidation. Please double-check everything befo=
+re you hit submit.</p><p style=3D"color:rgb(71,85,105);font-size:15px;margi=
+n:14px 0px 0px">Questions? Reply to this email=C2=A0<a href=3D"mailto:ragha=
+vendra.bm@imarticus.com">raghavendra.bm@imarticus.com</a><strong>[Raghavend=
+ra BM / PGA Training South]</strong>.</p></td></tr></tbody></table>Warm Reg=
+ards,</div><div><div dir=3D"ltr" class=3D"gmail_signature" data-smartmail=
+=3D"gmail_signature"><div dir=3D"ltr"><table border=3D"0" cellspacing=3D"0"=
+ cellpadding=3D"0" width=3D"650" style=3D"color:rgb(34,34,34);width:487.5pt=
+;background-image:initial;background-position:initial;background-repeat:ini=
+tial"><tbody><tr><td style=3D"padding:0in"><p class=3D"MsoNormal"><b><span =
+style=3D"font-size:11.5pt;font-family:Arial,sans-serif;color:rgb(3,86,66);b=
+ackground-image:initial;background-position:initial;background-repeat:initi=
+al">Gauthami P</span></b></p></td></tr><tr><td style=3D"padding:0in"><p cla=
+ss=3D"MsoNormal"><span style=3D"font-size:10pt;font-family:Arial,sans-serif=
+;color:rgb(240,88,89);background-image:initial;background-position:initial;=
+background-repeat:initial">Lead - Career Service</span></p></td></tr><tr><t=
+d style=3D"padding:0in"><p class=3D"MsoNormal" style=3D"margin-right:0in;ma=
+rgin-bottom:1.5pt;margin-left:0in"><span style=3D"font-size:10pt;font-famil=
+y:Arial,sans-serif;color:rgb(96,96,98)"><a href=3D"https://imarticus.org/" =
+style=3D"color:rgb(17,85,204)" target=3D"_blank"><span style=3D"color:rgb(3=
+,86,66)">www.imarticus.org</span></a></span><span style=3D"font-size:12pt;f=
+ont-family:Times,serif;color:rgb(80,0,80)"><u></u><u></u></span></p></td></=
+tr><tr><td style=3D"padding:1.5pt 0in 0in"><p class=3D"MsoNormal" style=3D"=
+margin-bottom:1.5pt"><span style=3D"font-size:12pt;font-family:Arial,sans-s=
+erif;color:rgb(68,68,68)">Eshanya, No 421, 2nd &amp; 3rd Floor,=C2=A080 Fee=
+t Road,=C2=A0NGV Signal<br>6th Block,=C2=A0Koramangala, Bengaluru - 560095<=
+/span></p></td></tr></tbody></table></div></div></div></div>
+
+--000000000000b05bee063e458fdd--

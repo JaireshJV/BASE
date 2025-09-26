@@ -169,8 +169,8 @@
           </div>
 
           <!-- End Row -->
-          <div class="d-flex justify-content-center gap-5">
-            <button class="btn btn-success" type="submit" id="submitbtn">
+          <div class="d-flex justify-content-center gap-5 mt-3">
+            <button class="btn btn-success" type="submit" onclick="AddEmployee()">
               Submit
             </button>
             <button class="btn btn-danger" type="button" id="closebtn">
@@ -182,10 +182,9 @@
     </div>
 
     <script>
-      function Validation(e) {
-        console.log(e, "valueee");
-
+      function AddEmployee(e) {
         e.preventDefault();
+
         const userName = document.getElementById("username").value;
         const nameerror = document.getElementById("nameError");
         const userAge = document.getElementById("userage").value;
@@ -194,21 +193,10 @@
         const emailError = document.getElementById("emailError");
         const submitbutton = document.getElementById("submitbtn");
 
-        const values = {
-          name: userName,
-          age: userAge,
-          email: userEmail,
-        };
-
-        console.log(values, "valuesvalues");
-
-        console.log("User Name", userName);
-        console.log("Age", ageError);
-
         let isValid = true;
-        let isValidName = false ;
-        let isValidAge = false ;
-        let isValidEmail = false ;
+        let isValidName = false;
+        let isValidAge = false;
+        let isValidEmail = false;
 
         document
           .getElementById("username")
@@ -223,39 +211,33 @@
           .addEventListener("input", ValidEmail(e));
 
         function ValidName(e) {
-          console.log("insidename");
-
           if (userName == "") {
-            console.log("Name Error", nameerror);
             nameerror.textContent = "Name is required";
             nameerror.classList.add("showmsg");
             isValid = false;
           } else if (userName.length <= 2 || userName.length >= 15) {
-            console.log("length Error", nameerror);
             nameerror.textContent = "User Name must be between 2 to 15";
             nameerror.classList.add("showmsg");
             isValid = false;
           } else {
             nameerror.classList.remove("showmsg");
-            isValidName = true ;
+            isValidName = true;
           }
         }
 
         function ValidAge(e) {
           if (userAge == "") {
-            console.log("Age Error", ageError);
             ageError.textContent = "Age is required";
             ageError.classList.add("showmsg");
             isValid = false;
           } else {
             ageError.classList.remove("showmsg");
-            isValidAge = true ;
+            isValidAge = true;
           }
         }
 
         function ValidEmail(e) {
           if (userEmail == "") {
-            console.log("Email Error", emailError);
             emailError.textContent = "Email is required";
             emailError.classList.add("showmsg");
             isValid = false;
@@ -264,27 +246,53 @@
             emailError.classList.add("showmsg");
           } else {
             emailError.classList.remove("showmsg");
-            isValidEmail = true ;
+            isValidEmail = true;
           }
         }
 
-        console.log(isValidName,isValidAge,isValidEmail,'checkkkk');
-        
-        if(isValidName,isValidAge,isValidEmail){
-        return PostValues(values);
+        const fields = ["username", "userage", "useremail"];
+
+        if ((isValidName, isValidAge, isValidEmail)) {
+          // Using Object method
+          const formOutput = Object.fromEntries(
+            fields.map((id) => [id, document.getElementById(id).value])
+          );
+          console.log(formOutput, "Validated values");
+
+          // Using Reduce method
+          const formData = fields.reduce((acc, id) => {
+            acc[id] = document.getElementById(id).value;
+            return acc;
+          }, {});
+
+          console.log(formData, "formData");
+
+          PostValues(formData);
         }
+        function PostValues(values) {
+          console.log(values, "fvalues");
+          const result = fetch("https://jsonplaceholder.typicode.com/posts", {
+            method: "POST",
+            body: JSON.stringify(values),
+            headers: {
+              "content-type": "application/json;charset=UTF-8",
+            },
+          })
+            .then((res) => res.json())
+            .then((json) => console.log(json))
+            .catch((err) => console.error("Error:", err));
 
-        // submitbutton.disabled = !isValid;
-      }
-
-      document
-        .getElementById("submitbtn")
-        .addEventListener("click", Validation);
-
-      function PostValues(values) {
-        console.log(values,'finallyyyy');
+            return console.log(result,'resultttttt');
+             ;
+        }
         
       }
+
+      // submitbutton.disabled = !isValid;
+
+      // document
+      //   .getElementById("submitbtn")
+      //   .addEventListener("click", AddEmployee);
     </script>
 
     <!-- Toggle -->
