@@ -133,8 +133,6 @@
 
 // console.log("corrected_colors :", corrected_colors);
 
-
-
 // // Problem 4
 // // Flatten array and count.
 // const animalGroups = [
@@ -154,7 +152,6 @@
 // }
 // console.log(finalAnimals);
 
-
 // // Problem 5
 // // Normalize and extract language names, then count.
 // const langMixed = [
@@ -171,7 +168,7 @@
 // let language = [];
 // let final_lang = [];
 // for(let it in langMixedUP){
-// language[it] = langMixedUP[it].lang ?? langMixedUP[it]; 
+// language[it] = langMixedUP[it].lang ?? langMixedUP[it];
 // }
 
 // for(let i of language){
@@ -180,61 +177,72 @@
 
 // console.log(final_lang);
 
-
 // Pattern Printing
 
 let row = "";
-let num = 7 ;
-for (i = 0 ; i < num ; i++){
-  for(j = 0 ; j < i ; j++){
+let num = 7;
+for (i = 0; i < num; i++) {
+  for (j = 0; j < i; j++) {
     // {
     //   i%2 == 0 ? (row += "0 ") : (row += "1 ")
     // }
-    row += "*"+" "
+    row += "*" + " ";
   }
-  row +="\n"
+  row += "\n";
 }
 
 console.log(row);
 
-var abi = 7 ;
- abi = 9 ;
+var abi = 7;
+abi = 9;
 
-console.log(abi,'abi');
+console.log(abi, "abi");
 
-const jai = 7 ;
+const jai = 7;
 //  jai = 9 ;
 
- console.log(jai,'jai');
- 
+console.log(jai, "jai");
 
- var dna = ""; //Declaration
+var dna = ""; //Declaration
 
- dna = 45; //Value Assignment
+dna = 45; //Value Assignment
 
- var dna = 39;  //Initialization
+var dna = 39; //Initialization
 
+var cnd = dna;
 
- var cnd = dna;
+dna = 40;
+var dna = 45;
 
- dna = 40;
- var dna = 45;
+console.log(dna);
 
- console.log(dna) 
+let vad = 20;
+vad = 78;
 
- let vad = 20;
- vad = 78;
+console.log(vad);
 
-  console.log(vad) 
+// const rat = 89;
+// rat = 90;
 
-  // const rat = 89;
-  // rat = 90;
+const bat = [""];
+bat.push("7");
+console.log(bat);
 
-  const bat = [''];
-  bat.push('7')
-  console.log(bat);
+//
 
-  //
+console.log(varjj, "var");
 
-  console.log();
-  
+var varjj = 7;
+
+// console.log(letjj, "let");
+
+// let letjj = 7;
+
+// console.log(constjj, "const");
+
+// const constjj = 7;
+
+// async function fetchFunc(){
+// const data = await getData() ;
+// console.log(data,'data');
+// }
