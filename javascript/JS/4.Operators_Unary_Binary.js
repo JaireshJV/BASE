@@ -41,3 +41,13 @@
 // Binary
 
 // Paste here
+
+
+
+f = 4;
+
+x = f++ + ++f + (++f) + f;
+
+//   4 + 6 + 7 + 7
+
+console.log(f,x,"f,x");

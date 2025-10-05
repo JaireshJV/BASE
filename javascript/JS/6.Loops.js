@@ -144,36 +144,36 @@
 
 // // console.log(output);
 
-// // const ChinnaVandi = [
-// //   "Car",
-// //   "Auto",
-// //   "Bike",
-// //   "Bus",
-// //   "Car",
-// //   "Auto",
-// //   "Bike",
-// //   "Lorry",
-// //   "Truck",
-// // ];
+// const ChinnaVandi = [
+//   "Car",
+//   "Auto",
+//   "Bike",
+//   "Bus",
+//   "Car",
+//   "Auto",
+//   "Bike",
+//   "Lorry",
+//   "Truck",
+// ];
 
-// // // Simplest way :
-// // const countofvandi = {};
+// // // // Simplest way :
+// const countofvandi = {};
 
-// // for (let item of ChinnaVandi) {
-// //   if (countofvandi[item]) {
-// //     countofvandi[item]++;
-// //   } else {
-// //     countofvandi[item] = 1;
-// //   }
-// // }
+// for (let item of ChinnaVandi) {
+//   if (countofvandi[item]) {
+//     countofvandi[item]++;
+//   } else {
+//     countofvandi[item] = 1;
+//   }
+// }
 
-// // console.log(countofvandi);
+// console.log(countofvandi);
 
-// // const pogaiVandi = [
-// //   "Car", "Auto", "Bike", "Bus", "Car", "Auto", "Bike", "Lorry", "Truck",
-// //   "Car", "Bike", "Auto", "Truck", "Lorry", "Van", "Bus", "Van", "Auto",
-// //   "Bike", "Car", "Scooter", "Cycle", "Bus", "Scooter", "Cycle"
-// // ];
+// const pogaiVandi = [
+//   "Car", "Auto", "Bike", "Bus", "Car", "Auto", "Bike", "Lorry", "Truck",
+//   "Car", "Bike", "Auto", "Truck", "Lorry", "Van", "Bus", "Van", "Auto",
+//   "Bike", "Car", "Scooter", "Cycle", "Bus", "Scooter", "Cycle"
+// ];
 
 // // // let pogai_array = [];
 // // // for(let i of pogaiVandi){
@@ -185,13 +185,13 @@
 // // //   }
 // // // }
 
-// // let pogai_array = [];
-// // for(let vehicles of pogaiVandi){
-// //  pogai_array[vehicles] = (pogai_array[vehicles] ?? 0) + 1
-// //  console.log('check :',pogai_array[vehicles]);
-// // }
+// let pogai_array = [];
+// for(let vehicles of pogaiVandi){
+//  pogai_array[vehicles] = (pogai_array[vehicles] ?? 0) + 1
+//  console.log('check :',pogai_array[vehicles]);
+// }
 
-// // console.log(pogai_array);
+// console.log(pogai_array);
 
 // // for(let i = 0 ; i<pogaiVandi.length ; i++){
 // //   console.log(i);

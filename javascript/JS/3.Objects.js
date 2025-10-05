@@ -41,7 +41,6 @@
 // courses["frontend"] = "HTML" ;
 // console.log(courses);
 
-
 // // for in loop
 
 // for(job in movie){
@@ -55,32 +54,51 @@
 // // Destructuring the object
 
 // const {music : myFavMusicDirector } = movie ;
- 
+
 // console.log(myFavMusicDirector);
 
 // const FavMusic = movie.music
 // console.log(FavMusic);
 
-const movie ={
-    actor : "Suriya",
-    director : "K V",
-    music : "Harris",
-    producer : "Sun Pictures"
-}
+// const movie ={
+//     actor : "Suriya",
+//     director : "K V",
+//     music : "Harris",
+//     producer : "Sun Pictures"
+// }
 
-const {music : MyFavMusic, director : myFavDirector} = movie ;
+// const {music : MyFavMusic, director : myFavDirector} = movie ;
 
-console.log(MyFavMusic);
-console.log(myFavDirector);
+// console.log(MyFavMusic);
+// console.log(myFavDirector);
 
-const {actor,director,music,producer} = movie ;
-console.log(actor);
-console.log(director);
-console.log(music);
-console.log(producer);
+// const {actor,director,music,producer} = movie ;
+// console.log(actor);
+// console.log(director);
+// console.log(music);
+// console.log(producer);
 
-function sings({music}) {               // Difference is in curly braces
-    return music
-}
+// function sings({music}) {               // Difference is in curly braces
+//     return music
+// }
 
-console.log(sings(movie));
+// console.log(sings(movie));
+
+// Convert an array to object :
+
+// const fields = ["username", "userage", "useremail"];
+
+// // Using Object method
+
+// const formOutput = Object.fromEntries(
+//   fields.map((id) => [id, document.getElementById(id).value])    // refer form.html as it only works on Dom .
+// );
+
+// console.log(fields,'fields');
+// console.log(formOutput, "formOutput");               // fromEntries ==> is used to change values from Array to Object 
+
+// const Output = Object.entries(formOutput);           // entries ==> is used to change values from Object to Array 
+// console.log(Output, "Output");
+
+// const out = Output.map((id) => id);
+// console.log(out, "out");

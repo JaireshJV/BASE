@@ -170,7 +170,7 @@
 
           <!-- End Row -->
           <div class="d-flex justify-content-center gap-5 mt-3">
-            <button class="btn btn-success" type="submit" onclick="AddEmployee()">
+            <button class="btn btn-success" type="submit" id="submitbtn">
               Submit
             </button>
             <button class="btn btn-danger" type="button" id="closebtn">
@@ -257,7 +257,14 @@
           const formOutput = Object.fromEntries(
             fields.map((id) => [id, document.getElementById(id).value])
           );
+
           console.log(formOutput, "Validated values");
+
+          // const Output = Object.entries(formOutput);
+          // console.log(Output, "Output");
+
+          // const out = Output.map((id) => id);
+          // console.log(out, "out");
 
           // Using Reduce method
           const formData = fields.reduce((acc, id) => {
@@ -282,17 +289,15 @@
             .then((json) => console.log(json))
             .catch((err) => console.error("Error:", err));
 
-            return console.log(result,'resultttttt');
-             ;
+          return console.log(result, "resultttttt");
         }
-        
       }
 
       // submitbutton.disabled = !isValid;
 
-      // document
-      //   .getElementById("submitbtn")
-      //   .addEventListener("click", AddEmployee);
+      document
+        .getElementById("submitbtn")
+        .addEventListener("click", AddEmployee);
     </script>
 
     <!-- Toggle -->

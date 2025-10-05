@@ -224,6 +224,7 @@
 
 // console.log(ar(4, 7));
 
+
 // // Named Function
 
 // function Jai(name) {
@@ -407,4 +408,9 @@
 
 // console.log("Final result:", reverseString("hello"));
 
-// function reverseString(str) { if (str === "") return ""; return reverseString(str.substr(1)) + str[0]; } console.log(reverseString("hello"));
+// function reverseString(str) 
+// {
+//  if (str === "") return "";
+//  return reverseString(str.substr(1)) + str[0]; 
+// } 
+// console.log(reverseString("hello"));

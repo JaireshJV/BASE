@@ -3,48 +3,158 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Event Listeners</title>
+    <title>STOP WATCH</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
-    <!-- Event : The event is we are giving that button purpose in the html file .
-    Event Listeners : Giving details inside the script while the event happens . -->
+    <style>
+      .main {
+        background-color: rgb(219, 212, 203);
+        height: 100vh;
+        place-content: center;
 
-    <button id="btn">ADD</button><br />
+        h1 {
+          color: red;
+          text-align: center;
+        }
+      }
+      .stopwatch{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
 
+        .fa-solid{
+          font-size: 30px !important;
+          color: rgb(15, 38, 15);
+        }
+      }
+      .whole {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        width: 300px;
+        border: 2px dashed gray;
+        border-radius: 5px;
+        margin: auto;
+        padding: 10px;
+        background-color: rgb(29, 213, 213);
+
+        .btn {
+          background-color: aquamarine;
+          border-radius: 5px;
+          padding: 10px;
+          cursor: pointer;
+        }
+      }
+
+      .timers {
+        width: 300px;
+        margin: auto;
+        border: 2px solid rgb(182, 182, 49);
+        margin-top: 10px;
+        border-radius: 5px;
+        background-color: bisque;
+      }
+
+      .timer {
+        display: flex;
+      }
+
+      .timer span {
+        padding: 10px;
+        margin: auto;
+        font-size: 36px;
+        font-weight: 900;
+        font-family: cursive;
+      }
+    </style>
+    <div class="main">
+      <div class="stopwatch">
+      <h1>STOP WATCH</h1>
+      <i class="fa-solid fa-stopwatch"></i>
+      </div>
+      <div class="whole">
+        <button class="btn" id="start">START</button>
+        <button class="btn" id="pause">PAUSE</button>
+        <button class="btn" id="reset">RESET</button>
+      </div>
+      <div class="timers">
+        <p class="timer">
+          <span id="hours">00</span><span id="minutes">00</span
+          ><span id="seconds">00</span>
+        </p>
+      </div>
+    </div>
     <script>
-      document.getElementById("btn").addEventListener("click", () => {
-        console.log("Here the function exist");
-      });
-    </script>
+      let hours = 0;
+      let minutes = 0;
+      let seconds = 0;
+      let intervalID = 0;
 
-    <!-- Stopwatch -->
+      let HOURS_LIMIT = 5;
+      let MINUTES_LIMIT = 5;
+      let SECONDS_LIMIT = 5;
 
-    <button onclick="StartFunc()">START</button>
-    <button onclick="PauseFunc()">PAUSE</button>
-    <button onclick="ResetFunc()">RESET</button>
+      function Display() {
+        document.getElementById("hours").innerText = String(hours).padStart(
+          2,
+          "0"
+        );
+        document.getElementById("minutes").innerText = String(minutes).padStart(
+          2,
+          "0"
+        );
+        document.getElementById("seconds").innerText = String(seconds).padStart(
+          2,
+          "0"
+        );
+      }
 
-    <p id="watch"></p>
-    <script>
-      let i = 0;
-      let setIntv;
-      function StartFunc() {
-        setIntv = setInterval(() => {
-          i++;
-          if (i >= 12) {
-            ResetFunc();
-          } else {
-            document.getElementById("watch").innerText = i;
+      function startFunction() {
+        if (intervalID) return;
+        intervalID = setInterval(() => {
+          seconds++;
+          if (seconds >= SECONDS_LIMIT) {
+            minutes++;
+            seconds = 0;
+            if (minutes >= MINUTES_LIMIT) {
+              hours++;
+              minutes = 0;
+              if (hours >= HOURS_LIMIT) {
+                hours = 0;
+              }
+            }
           }
+          Display();
         }, 1000);
       }
 
-      function PauseFunc() {
-        clearInterval(setIntv);
+      function pauseFunction() {
+        if (!intervalID) return;
+        clearInterval(intervalID);
+        intervalID = 0;
+        Display();
       }
 
-      function ResetFunc() {
-        document.getElementById("watch").innerText = 0;
+      function resetFunction() {
+        clearInterval(intervalID);
+        hours = 0;
+        minutes = 0;
+        seconds = 0;
+        intervalID = 0;
+        Display();
       }
+
+      document.getElementById("start").addEventListener("click", startFunction);
+      document.getElementById("pause").addEventListener("click", pauseFunction);
+      document.getElementById("reset").addEventListener("click", resetFunction);
     </script>
   </body>
 </html>

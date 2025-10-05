@@ -9,23 +9,23 @@ let b = a
     console.log("Let1:", a);                // 7,5
 }
 
-console.log("Let2",d);
+// console.log("Let2",d);
 
 // var
-var c = 5 ;
-{
-    var c = 7 ;
-    console.log(c);                 // 7,7
-}
+// var c = 5 ;
+// {
+//     var c = 7 ;
+//     console.log(c);                 // 7,7
+// }
 
-console.log(c);
+// console.log(c);
 
 // const
-const c = 5 ;
+// const c = 5 ;
 
-{
-    const d = 7 ;
-    console.log("const1 :",c);                 // 7,5
-}
+// {
+//     const d = 7 ;
+//     console.log("const1 :",c);                 // 7,5
+// }
 
-console.log("const2 :", d);
+// console.log("const2 :", d);
