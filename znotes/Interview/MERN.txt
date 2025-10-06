@@ -1,0 +1,288 @@
+🔹 1. What is the MERN Stack?
+
+Answer:
+MERN stands for MongoDB, Express.js, React.js, and Node.js — a full-stack JavaScript framework used for building modern web applications with a single programming language across the stack.
+
+🔹 2. What is MongoDB?
+
+Answer:
+MongoDB is a NoSQL database that stores data as JSON-like documents, offering flexibility and scalability compared to traditional relational databases.
+
+🔹 3. What is Express.js?
+
+Answer:
+Express.js is a minimal and flexible Node.js web application framework that provides a set of robust features for building APIs and web servers.
+
+🔹 4. What is React.js?
+
+Answer:
+React.js is a JavaScript library for building user interfaces, especially single-page applications, using reusable components and a virtual DOM for efficient rendering.
+
+🔹 5. What is Node.js?
+
+Answer:
+Node.js is a JavaScript runtime built on Chrome’s V8 engine, enabling JavaScript to run on the server side.
+
+🔹 6. How does the MERN stack work together?
+
+Answer:
+React handles the frontend, Express and Node handle the backend server, and MongoDB stores the data. React sends requests to Express APIs, which interact with MongoDB.
+
+🔹 7. What is JSX in React?
+
+Answer:
+JSX is a syntax extension in React that allows you to write HTML-like code inside JavaScript, which gets compiled to React.createElement() calls.
+
+🔹 8. What are components in React?
+
+Answer:
+Components are reusable UI building blocks in React. They can be functional or class-based.
+
+🔹 9. Difference between Functional and Class Components?
+
+Answer:
+Functional components are stateless and use hooks for managing state, while class components use lifecycle methods and this.state.
+
+🔹 10. What are React Hooks?
+
+Answer:
+Hooks like useState, useEffect, and useContext allow functional components to use state and other React features without writing class components.
+
+🔹 11. What is useEffect used for?
+
+Answer:
+useEffect is used for performing side effects such as fetching data, updating the DOM, or setting up timers.
+
+🔹 12. What is a dependency array in useEffect?
+
+Answer:
+It tells React when to re-run the effect. If empty ([]), it runs once after the initial render.
+
+🔹 13. What is a Virtual DOM?
+
+Answer:
+A Virtual DOM is a lightweight copy of the real DOM that React uses to optimize re-rendering by updating only changed elements.
+
+🔹 14. What are Props in React?
+
+Answer:
+Props are inputs to a React component that allow data to be passed from parent to child components.
+
+🔹 15. What is State in React?
+
+Answer:
+State is mutable data that belongs to a component and can change over time, triggering re-renders.
+
+🔹 16. What is the difference between State and Props?
+
+Answer:
+
+State is local and mutable.
+
+Props are passed from parent and immutable.
+
+🔹 17. What is React Router?
+
+Answer:
+React Router is used for routing between components in a single-page application without reloading the page.
+
+🔹 18. What is Context API in React?
+
+Answer:
+Context API provides a way to pass data globally through the component tree without manually passing props down every level.
+
+🔹 19. What is Lazy Loading in React?
+
+Answer:
+Lazy loading allows components to load only when needed, improving performance. Example:
+
+const Home = React.lazy(() => import('./Home'));
+
+🔹 20. What is Middleware in Express.js?
+
+Answer:
+Middleware functions process requests before sending responses. Example: authentication or logging.
+
+🔹 21. What is a REST API?
+
+Answer:
+A REST API (Representational State Transfer) uses HTTP methods (GET, POST, PUT, DELETE) to interact with resources.
+
+🔹 22. How do you create a REST API in Express?
+
+Answer:
+
+app.get('/users', (req, res) => res.send('Users list'));
+
+🔹 23. What is CORS and how to enable it?
+
+Answer:
+CORS (Cross-Origin Resource Sharing) allows requests from different domains.
+
+const cors = require('cors');
+app.use(cors());
+
+🔹 24. What is body-parser in Express?
+
+Answer:
+It’s middleware used to parse incoming JSON or URL-encoded request bodies.
+
+🔹 25. What is a Schema in MongoDB?
+
+Answer:
+A schema defines the structure of documents in a collection using Mongoose.
+
+🔹 26. What is Mongoose?
+
+Answer:
+Mongoose is an ODM (Object Data Modeling) library for MongoDB, providing schema validation and query building.
+
+🔹 27. Difference between SQL and NoSQL?
+
+Answer:
+
+SQL: Structured tables, fixed schema.
+
+NoSQL: Document-based, flexible schema.
+
+🔹 28. How do you connect Node.js to MongoDB?
+
+Answer:
+
+mongoose.connect('mongodb://localhost:27017/dbname');
+
+🔹 29. What are CRUD operations?
+
+Answer:
+Create, Read, Update, Delete — the four basic operations on data.
+
+🔹 30. Example of CRUD API using Express and Mongoose
+
+Answer:
+
+app.post('/add', async (req, res) => {
+  const data = new User(req.body);
+  await data.save();
+  res.send(data);
+});
+
+🔹 31. What is JWT and why is it used?
+
+Answer:
+JWT (JSON Web Token) is used for authentication between client and server securely.
+
+🔹 32. How to generate JWT in Node.js?
+
+Answer:
+
+const token = jwt.sign({ id: user._id }, 'secretKey', { expiresIn: '1h' });
+
+🔹 33. What is bcrypt used for?
+
+Answer:
+bcrypt is used to hash passwords before storing them in the database.
+
+🔹 34. What are environment variables?
+
+Answer:
+Environment variables store sensitive configuration data like API keys. Example: .env file.
+
+🔹 35. What is process.env in Node.js?
+
+Answer:
+It allows access to environment variables defined in the system or .env file.
+
+🔹 36. What is npm?
+
+Answer:
+npm (Node Package Manager) manages packages and dependencies for Node.js projects.
+
+🔹 37. Difference between CommonJS and ES Modules?
+
+Answer:
+
+CommonJS: require() and module.exports
+
+ES Modules: import and export
+
+🔹 38. What is package.json?
+
+Answer:
+A metadata file that lists a Node project’s dependencies, scripts, and version info.
+
+🔹 39. How to handle errors in Express?
+
+Answer:
+Using middleware:
+
+app.use((err, req, res, next) => {
+  res.status(500).send({ message: err.message });
+});
+
+🔹 40. What is async/await?
+
+Answer:
+It allows writing asynchronous code in a synchronous way using Promises.
+
+🔹 41. What is a Promise in JavaScript?
+
+Answer:
+A Promise represents an eventual completion or failure of an asynchronous operation.
+
+🔹 42. What is event loop in Node.js?
+
+Answer:
+The event loop handles asynchronous operations by managing the call stack and callback queue.
+
+🔹 43. What is clustering in Node.js?
+
+Answer:
+Clustering allows Node.js to use multiple CPU cores, improving performance for large applications.
+
+🔹 44. What is the difference between synchronous and asynchronous code?
+
+Answer:
+Synchronous blocks the execution, asynchronous allows other operations to run while waiting for completion.
+
+🔹 45. What is React.memo?
+
+Answer:
+React.memo prevents re-rendering of a component if its props haven’t changed.
+
+🔹 46. What is useCallback Hook?
+
+Answer:
+useCallback memoizes a function so it’s not re-created on every render.
+
+🔹 47. How do you handle API calls in React?
+
+Answer:
+Using fetch or axios inside useEffect. Example:
+
+useEffect(() => {
+  axios.get('/api/users').then(res => setUsers(res.data));
+}, []);
+
+🔹 48. How to make a secure MERN app?
+
+Answer:
+
+Use HTTPS
+
+Sanitize inputs
+
+Use JWT & bcrypt
+
+Store secrets in .env
+
+Validate data on both ends
+
+🔹 49. How to deploy a MERN app?
+
+Answer:
+Host frontend (React) on Netlify/Vercel, backend (Node/Express) on Render/Heroku, and database (MongoDB) on MongoDB Atlas.
+
+🔹 50. Why choose MERN Stack?
+
+Answer:
+Because it’s JavaScript end-to-end, has a huge community, is fast, scalable, and ideal for SPA development.

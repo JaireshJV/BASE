@@ -1,0 +1,305 @@
+𝗖𝗼𝗿𝗲 𝗝𝗮𝘃𝗮𝗦𝗰𝗿𝗶𝗽𝘁
+ 1. What is the difference between var, let, and const in JavaScript?
+ 2. What are closures in JavaScript, and how do they work?
+ 3. What is the this keyword in JavaScript, and how does it behave in different contexts?
+ 4. What is a JavaScript promise, and how does it handle asynchronous code?
+ 5. What is the event loop, and how does JavaScript handle asynchronous operations?
+ 6. What is hoisting in JavaScript, and how does it work?
+ 7. What are JavaScript data types, and how do you check the type of a variable?
+ 8. What is the difference between null and undefined in JavaScript?
+ 9. What is a callback function, and how is it used?
+ 10. How do you manage errors in JavaScript?
+
+𝗔𝘀𝘆𝗻𝗰 𝗝𝗮𝘃𝗮𝗦𝗰𝗿𝗶𝗽𝘁
+ 11. What is the difference between setTimeout() and setInterval()?
+ 12. How do JavaScript promises work, and what is the then() method?
+ 13. What is async/await, and how does it simplify asynchronous code in JavaScript?
+ 14. What are the advantages of using async functions over callbacks?
+ 15. How do you handle multiple promises simultaneously?
+
+𝗙𝗮𝗻𝗰𝘆 𝗙𝗲𝗮𝘁𝘂𝗿𝗲𝘀 𝗶𝗻 𝗝𝗮𝘃𝗮𝗦𝗰𝗿𝗶𝗽𝘁
+ 16. What are higher-order functions in JavaScript, and can you provide an example?
+ 17. What is destructuring in JavaScript, and how is it useful?
+ 18. What are template literals in JavaScript, and how do they work?
+ 19. How does the spread operator work in JavaScript?
+ 20. What is the rest parameter in JavaScript, and how does it differ from the arguments object?
+
+𝗢𝗯𝗷𝗲𝗰𝘁𝘀 𝗮𝗻𝗱 𝗔𝗿𝗿𝗮𝘆𝘀
+ 21. What is the difference between an object and an array in JavaScript?
+ 22. How do you clone an object or array in JavaScript?
+ 23. What are object methods like Object.keys(), Object.values(), and Object.entries()?
+ 24. How does the map() method work in JavaScript, and when would you use it?
+ 25. What is the difference between map() and forEach() in JavaScript?
+
+𝗦𝗽𝗲𝗰𝗶𝗮𝗹 𝗧𝗵𝗲𝗼𝗿𝘆
+ 26. What is event delegation in JavaScript, and why is it useful?
+ 27. What are JavaScript modules, and how do you import/export them?
+ 28. What is the prototype chain in JavaScript, and how does inheritance work?
+ 29. What is bind(), call(), and apply() in JavaScript, and when do you use them?
+ 30. How does JavaScript handle equality comparisons with == and ===?
+
+𝗖𝗼𝗻𝗰𝗲𝗽𝘁𝘀 𝗶𝗻 𝗙𝗿𝗼𝗻𝘁𝗲𝗻𝗱 𝗗𝗲𝘃𝗲𝗹𝗼𝗽𝗺𝗲𝗻𝘁
+ 31. What is the Document Object Model (DOM), and how does JavaScript interact with it?
+ 32. How do you prevent default actions and stop event propagation in JavaScript?
+ 33. What is the difference between synchronous and asynchronous code in JavaScript?
+ 34. What is the difference between an event object and a custom event in JavaScript?
+ 35. How do you optimize performance in JavaScript applications?
+
+
+ 1. Difference between var, let, and const
+Keyword	Scope	Re-declaration	Re-assignment	Hoisted
+var	Function-scoped	✅ Yes	✅ Yes	✅ Yes (initialized as undefined)
+let	Block-scoped	❌ No	✅ Yes	✅ Yes (not initialized → Temporal Dead Zone)
+const	Block-scoped	❌ No	❌ No	✅ Yes (not initialized → TDZ)
+
+👉 Use let for variables that change, const for constants, and avoid var.
+
+2. Closures
+
+A closure is a function that “remembers” variables from its outer scope even after that scope has finished executing.
+
+function outer() {
+  let count = 0;
+  return function inner() {
+    count++;
+    console.log(count);
+  };
+}
+
+const counter = outer();
+counter(); // 1
+counter(); // 2
+
+
+✅ Used for data privacy and maintaining state.
+
+3. this Keyword
+
+this refers to the context in which a function is called.
+
+Context	Value of this
+Global scope (non–strict)	window
+Strict mode	undefined
+Object method	That object
+Arrow function	Lexically inherits from outer scope
+Event handler	The element that triggered the event
+4. Promises
+
+A Promise represents a value that may be available now, later, or never.
+
+const fetchData = new Promise((resolve, reject) => {
+  setTimeout(() => resolve("Done!"), 1000);
+});
+fetchData.then(console.log);
+
+
+✅ Handles asynchronous code without callback nesting.
+
+5. Event Loop
+
+The event loop manages the execution of synchronous and asynchronous tasks.
+JS has a single thread, so async tasks go to a callback queue or microtask queue and are executed after the call stack is empty.
+
+6. Hoisting
+
+Hoisting moves variable and function declarations to the top of their scope before code executes.
+
+console.log(a); // undefined
+var a = 5; // declaration is hoisted, not assignment
+
+
+✅ let and const are hoisted but not initialized (TDZ).
+
+7. Data Types
+
+Primitive types: string, number, bigint, boolean, undefined, symbol, null
+Reference types: object, array, function
+
+✅ Check type:
+
+typeof "Hello"  // "string"
+Array.isArray([]) // true
+
+8. null vs undefined
+Concept	Meaning
+null	Intentional absence of value
+undefined	Variable declared but not assigned
+9. Callback Function
+
+A callback is a function passed as an argument to another function.
+
+setTimeout(() => console.log("Executed later"), 1000);
+
+10. Error Handling
+
+Use try...catch for synchronous errors and .catch() for promises.
+
+try {
+  throw new Error("Oops!");
+} catch (err) {
+  console.error(err.message);
+}
+
+⚙️ Async JavaScript
+11. setTimeout() vs setInterval()
+Method	Description
+setTimeout()	Runs once after a delay
+setInterval()	Repeats after fixed intervals
+12. Promises and then()
+
+then() handles the resolved value of a promise.
+
+fetchData()
+  .then(data => console.log(data))
+  .catch(err => console.error(err));
+
+13. async/await
+
+Simplifies promise handling using synchronous-like syntax.
+
+async function fetchData() {
+  const data = await getData();
+  console.log(data);
+}
+
+14. Advantages of async over callbacks
+
+✅ Cleaner syntax
+✅ Easier error handling
+✅ Avoids callback hell
+✅ Sequential or parallel control flow
+
+15. Handling multiple promises
+
+Use Promise.all() or Promise.allSettled().
+
+Promise.all([p1, p2, p3]).then(results => console.log(results));
+
+💡 Fancy Features in JavaScript
+16. Higher-Order Functions
+
+Functions that take another function as argument or return a function.
+
+const nums = [1,2,3];
+const doubled = nums.map(n => n * 2);
+
+17. Destructuring
+
+Extract values from arrays or objects easily.
+
+const [a,b] = [1,2];
+const {name, age} = {name: "John", age: 25};
+
+18. Template Literals
+
+Use backticks (`) for string interpolation.
+
+const name = "Jairesh";
+console.log(`Hello ${name}!`);
+
+19. Spread Operator
+
+Expands elements of an array or object.
+
+const arr = [1,2];
+const newArr = [...arr, 3];
+
+20. Rest Parameter
+
+Collects all remaining arguments into an array.
+
+function sum(...nums) {
+  return nums.reduce((a,b) => a+b);
+}
+
+
+✅ arguments is old and not a real array.
+
+📦 Objects and Arrays
+21. Object vs Array
+Type	Structure	Access
+Object	Key-value pairs	obj.key
+Array	Indexed list	arr[index]
+22. Cloning Objects/Arrays
+const cloneObj = {...obj};
+const cloneArr = [...arr];
+
+23. Object Methods
+Object.keys(obj);   // returns property names
+Object.values(obj); // returns property values
+Object.entries(obj);// returns [key, value] pairs
+
+24. map() method
+
+Creates a new array after applying a function to each element.
+
+const nums = [1,2,3];
+const doubled = nums.map(n => n*2);
+
+25. map() vs forEach()
+Feature	map()	forEach()
+Returns new array	✅ Yes	❌ No
+Used for	Transformation	Side effects
+🧩 Special Theory
+26. Event Delegation
+
+Use a single event listener on a parent to handle events on child elements.
+
+document.querySelector("#list").addEventListener("click", e => {
+  if (e.target.tagName === "LI") console.log("Item clicked");
+});
+
+
+✅ Improves performance and handles dynamic elements.
+
+27. JavaScript Modules
+
+Split code into separate files using ES Modules.
+
+// math.js
+export function add(a,b){ return a+b; }
+
+// main.js
+import { add } from './math.js';
+
+28. Prototype Chain
+
+Objects inherit from other objects via the prototype chain.
+
+function Person(name){ this.name = name; }
+Person.prototype.sayHi = function(){ console.log("Hi " + this.name); }
+
+29. bind(), call(), apply()
+Method	Purpose
+call(thisArg, ...args)	Calls immediately with given this
+apply(thisArg, [args])	Same as call, but takes array
+bind(thisArg)	Returns a new function with bound this
+30. == vs ===
+Operator	Compares	Type Conversion
+==	Value only	✅ Yes
+===	Value + Type	❌ No
+🌐 Frontend Concepts
+31. DOM (Document Object Model)
+
+A tree-like structure representing the HTML elements of a page.
+JS manipulates DOM using APIs like document.querySelector() or element.innerText.
+
+32. Prevent default and stop propagation
+event.preventDefault();  // stop default action
+event.stopPropagation(); // stop bubbling
+
+33. Synchronous vs Asynchronous
+Type	Execution	Example
+Synchronous	One at a time (blocking)	loops, assignments
+Asynchronous	Non-blocking	setTimeout, fetch
+34. Event object vs Custom event
+Type	Description
+Event Object	Predefined info (click, input, etc.)
+Custom Event	Developer-defined using new CustomEvent()
+35. Performance Optimization
+
+✅ Use debouncing/throttling
+✅ Minimize DOM manipulation
+✅ Use lazy loading
+✅ Avoid memory leaks
+✅ Use web workers for heavy tasks
