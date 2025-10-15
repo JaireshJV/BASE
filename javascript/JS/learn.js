@@ -1,5 +1,6 @@
-console.log("JAIABI");
+"use strict" ;
 
+console.log("JAIABI");
 let w = "Welcome to JavaScript";
 
 console.log(w.substring(18, 45));
@@ -47,12 +48,11 @@ const hug = [];
 
 let n = 0;
 while (n < arr.length) {
-
-if(arr[n] !==0){
-    hug.unshift(arr[n]);    
-}else{
+  if (arr[n] !== 0) {
+    hug.unshift(arr[n]);
+  } else {
     hug.push(arr[n]);
-}
+  }
   n++;
 }
 
@@ -66,22 +66,51 @@ console.log(hug);
 
 let count = 0;
 
-let m = 0 ;
-while (m<hug.length) {
-    if(hug[m] == 0){
-        console.log('ccccccccccccc');
-        count ++ ;
-    } 
-    m++ ;
+let m = 0;
+while (m < hug.length) {
+  if (hug[m] == 0) {
+    console.log("ccccccccccccc");
+    count++;
+  }
+  m++;
 }
 
 console.log("count :" + count);
 
-for(let i=0 ; i<count ; i++){
-    hug.pop();
+for (let i = 0; i < count; i++) {
+  hug.pop();
 }
 
-console.log("count hug :" ,hug);
+console.log("count hug :", hug);
+
+console.log("mAYAYA MAYA MAYA");
+
+const cut = function Outer(a) {
+  let j = 9 ;
+  return function Inner(b) {
+    console.log((a+b) - j, "jval");
+  };
+}
+
+// const Count = Outer()
+// Count()
+
+cut(4)(7)
+// Outer()() ;
+
+// console.log(curry(5)(8)(7));
 
 
-console.log("mAYAYA MAYA MAYA")
+// console.log(abi,'abiii');
+// var abi  = "sheth"
+
+// const curry =a=>b=>c=> a + b+ c;
+
+let ok = false ;
+
+if(ok){
+  console.log('truuuuuuuu');  
+}
+else{
+  console.log('falssssssss');  
+}

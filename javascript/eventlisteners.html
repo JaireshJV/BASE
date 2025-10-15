@@ -1,160 +1,406 @@
+<!-- EVENT LISTENERS TOPIC :
+
+1	Event	                User or system action
+2	Event Listener	        Executes code on event
+3	Event Propagation	    Flow of event (capture → target → bubble)
+4	Event Bubbling   	    Bottom-up phase
+5	Event Capturing	        Top-down phase
+6	stopPropagation()   	Stop event flow
+7	preventDefault()	    Stop browser’s default action
+8	target / currentTarget	Identify source element
+9	Event Delegation	    Handle child events using parent
+10	Event Types	            Mouse, Keyboard, Form, etc.
+11	removeEventListener	    Detach a listener
+12	Custom Event	        Create your own events
+13	Once Option	            Run handler only once
+
+
+1.Event
+An event is an action that happens in the browser (like click, keypress, load, etc.)
+
+# onclick, onsubmit, oninput, onkeydown, onmouseover
+
+2.Event Listener:
+A function that waits and runs when an event occurs.
+Can attach multiple listeners.
+Can remove them easily with removeEventListener().
+
+button.addEventListener("click", () => {
+  console.log("Button clicked!");
+}); -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>STOP WATCH</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <title>Document</title>
   </head>
   <body>
-    <style>
-      .main {
-        background-color: rgb(219, 212, 203);
-        height: 100vh;
-        place-content: center;
-
-        h1 {
-          color: red;
-          text-align: center;
-        }
-      }
-      .stopwatch{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 20px;
-
-        .fa-solid{
-          font-size: 30px !important;
-          color: rgb(15, 38, 15);
-        }
-      }
-      .whole {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        width: 300px;
-        border: 2px dashed gray;
-        border-radius: 5px;
-        margin: auto;
-        padding: 10px;
-        background-color: rgb(29, 213, 213);
-
-        .btn {
-          background-color: aquamarine;
-          border-radius: 5px;
-          padding: 10px;
-          cursor: pointer;
-        }
-      }
-
-      .timers {
-        width: 300px;
-        margin: auto;
-        border: 2px solid rgb(182, 182, 49);
-        margin-top: 10px;
-        border-radius: 5px;
-        background-color: bisque;
-      }
-
-      .timer {
-        display: flex;
-      }
-
-      .timer span {
-        padding: 10px;
-        margin: auto;
-        font-size: 36px;
-        font-weight: 900;
-        font-family: cursive;
-      }
-    </style>
-    <div class="main">
-      <div class="stopwatch">
-      <h1>STOP WATCH</h1>
-      <i class="fa-solid fa-stopwatch"></i>
-      </div>
-      <div class="whole">
-        <button class="btn" id="start">START</button>
-        <button class="btn" id="pause">PAUSE</button>
-        <button class="btn" id="reset">RESET</button>
-      </div>
-      <div class="timers">
-        <p class="timer">
-          <span id="hours">00</span><span id="minutes">00</span
-          ><span id="seconds">00</span>
-        </p>
+    <!-- 3.Event Propagation : -->
+    <!-- 4	Event Bubbling   -->
+    <!-- The event bubbles up from inner → outer (like bubbles in water). -->
+    <h1>EVENT BUBBLING</h1>
+    <div id="outer" style="padding: 30px; background-color: lightcoral">
+      Outer
+      <div id="middle" style="padding: 30px; background-color: lightgreen">
+        Middle
+        <div id="inner" style="padding: 30px; background-color: lightblue">
+          Inner
+        </div>
       </div>
     </div>
+
     <script>
-      let hours = 0;
-      let minutes = 0;
-      let seconds = 0;
-      let intervalID = 0;
+      document.getElementById("outer").addEventListener("click", (event) => {
+        console.log("Outer DIV clicked");
+      });
 
-      let HOURS_LIMIT = 5;
-      let MINUTES_LIMIT = 5;
-      let SECONDS_LIMIT = 5;
+      document.getElementById("middle").addEventListener("click", (event) => {
+        console.log("Middle DIV clicked");
+      });
 
-      function Display() {
-        document.getElementById("hours").innerText = String(hours).padStart(
-          2,
-          "0"
-        );
-        document.getElementById("minutes").innerText = String(minutes).padStart(
-          2,
-          "0"
-        );
-        document.getElementById("seconds").innerText = String(seconds).padStart(
-          2,
-          "0"
-        );
-      }
-
-      function startFunction() {
-        if (intervalID) return;
-        intervalID = setInterval(() => {
-          seconds++;
-          if (seconds >= SECONDS_LIMIT) {
-            minutes++;
-            seconds = 0;
-            if (minutes >= MINUTES_LIMIT) {
-              hours++;
-              minutes = 0;
-              if (hours >= HOURS_LIMIT) {
-                hours = 0;
-              }
-            }
-          }
-          Display();
-        }, 1000);
-      }
-
-      function pauseFunction() {
-        if (!intervalID) return;
-        clearInterval(intervalID);
-        intervalID = 0;
-        Display();
-      }
-
-      function resetFunction() {
-        clearInterval(intervalID);
-        hours = 0;
-        minutes = 0;
-        seconds = 0;
-        intervalID = 0;
-        Display();
-      }
-
-      document.getElementById("start").addEventListener("click", startFunction);
-      document.getElementById("pause").addEventListener("click", pauseFunction);
-      document.getElementById("reset").addEventListener("click", resetFunction);
+      document.getElementById("inner").addEventListener("click", (event) => {
+        console.log("Inner DIV clicked");
+      });
     </script>
+
+    <!-- O/P : (while clicking inner div) 
+    Inner DIV clicked
+    Middle DIV clicked
+    Outer DIV clicked -->
+
+    <!-- 5	Event Capturing	   -->
+    <!-- The event trickles down from outer → inner (like water flowing down a slide). -->
+    <!-- Syntax change from event bubbling is including "true" in event listener  -->
+    <h1>EVENT CAPTURING</h1>
+    <div id="cap_outer" style="padding: 30px; background-color: lightcoral">
+      Outer
+      <div id="cap_middle" style="padding: 30px; background-color: lightgreen">
+        Middle
+        <div id="cap_inner" style="padding: 30px; background-color: lightblue">
+          Inner
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById("cap_outer").addEventListener(
+        "click",
+        (event) => {
+          console.log("Outer DIV clicked");
+        },
+        true
+      );
+
+      document.getElementById("cap_middle").addEventListener(
+        "click",
+        (event) => {
+          console.log("Middle DIV clicked");
+        },
+        true
+      );
+
+      document.getElementById("cap_inner").addEventListener(
+        "click",
+        (event) => {
+          console.log("Inner DIV clicked");
+        },
+        true
+      );
+    </script>
+
+    <!-- O/P : (while clicking inner div) 
+    Outer DIV clicked
+    Middle DIV clicked
+    Inner DIV clicked -->
+
+    <!-- 6	stopPropagation()   -->
+    <!-- <div id="outer" style="padding: 30px; background-color: lightcoral">
+      Outer
+      <div id="middle" style="padding: 30px; background-color: lightgreen">
+        Middle
+        <div id="inner" style="padding: 30px; background-color: lightblue">
+          Inner
+        </div>
+      </div>
+    </div>
+    <button id="myBtn" style="margin-top: 10px">STOP PROPOGATION</button>
+
+    <script>
+      document.getElementById("outer").addEventListener("click", (event) => {
+        console.log("Outer DIV clicked");
+        // event.stopPropagation();
+      });
+
+      document.getElementById("middle").addEventListener("click", (event) => {
+        console.log("Middle DIV clicked");
+        // event.stopPropagation();
+      });
+
+      document.getElementById("inner").addEventListener("click", (event) => {
+        console.log("Inner DIV clicked");
+        event.stopPropagation();
+      });
+
+      const btn = document.getElementById("myBtn");
+
+      btn.addEventListener("click", () => {
+        console.log("Listener 1");
+      });
+
+      btn.addEventListener("click", (event) => {
+        console.log("Listener 2");
+        event.stopImmediatePropagation(); // 🔥 stops other listeners too
+      });
+
+      btn.addEventListener("click", () => {
+        console.log("Listener 3");
+      });
+    </script> -->
+
+    <!-- 🧩 event.stopImmediatePropagation()
+🧠 Meaning:
+
+It does everything stopPropagation() does,
+plus it stops other listeners on the same element from running.
+
+💬 Example:
+const btn = document.getElementById("myBtn");
+
+btn.addEventListener("click", () => {
+  console.log("Listener 1");
+});
+
+btn.addEventListener("click", (event) => {
+  console.log("Listener 2");
+  event.stopImmediatePropagation(); // 🔥 stops other listeners too
+});
+
+btn.addEventListener("click", () => {
+  console.log("Listener 3");
+});
+
+
+🧾 Output:
+
+Listener 2
+
+
+✅ After Listener 2 runs,
+no other listeners (Listener 3) or bubbling events will run.
+
+🎯 When to Use:
+
+When you want to completely stop the event right there.
+
+Example: You have multiple event listeners on the same element,
+but one special condition should cancel everything else. -->
+
+    <!-- 9.preventDefault() -->
+
+    <!-- <form id="myForm">
+  <input name="username" required />
+  <button type="submit">Submit</button>
+</form>
+
+<script>
+document.querySelector("#myForm").addEventListener("submit", async (event) => {
+  event.preventDefault(); // stop auto-submit and refresh
+
+  const formData = new FormData(event.target);
+  const data = Object.fromEntries(formData.entries());
+
+  // manually send data using fetch()
+  const res = await fetch("/api/submit", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+
+  const result = await res.json();
+  console.log("Server response:", result);
+
+  // ✅ handle success manually
+  if (res.ok) {
+    alert("Form submitted successfully!");
+    event.target.reset(); // reset the form manually
+  }
+});
+</script>
+
+🧠 So what happens here:
+
+preventDefault() stops browser’s auto submission.
+
+JavaScript manually sends the data to backend via fetch.
+
+Browser still performs all JS operations (fetch, DOM updates, alerts, etc.).
+
+After getting the response, you can:
+
+Show success messages.
+
+Reset the form.
+
+Navigate elsewhere if needed.
+
+⚙️ Why this is better
+
+This method gives more control:
+
+You can validate inputs before sending.
+
+Show loading spinners or messages.
+
+Handle backend errors gracefully.
+
+Stay on the same page (no reload).
+
+In short:
+
+event.preventDefault() doesn’t stop your logic — it only stops the browser’s default form action.
+You manually handle everything (API call, success message, reset) using JavaScript. -->
+
+    <!-- 8.Target , CurrentTarget  -->
+    <!-- ✅ event.target = The actual element that was clicked or triggered.
+✅ event.currentTarget = The element whose listener is currently running. -->
+    <div id="parent">
+      <button id="child">EVENT</button>
+      <button id="children">ADDITIONAL EVENT</button>
+    </div>
+
+    <script>
+      document.getElementById("parent").addEventListener("click", (event) => {
+        console.log(event, "target");
+        console.log(event.currentTarget.id, "current_target");
+      });
+    </script>
+    <form id="formid">
+      <input id="input1" />
+      <input id="input2" />
+    </form>
+    <script>
+      document.getElementById("formid").addEventListener("change", (event) => {
+        console.log(event.target.id, "input");
+        console.log(event.currentTarget.id, "form");
+      });
+    </script>
+<!-- 💡 Difference:
+If you click a button inside a div,
+
+target → the button
+
+currentTarget → the div -->
+
+
+    <!-- 9.Event Delegation -->
+    <!-- Instead of adding a separate listener to each child,
+      you add one listener to the parent, and use event.target to detect which child was clicked. 
+
+💡 Useful when:
+
+You have many child elements (like 100 list items).
+
+Elements are dynamically added later.
+-->
+
+    <div id="list">
+      <ul>
+        <li id="li1">LIST ITEM 1</li>
+        <li id="li2">LIST ITEM 2</li>
+        <li id="li3">LIST ITEM 3</li>
+      </ul>
+      <a id="aid">A TAG</a>
+      <button id="btnid">BUTTON</button>
+    </div>
+    <script>
+      document.getElementById("list").addEventListener("click", (event) => {
+        if (event.target.tagName === "LI") {
+          console.log("Clicked item:", event.target.textContent);
+        }
+        console.log(event.target.id, "tagname");
+      });
+    </script>
+
+    <!-- 10.Event Types → Mouse, Keyboard, Form, etc. -->
+
+    <!-- ✅ Different categories of events JavaScript can handle:
+
+Category	Examples
+Mouse	click, dblclick, mouseover, mouseout
+Keyboard	keydown, keyup, keypress
+Form	submit, input, change, focus, blur
+Window	load, resize, scroll
+Touch	touchstart, touchmove, touchend
+
+💡 Each has its own properties and use cases. -->
+
+    <!-- 11.RemoveEventListener -->
+    Removes an event listener that was added earlier.
+
+    <div>
+      <button id="btn">ADD,REMOVE BUTTON</button>
+    </div>
+    <script>
+      const button = document.getElementById("btn");
+      // let count = 0;
+      // button.addEventListener("click", sayhi);
+
+      // function sayhi() {
+      //   if (count > 3) {
+      //     button.removeEventListener("removed", sayhi);
+      //     console.log("Limit reached !!! Indru poi naalai varaen !!");
+      //   }
+      //   else{
+      //     console.log("Hello", count);
+      //   }
+      //   count++;
+
+      // }
+    </script>
+
+    <!-- 12.Custom Event -->
+<!-- ✅ You can make your own named events and dispatch them manually. -->
+    <div id="parent2">
+      <button id="child2">Save Data</button>
+    </div>
+    <script>
+      // Step 1: The parent listens for a custom event
+      document
+        .getElementById("parent2")
+        .addEventListener("dataSaved", (event) => {
+          console.log("Parent heard:", event.type);
+          console.log("Data received:", event.detail);
+        });
+
+      // Step 2: The child button triggers (dispatches) the event
+      document.getElementById("child2").addEventListener("click", () => {
+        const customEvent = new CustomEvent("dataSaved", {
+          bubbles: true, // allow event to bubble up to parent
+          detail: { username: "Jairesh", status: "Saved successfully!" },
+        });
+
+        console.log("Child dispatching event...");
+        document.getElementById("child2").dispatchEvent(customEvent);
+      });
+    </script>
+
+
+    <!-- // 13.Once Option	 -->
+     <!-- ✅ You can tell an event listener to run only one time — then remove itself automatically. -->
+    <!-- <div>
+      <button id="btn">ONCE OPTION</button>
+    </div>
+    <script>
+      const buttonn = document.getElementById("btn");
+      buttonn.addEventListener(
+        "click",
+        () => {
+          console.log("Clicked once only!");
+        },
+        { once: true }
+      );
+    </script> -->
   </body>
 </html>

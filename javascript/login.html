@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Js</title>
+</head>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+  }
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: honeydew;
+  }
+
+  .main {
+    margin: 10px;
+    padding: 25px 40px;
+    border-radius: 10px;
+    background-color: rgb(205, 236, 246);
+    box-shadow: 0 4px 16px 5px rgba(0, 0, 0, 0.2);
+    width: 360px;
+    text-align: center;
+    position: relative;
+  }
+
+  /* h1{
+    margin-bottom: 15px;
+  } */
+
+  .feilds {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .feilds label {
+    flex: 1;
+    margin-top: 8px;
+  }
+
+  .input-group {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  .input-group input {
+    flex: 2;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 10px;
+    background-color: rgb(224, 244, 238);
+    transition: background-color 0.3s ease;
+  }
+
+  .errorMessage {
+    color: red;
+    font-size: 14px;
+    margin-top: 4px;
+  }
+
+  .form_img {
+    width: 50px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: rotate(-8deg);
+    transition: all 0.5s ease;
+  }
+
+  .form_img:hover {
+    transform: rotate(10deg) scale(1.05);
+  }
+
+  input:focus {
+    background-color: rgb(129, 216, 238);
+    outline: none !important;
+  }
+
+  .input-group input:not(:placeholder-shown) {
+    background-color: #000000;
+    color: white
+  }
+
+  .feild {
+    border: 2px solid black;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 10px;
+  }
+
+  h3 {
+    margin-top: 15px;
+    text-align: center;
+  }
+
+  .button button {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin: 5px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+  }
+
+  .button button:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+  }
+</style>
+
+<body>
+  <div class="main">
+    <img class="form_img" src="assets/happy.jpg" id="formimg" alt="form image">
+    <h1>Login Form</h1>
+
+    <div class="feild">
+      <form id="registerForm">
+        <h3>Register Form</h3>
+        <div class="feilds">
+          <label for="">Name:</label>
+          <div class="input-group">
+            <input type="text" placeholder="Enter Name" id="name">
+            <div id="nameError"></div>
+          </div>
+        </div>
+        <div class="feilds">
+          <label for="">Age:</label>
+          <div class="input-group">
+            <input type="number" placeholder="Enter Age" id="age">
+            <div id="ageError"></div>
+          </div>
+        </div>
+        <div class="feilds">
+          <label for="">Email:</label>
+          <div class="input-group">
+            <input type="text" placeholder="Enter Email" id="email">
+            <div id="emailError"></div>
+          </div>
+        </div>
+        <div class="button">
+          <button type="submit" id="submitbtn">Submit</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+  <script>
+
+    const form = document.getElementById("registerForm");
+    const formImg = document.getElementById("formimg");
+    const inputs = document.querySelectorAll(".feilds input");
+    const submitBtn = document.getElementById("submitbtn");
+
+    const defaultImage = 'Assets/happy.jpg';
+    const typingImage = 'Assets/lazy.jpg';
+    const errorImage = 'Assets/sad.jpg';
+
+    function showError(fieldName, message) {
+      const errorDiv = document.getElementById(`${fieldName}Error`)
+
+      if (errorDiv) {
+        errorDiv.textContent = message;
+
+        if (message) {
+          errorDiv.classList.add("errorMessage");
+
+        } else {
+          errorDiv.classList.remove("errorMessage")
+        }
+      }
+      updateFormImage();
+      updateSubmitButton();
+    }
+
+    function updateFormImage() {
+      const anyFilled = Array.from(inputs).some(i => i.value.trim() !== "");
+      const anyError = Array.from(document.querySelectorAll(".errorMessage")).some(msg => msg.textContent.trim() !== "");
+
+      if (anyError) {
+        formImg.src = errorImage;
+      } else if (anyFilled) {
+        formImg.src = typingImage;
+      } else {
+        formImg.src = defaultImage;
+      }
+    }
+
+    function updateSubmitButton() {
+      const anyError = Array.from(document.querySelectorAll(".errorMessage"))
+        .some(msg => msg.textContent.trim() !== "");
+      const anyEmpty = Array.from(inputs).some(i => i.value.trim() === "");
+
+      submitBtn.disabled = anyError || anyEmpty;
+    }
+
+    function validateField(fieldName, value) {
+      let message = "";
+
+      if (value.trim() === "") {
+        message = `${fieldName} is Required`;
+
+        // Swal.fire({
+        //   icon: 'error',
+        //   title: 'Oops!',
+        //   text: 'Please fill all required fields.',
+        //   confirmButtonColor: '#d33'
+        // });
+
+
+      } else if (fieldName === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+        message = "Enter a valid email address";
+        // Swal.fire({
+        //   icon: 'error',
+        //   title: 'Oops!',
+        //   text: 'Enter a valid email address.',
+        //   confirmButtonColor: '#d33'
+        // });
+
+      }
+
+      showError(fieldName, message)
+      console.log(message,'message');
+      
+      return message === "";
+    }
+
+    function validateAllFields() {
+      let isValid = true;
+      inputs.forEach(input => {
+        const ok = validateField(input.id, input.value);
+        console.log(ok,'checkedok');
+
+        if (!ok) isValid = false;
+      });
+      return isValid;
+    }
+
+    inputs.forEach(input => {
+      input.addEventListener("input", () => {
+        updateFormImage();
+        updateSubmitButton();
+      });
+
+      input.addEventListener("blur", () => {
+           validateField(input.id, input.value); 
+      });
+    });
+
+    form.addEventListener("submit", (e)=>{
+      e.preventDefault()
+      const valid = validateAllFields();
+      console.log("Valid", valid)
+      submitBtn.disabled = !valid;
+      if(valid){
+        Swal.fire({
+          icon: 'success',
+          title: 'Form Submitted!',
+          text: 'Your registration was successful 🎉',
+          confirmButtonColor: '#28a745',
+          timer: 3000,
+          showConfirmButton: false
+        })
+        form.reset();
+        updateFormImage();
+        updateSubmitButton();
+      }
+    });
+  </script>
+
+  <script src="learn.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>
