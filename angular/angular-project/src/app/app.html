@@ -1,0 +1,71 @@
+        <div class="table-responsive mt-2 bordered-card">
+          <table class="table table-hover mb-0 custom-table">
+            <thead class="table-header-light">
+              <tr>
+                <!-- <th>#</th> -->
+                <th>Actions</th>
+               <th (click)="setSort('employee_id')">
+                Emp ID <i [ngClass]="getSortIcon('employee_id')"></i>
+              </th>
+              <th (click)="setSort('name')">
+                Name <i [ngClass]="getSortIcon('name')"></i>
+              </th>
+
+                <th>Branch</th>
+                <th>Department</th>
+                <th>Designation</th>
+                <th>Contact</th>
+                <th>Report To</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let emp of filteredEmployees
+              | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage };
+              let i = index; trackBy: trackByEmpId">
+
+                <!-- <td>{{ getRowIndex(i) }}</td> -->
+
+                <td class="text-center">
+                  <button class="icon-button btn-view me-1" (click)="goToProfile(emp.employee_id.toString())"
+                    title="Profile">
+                    <i class="bi bi-person-badge"></i>
+                  </button>
+
+                  <button class="icon-button btn-edit me-1" data-bs-toggle="modal" data-bs-target="#editEmployeeModal"
+                    (click)="setSelectedEmployee(emp)" title="Edit">
+                    <i class="bi bi-pencil-square"></i>
+                  </button>
+
+                  <button class="icon-button btn-delete" (click)="deleteEmployee(emp.employee_id!)" title="Delete">
+                    <i class="bi bi-trash"></i>
+                  </button>
+
+                </td>
+
+                <td>{{ emp.employee_id}}</td>
+                <td>{{ emp.name }}</td>
+                <td>{{ emp.branch }}</td>
+                <td>{{ emp.department }}</td>
+                <td>{{ emp.designation }}</td>
+                <td>{{ emp.contact_mobile_no }}</td>
+                <td>{{ emp.reporting}}</td>
+                <!-- <td>{{ emp.date_of_joining | date:'shortDate' }}</td> -->
+                <td>
+                  <span [ngClass]="getStatusClass(emp.status).badgeClass">
+                    <i class="bi" [ngClass]="getStatusClass(emp.status).iconClass"></i>
+                    {{ emp.status }}
+                  </span>
+                </td>
+
+              <tr *ngIf="filteredEmployees.length === 0">
+                <td colspan="12" class="text-center">
+                  <span class="fw-semibold text-muted mw-4">No employees records found.</span>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+          <pagination-controls (pageChange)="currentPage = $event" class="d-flex justify-content-center"></pagination-controls>
+
+        </div>
