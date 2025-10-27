@@ -72,6 +72,12 @@ const ChinnaVandi = [
   "Truck",
 ];
 
+const uniqarryy = {};
+for(let i of ChinnaVandi){
+uniqarryy[i] = (uniqarryy[i] ?? 0 ) + 1 ;
+}
+
+console.log(uniqarryy,'uniqarryy');
 // // // Simplest way :
 const countofvandi = {};
 
@@ -83,6 +89,6 @@ for (let item of arry) {
   }
 }
 
-console.log(countofvandi);
+console.log(countofvandi,'count');
 
 
