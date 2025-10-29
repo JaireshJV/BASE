@@ -1,100 +1,104 @@
-// // Objects
+// Objects
 
-// const myObj = {
-//    subscriber : 7 ,
-//    number : 7 ,
-//    content : {
-//     earnMoney : "Study",
-//     growMoney : "Invest",
-//     giveMoney : "To Needy"
-//    },
-//    subdivision : ["earnMoney","growMoney","giveMoney"],
-//    action : function(){
-//     return "Hellooo ! World"
-//    },
-//    action1 : function(){
-//     return `Do ${this.content.giveMoney}`
-//    }
+const myObj = {
+   subscriber : 7 ,
+   number : 7 ,
+   content : {
+    earnMoney : "Study",
+    growMoney : "Invest",
+    giveMoney : "To Needy"
+   },
+   subdivision : ["earnMoney","growMoney","giveMoney"],
+   action : function(){
+    return "Hellooo ! World"
+   },
+   action1 : function(){
+    return `Do ${this.content.giveMoney}`
+   }
 
-// }
+}
 
-// console.log(myObj.subscriber);
-// console.log(myObj["subscriber"])
-// console.log(myObj.content.growMoney);
-// console.log(myObj.subdivision[1]);
-// console.log(myObj.action());
-// console.log(myObj.action1());
+console.log(myObj.subscriber);
+console.log(myObj["subscriber"])
+console.log(myObj.content.growMoney);
+console.log(myObj.subdivision[1]);
+console.log(myObj.action());
+console.log(myObj.action1());
 
-// let courses = {
-//   frontend : "JS",
-//   backend : "Java"
-// }
+let courses = {
+  frontend : "JS",
+  backend : "Java"
+}
 
-// console.log(courses);
+console.log(courses);
 
-// Object.seal(courses)
-// courses["database"] = "MYSQL" ;
-// courses["frontend"] = "CSS" ;
-// console.log(courses);
+// Seal 
+//    Only we can update the existing value , cant create the new one 
+Object.seal(courses)
+courses["database"] = "MYSQL" ;
+courses["frontend"] = "CSS" ;
+console.log(courses,'afterseal');
 
-// Object.freeze(courses)
-// courses["frontend"] = "HTML" ;
-// console.log(courses);
+// Freeze
+//  Cannot update or create the value .
+Object.freeze(courses)
+courses["frontend"] = "HTML" ;
+console.log(courses,'afterfreeze');
 
-// // for in loop
+// for in loop
 
-// for(job in movie){
-//     console.log(`${job},itz ${movie[job]}`);
-// }
+const movie ={
+    actor : "Suriya",
+    director : "K V",
+    music : "Harris",
+    producer : "Sun Pictures"
+}
 
-// delete movie.producer
-// console.log(movie);
-// console.log(movie.hasOwnProperty("producer"));      // false
+for(job in movie){
+    console.log(`${job},itz ${movie[job]}`);
+}
 
-// // Destructuring the object
+delete movie.producer
+console.log(movie);
+console.log(movie.hasOwnProperty("producer"));      // false
 
-// const {music : myFavMusicDirector } = movie ;
+// Destructuring the object
 
-// console.log(myFavMusicDirector);
+const {music : myFavMusicDirector } = movie ;
 
-// const FavMusic = movie.music
-// console.log(FavMusic);
+console.log(myFavMusicDirector);
 
-// const movie ={
-//     actor : "Suriya",
-//     director : "K V",
-//     music : "Harris",
-//     producer : "Sun Pictures"
-// }
+const FavMusic = movie.music
+console.log(FavMusic);
 
-// const {music : MyFavMusic, director : myFavDirector} = movie ;
+const {music : MyFavMusic, director : myFavDirector} = movie ;
 
-// console.log(MyFavMusic);
-// console.log(myFavDirector);
+console.log(MyFavMusic);
+console.log(myFavDirector);
 
-// const {actor,director,music,producer} = movie ;
-// console.log(actor);
-// console.log(director);
-// console.log(music);
-// console.log(producer);
+const {actor,director,music,producer} = movie ;
+console.log(actor);
+console.log(director);
+console.log(music);
+console.log(producer);
 
-// function sings({music}) {               // Difference is in curly braces
-//     return music
-// }
+function sings({music}) {               // Difference is in curly braces
+    return music
+}
 
-// console.log(sings(movie));
+console.log(sings(movie));
 
 // Convert an array to object :
 
-// const fields = ["username", "userage", "useremail"];
+const fields = ["username", "userage", "useremail"];
 
-// // Using Object method
+// Using Object method
 
 // const formOutput = Object.fromEntries(
 //   fields.map((id) => [id, document.getElementById(id).value])    // refer form.html as it only works on Dom .
 // );
 
-// console.log(fields,'fields');
+console.log(fields,'fields');
 // console.log(formOutput, "formOutput");               // fromEntries ==> is used to change values from Array to Object 
 
 // const Output = Object.entries(formOutput);           // entries ==> is used to change values from Object to Array 

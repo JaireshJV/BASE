@@ -1,6 +1,7 @@
 // // Loops
 
-// While
+// // While
+
 // let i = 50 ;
 
 // let a = false;
@@ -9,55 +10,58 @@
 
 // while (i>0){
 //     console.log(i);
-//     i--
+//     i-- ;
 // }
 
-// Do While
+// // Do While
 // let j = 50;
 
 // do {
 //   console.log(j); // Only Once
 //   j += 1;
 // } while (j < 50);
+// 
 
-// For Loop
+// // For Loop
 
-// Numbers
+// // Numbers
 
-// for (i = 0 ; i <= 50 ; i ++ ){
+// for (let i = 0 ; i <= 50 ; i ++ ){
 //     console.log(i);
 
 // }
 
-// String
-// for (i = 0 ; i< unname.length ; i ++){
-//     console.log(unname.charAt(i));
-// }
+let unname = 'Jaireshaearte' ;
+let vnname = 'selvinae'
+
+// // String
+for (let i = 0 ; i< unname.length ; i ++){
+
+    // console.log(unname[i],'check');
+    
+    // console.log(unname.charAt(i));
+}
 
 // // You understood well
 
-// Default method
+// // Default method
 
-// let unname = 'Jaireshaearte'
-// let vnname = 'selvinae'
-// let array = [];
 
-// for (i = 0 ; i<unname.length ; i ++){
-//     for(j = i+1 ; j<unname.length ; j++){
+let arrayy = [];
 
-//       if(unname.charAt(i) === unname.charAt(j)){
-//         if(array.includes(unname.charAt(i))){
+for (let i = 0 ; i<unname.length ; i ++){
+    for(let j = 0 ; j<vnname.length ; j++){
 
-//         }
-//         else{
-//           array.push(unname.charAt(i));
-//            console.log(unname.charAt(i));
-//         }
-//     }
-//     }
-// }
+      if(unname.charAt(i) === vnname.charAt(j)){
+        if(!arrayy.includes(unname.charAt(i))){
+          arrayy.push(unname.charAt(i));
+           console.log(unname.charAt(i));
+        }
+    }
+    }
+}
 
-// console.log('final array :' ,array);
+console.log('final array :' ,arrayy);
 
 // const demo = "malayalam";
 // let array = [];
@@ -88,7 +92,7 @@
 
 
 
-// For loop , For in , For of related problems :
+// // For loop , For in , For of related problems :
 
 // // const Vandi = [
 // //   "Car",
@@ -169,29 +173,29 @@
 
 // console.log(countofvandi);
 
-// const pogaiVandi = [
-//   "Car", "Auto", "Bike", "Bus", "Car", "Auto", "Bike", "Lorry", "Truck",
-//   "Car", "Bike", "Auto", "Truck", "Lorry", "Van", "Bus", "Van", "Auto",
-//   "Bike", "Car", "Scooter", "Cycle", "Bus", "Scooter", "Cycle"
-// ];
-
-// // // let pogai_array = [];
-// // // for(let i of pogaiVandi){
-// // //   if(pogai_array[i]){
-// // //     pogai_array[i]++
-// // //   }
-// // //   else{
-// // //     pogai_array[i] = 1;
-// // //   }
-// // // }
+const pogaiVandi = [
+  "Car", "Auto", "Bike", "Bus", "Car", "Auto", "Bike", "Lorry", "Truck",
+  "Car", "Bike", "Auto", "Truck", "Lorry", "Van", "Bus", "Van", "Auto",
+  "Bike", "Car", "Scooter", "Cycle", "Bus", "Scooter", "Cycle"
+];
 
 // let pogai_array = [];
-// for(let vehicles of pogaiVandi){
-//  pogai_array[vehicles] = (pogai_array[vehicles] ?? 0) + 1
-//  console.log('check :',pogai_array[vehicles]);
+// for(let i of pogaiVandi){
+//   if(pogai_array[i]){
+//     pogai_array[i]++
+//   }
+//   else{
+//     pogai_array[i] = 1;
+//   }
 // }
 
-// console.log(pogai_array);
+let pogai_array = {} ;
+for(let vehicles of pogaiVandi){
+ pogai_array[vehicles] = (pogai_array[vehicles] ?? 0) + 1
+ console.log('check :',vehicles, '  :  ' ,pogai_array[vehicles]);
+}
+
+console.log(pogai_array);
 
 // // for(let i = 0 ; i<pogaiVandi.length ; i++){
 // //   console.log(i);
