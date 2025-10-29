@@ -35,12 +35,10 @@ let unname = 'Jaireshaearte' ;
 let vnname = 'selvinae'
 
 // // String
-for (let i = 0 ; i< unname.length ; i ++){
-
-    // console.log(unname[i],'check');
-    
-    // console.log(unname.charAt(i));
-}
+// for (let i = 0 ; i< unname.length ; i ++){
+//     console.log(unname[i],'check');
+//     console.log(unname.charAt(i));
+// }
 
 // // You understood well
 
