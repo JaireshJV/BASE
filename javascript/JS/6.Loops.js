@@ -28,329 +28,84 @@
 
 // for (let i = 0 ; i <= 50 ; i ++ ){
 //     console.log(i);
-
 // }
 
-let unname = 'Jaireshaearte' ;
-let vnname = 'selvinae'
-
-// // String
-// for (let i = 0 ; i< unname.length ; i ++){
-//     console.log(unname[i],'check');
-//     console.log(unname.charAt(i));
-// }
-
-// // You understood well
-
-// // Default method
-
-
-let arrayy = [];
-
-for (let i = 0 ; i<unname.length ; i ++){
-    for(let j = 0 ; j<vnname.length ; j++){
-
-      if(unname.charAt(i) === vnname.charAt(j)){
-        if(!arrayy.includes(unname.charAt(i))){
-          arrayy.push(unname.charAt(i));
-           console.log(unname.charAt(i));
-        }
-    }
-    }
-}
-
-console.log('final array :' ,arrayy);
-
-// const demo = "malayalam";
-// let array = [];
-
-// for (i = 0; i < demo.length; i++) {
-//   let count = 0;
-
-//   for (j = 0; j < demo.length; j++) {
-//     if (demo[i] == demo[j] && i !== j) {
-//       count++;
-//     }
-//   }
-
-//   let repeated = false;
-//   for (let k = 0; k < array.length; k++) {
-//     if (array[k] == demo[i]) {
-//       repeated = true;
-//     }
-//   }
-
-//   if (count > 0 && repeated == false) {
-//     array.push(demo[i]);
-//     console.log("ans:", demo[i]);
-//   }
-// }
-// console.log(array);
-
-
-
-
-// // For loop , For in , For of related problems :
-
-// // const Vandi = [
-// //   "Car",
-// //   "Auto",
-// //   "Bike",
-// //   "Bus",
-// //   "Car",
-// //   "Auto",
-// //   "Bike",
-// //   "Lorry",
-// //   "Truck",
-// // ];
-
-// // let repeated = [];
-// // let push_count = [];
-
-// // for (let i = 0; i < Vandi.length; i++) {
-// //   let count = 0;
-// //   for (let j = i + 1; j < Vandi.length; j++) {
-// //     if (Vandi[i] == Vandi[j]) {
-// //       count++;
-// //     }
-// //   }
-
-// //   let already_exist = false;
-// //   for(let k = 0; k < repeated.length; k++) {
-// //     if(repeated[k] == Vandi[i]){
-// //       already_exist = true ;
-
-// //     }
-// //   }
-
-// //   if (count > 0 && already_exist == false) {
-// //     repeated.push(Vandi[i]);
-// //     push_count.push(count+1);
-
-// //   }
-// // }
-
-// // const non_repeated = Vandi.filter((veh)=>!repeated.includes(veh))
-// // console.log(repeated);
-// // console.log(push_count);
-// // console.log(non_repeated);
-
-// // let output = []
-// // for(let rep in repeated){
-// //   output[repeated[rep]] = push_count[rep]
-// // }
-
-// // for(let non_rep in non_repeated){
-// //   output[non_repeated[non_rep]] = 1
-// // }
-
-// // console.log(output);
-
-// const ChinnaVandi = [
-//   "Car",
-//   "Auto",
-//   "Bike",
-//   "Bus",
-//   "Car",
-//   "Auto",
-//   "Bike",
-//   "Lorry",
-//   "Truck",
-// ];
-
-// // // // Simplest way :
-// const countofvandi = {};
-
-// for (let item of ChinnaVandi) {
-//   if (countofvandi[item]) {
-//     countofvandi[item]++;
-//   } else {
-//     countofvandi[item] = 1;
-//   }
-// }
-
-// console.log(countofvandi);
-
-const pogaiVandi = [
-  "Car", "Auto", "Bike", "Bus", "Car", "Auto", "Bike", "Lorry", "Truck",
-  "Car", "Bike", "Auto", "Truck", "Lorry", "Van", "Bus", "Van", "Auto",
-  "Bike", "Car", "Scooter", "Cycle", "Bus", "Scooter", "Cycle"
-];
-
-// let pogai_array = [];
-// for(let i of pogaiVandi){
-//   if(pogai_array[i]){
-//     pogai_array[i]++
-//   }
-//   else{
-//     pogai_array[i] = 1;
-//   }
-// }
-
-let pogai_array = {} ;
-for(let vehicles of pogaiVandi){
- pogai_array[vehicles] = (pogai_array[vehicles] ?? 0) + 1
- console.log('check :',vehicles, '  :  ' ,pogai_array[vehicles]);
-}
-
-console.log(pogai_array);
-
-// // for(let i = 0 ; i<pogaiVandi.length ; i++){
-// //   console.log(i);
-// //   console.log(pogaiVandi[i]);
-// // }
-
-// // // const demo = "malayalam";
-
-// // // let array = [];
-
-// // // for (i = 0; i < demo.length; i++) {
-// // //   let count = 0;
-
-// // //   for (j = i+1; j < demo.length; j++) {
-// // //     if (demo[i] == demo[j]) {
-// // //       count++;
-// // //     }
-// // //   }
-
-// // //   let repeated = false;
-// // //   for (k = 0; k < array.length; k++) {
-// // //     if (array[k] == demo[i]) {
-// // //       repeated = true;
-// // //     }
-// // //   }
-
-// // //   if (count > 0 && repeated == false) {
-// // //     array.push(demo[i]);
-// // //   }
-// // // }
-// // // console.log(array);
 
 // // // Counting occurance of the element
 
-// // // const fruits = [
-// // //   "Apple",
-// // //   "Orange",
-// // //   "Banana",
-// // //   "Grapes",
-// // //   "Apple",
-// // //   "Orange",
-// // //   "Apple",
-// // // ];
-
-// // // let arr = [];
-// // // let counts = [];
-// // // let arr1 = [];
-// // // let arr2 = [];
-
-// // // for (i = 0; i < fruits.length; i++) {
-// // //   let count = 0;
-// // //   for (j = i + 1; j < fruits.length; j++) {
-// // //     if (fruits[i] == fruits[j]) {
-// // //       count++;
-// // //     }
-// // //   }
-
-// // //   let exist = false ;
-
-// // //   for(k=0 ; k<arr.length ; k++){
-
-// // //     if(arr[k] == fruits[i]){
-// // //       exist = true ;
-// // //     }
-
-// // //   }
-
-// // //   if (count > 0 && exist == false) {
-// // //      arr.push(fruits[i]);
-// // //      counts.push(count+1);
-// // //   } else {
-// // //     arr1.push(fruits[i]);
-// // //   }
-// // // }
-
-// // // console.log(arr);
-// // // console.log('counts :',counts);
-// // // console.log(arr1);
-
-// // // console.log('O/P :', result );
-
-// // // console.log([5,6,7] - [3,5,2]);
-// // // const differences = fruits.filter((val, i) => val !== arr[i]);
-// // // console.log(differences);
 
 // // // Alternative [correct]
 
-// // const fruits = [
-// //   "Apple",
-// //   "Orange",
-// //   "Banana",
-// //   "Grapes",
-// //   "Apple",
-// //   "Orange",
-// //   "Apple",
-// // ];
+const fruitss = [
+  "Apple",
+  "Orange",
+  "Banana",
+  "Grapes",
+  "Apple",
+  "Orange",
+  "Apple",
+];
 
-// // let repeated_element_array = [];
-// // let counts = [];
+let repeated_element_array = [];
+let countss = [];
 
-// // for (let i = 0; i < fruits.length; i++) {
-// //   let count = 0;
-// //   for (let j = i + 1; j < fruits.length; j++) {
-// //     if (fruits[i] == fruits[j]) {
-// //       count++;
-// //     }
-// //   }
+for (let i = 0; i < fruitss.length; i++) {
+  let count = 0;
+  for (let j = i + 1; j < fruitss.length; j++) {
+    if (fruitss[i] == fruitss[j]) {
+      count++;
+    }
+  }
 
-// //   let exist = false;
+  let exist = false;
 
-// //   for (let k = 0; k < repeated_element_array.length; k++) {
-// //     if (repeated_element_array[k] == fruits[i]) {
-// //       exist = true;
-// //     }
-// //   }
+  for (let k = 0; k < repeated_element_array.length; k++) {
+    if (repeated_element_array[k] == fruitss[i]) {
+      exist = true;
+    }
+  }
 
-// //   if (count > 0 && exist == false) {
-// //     repeated_element_array.push(fruits[i]);
-// //     counts.push(count + 1);
-// //   }
-// // }
-// // console.log("repeated_element_array :", repeated_element_array);
-// // console.log("counts :", counts);
+  if (count > 1 && exist == false) {
+    repeated_element_array.push(fruitss[i]);
+    countss.push(count+1);
+  }
+}
+console.log("repeated_element_array :", repeated_element_array);
+console.log("countss :", countss);
 
-// // const non_repeated_element_array = fruits.filter(
-// //   (elements_in_fruits) => !repeated_element_array.includes(elements_in_fruits)
-// // );
+const non_repeated_element_array = fruitss.filter(
+  (elements_in_fruitss) => !repeated_element_array.includes(elements_in_fruitss)
+);
 
-// // const result = {};
-// // for (let i in repeated_element_array) {
-// //   result[repeated_element_array[i]] = counts[i];
-// // }
-// // console.log("initial result : ", result);
+const result = {};
+for (let i in repeated_element_array) {
+  result[repeated_element_array[i]] = countss[i];
+}
+console.log("initial result : ", result);
 
-// // for (let i of non_repeated_element_array) {
-// //   result[i] = 1;
+for (let i of non_repeated_element_array) {
+  result[i] = 1;
 
-// // }
-// // // for (i = 0;i<non_repeated_element_array.length;i++){
-// // //   result[non_repeated_element_array[i]] = 1;
-// // // }
+}
+for (i = 0;i<non_repeated_element_array.length;i++){
+  result[non_repeated_element_array[i]] = 1;
+}
 
-// // console.log("final result : ", result);
+console.log("final result : ", result);
 
-// // // for (let key in result) {
-// // //   console.log(`${key} : ${result[key]}`);
-// // // }
-// // // console.log({
-// // //   Jai: result.Apple ?? 'N/A'
-// // // });
+for (let key in result) {
+  console.log(`${key} : ${result[key]}`);
+}
+console.log({
+  Jai: result.Apple ?? 'N/A'
+});
 
-// // console.log("O/P :", result); // In array format
+console.log("O/P :", result); // In array format
 
-// // // const arr = ["a", "b"];
-// // // for (let i in arr) {
-// // //   console.log(i, arr[i]);
-// // // }
+// const arr = ["a", "b"];
+// for (let i in arr) {
+//   console.log(i, arr[i]);
+// }
 
 // // // const colors = { Name: "Red", Value: "Green", Age: "Blue" };
 

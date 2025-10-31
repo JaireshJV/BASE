@@ -7,20 +7,21 @@ if (!num) {
   console.log("There is no value");
 }
 
-a = 5 ;
-b = 25 ;
-c = 3 ;
+a = 5;
+b = 25;
+c = 3;
 
-big = a ;
+big = a;
 
-if(b>big){
-    big = b
+if (b > big) {
+  big = b;
 }
-if(c>big){
-    big = c
+if (c > big) {
+  big = c;
 }
 
-console.log('Big number : ' + big);
+console.log("Big number : " + big);
+
 
 
 // if else
@@ -40,13 +41,11 @@ if (num == "9") {
   console.log("Itz wrong");
 }
 
-if(2<7){
-  console.log('llll');
-}
-else if(8>0){
-console.log("kkk");
-}
-else{
+if (2 < 7) {
+  console.log("llll");
+} else if (8 > 0) {
+  console.log("kkk");
+} else {
   console.log("else");
 }
 
@@ -78,4 +77,25 @@ if (vari === "born") {
   console.log("Dont Allow to vote");
 }
 
-//
+// Switch
+// If the elements are matched to any particular cases , it directly gets navigated towards that case .
+
+const array = [1,2,3,4,5,6,7] ;
+
+for(let element of array){
+  switch (element){
+    
+    case 2 : 
+    console.log(`The given value ${element} is even`);
+    break;
+    case 4 : 
+    console.log(`The given value ${element} is even`);
+    break;
+    case 6 : 
+    console.log(`The given value ${element} is even`);
+    break;
+    default :
+    console.log(`Thee given value ${element} is odd`);
+  }
+}
+
