@@ -1,75 +1,83 @@
-// Functions
+// // Functions
 
-// Default function using parameter :
+// // Default function using parameter :
 
-function sum(num1,num2){
-    return num1 + num2
-}
+// // Function 1 :
+// function sum(num1,num2){
+//     return num1 + num2
+// }
 
-console.log(sum(12,2));
-console.log(sum(1,2));
-console.log(sum(-1,2));
+// console.log(sum(12,2));
+// console.log(sum(1,2));
+// console.log(sum(-1,2));
 
-function sum(num1,num2){
+// function sum(num1,num2){
 
-    if(num2 === undefined){
-        return num1 + num1
-    }
-    return num1 + num2          // if not enough parameter is passed it will be taken as undefined
-}
+//     if(num2 === undefined){
+//         return num1 + num1
+//     }
+//     return num1 + num2          // if not enough parameter is passed it will be taken as undefined
+// }
 
-console.log(sum(12));
-
-
-
-
-// Getting username from mail :
-
-function getUserNameFromMail(email){
-    return (email.slice(0,email.indexOf("@")))
-}
-
-console.log(getUserNameFromMail("jai@gmail.com"));
+// console.log(sum(12));
 
 
+// // Function 2 :
+// let x = 2 ;
+
+// function myFunc(){
+//     if (false){
+//     var y = 7 ;
+//         console.log("yyy" ,y);
+//     }
+//     console.log("xxx" ,x);
+
+// }
+
+// myFunc()
+// console.log(x,'outside');
+
+
+// // Function 3 :
+// let l = 10;
+
+// function saa(){
+//   console.log('check :',l);
+
+//   }
+
+// saa()
 
 
 
-// Function to convert the string into propercase :
 
-function toProperCase(name){
-    return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase()
-}
+// // Getting username from mail :
 
-console.log(toProperCase("jairesh"));
+// function getUserNameFromMail(email){
+//     return (email.slice(0,email.indexOf("@")))
+// }
 
-
-
+// console.log(getUserNameFromMail("jai@gmail.com"));
 
 
 
 
-let x = 2 ;
 
-function myFunc(){
-    if (false){
-    var y = 7 ;
-        console.log("yyy" ,y);
-    }
-    console.log("xxx" ,x);
+// // Function to convert the string into propercase :
 
-}
+// function toProperCase(name){
+  
+//     return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase()
+// }
 
-myFunc()
-console.log(x);
+// console.log(toProperCase("jairesh"));
 
-let l = 10;
 
-function saa(){
-  console.log('check :',l);
 
-  }
-saa()
+
+
+
+
 
 
 
@@ -148,9 +156,15 @@ saa()
 
 
 
-// Higher Order Function ( HOF )
+// Higher Order Function ( HOF ) :
+
+// A Higher-Order Function is one that takes another function as an argument or returns a function.
+
+// (i) HOF as argument passed :
+
 
 function operate(a, b, operation) {
+  
   return operation(a, b);
 }
 
@@ -186,10 +200,53 @@ switch (operatesymbol) {
 
 console.log(operate(inputvalue1, inputvalue2, val));
 
+// In this example, operate() is a Higher-Order Function because it accepts another function (operation) 
+// as one of its parameters and executes it with the provided arguments (a and b). This allows different
+// operations like addition or multiplication to be passed dynamically, making the function reusable and flexible.
+
+function Higher(fn) {
+  return fn; // returning a function
+}
+
+function CallMe() {
+  console.log("Checkedddddddddddd");
+}
+
+const result = Higher(CallMe); // pass function as argument
+result(); // prints "Check"
+
+// In this example, Higher() is a Higher-Order Function because it accepts another function (fn)  as an argument
+// and returns it. This allows the passed function (CallMe) to be executed later through the returned reference,
+// demonstrating how functions can be treated as values in JavaScript.
 
 
 
+// (ii) HOF as Function methods :
 
+const array = [2,4,6];
+
+const doubled = array.map((elem) => { return elem * 2 });
+
+// In this example, the map() method is a Higher-Order Function because it accepts another 
+// function ((elem) => elem * 2) as its argument and applies it to each element of the array.
+// This allows dynamic operations to be performed on array elements without modifying the original array.
+
+
+// (iii) HOF without taking function as argument but returning a function  :
+
+function greet() {
+  return function(name) {
+    console.log(`Hello, ${name}!`);
+  };
+}
+
+const sayHello = greet(); // greet() returns a function
+sayHello("Jairesh"); // 👉 "Hello, Jairesh!"
+
+
+// In this example, greet() is a Higher-Order Function because it returns another function instead of taking one
+//  as an argument. The returned function accepts a name and prints a 
+// greeting message, allowing greet() to generate customized functions dynamically.
 
 
 
@@ -300,12 +357,18 @@ console.log(ar(4, 7));
 
 // Named Function
 
+// A named function is a function that has an explicit name assigned to it when defined. 
+// This name can be used to call the function, refer to it recursively, or debug it easily.
+
+
 function Jai(name) {
   // return `My name is ${name}`;
   return console.log(`My name is ${name}`);
 }
 
 Jai("Jairesh");
+
+
 
 // Annonyms
 (function () {
