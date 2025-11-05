@@ -188,29 +188,79 @@ let isPrimeCheck = true;
 if (g_number <= 1) {
   isPrimeCheck = false;
 } else {
-  for (let i = 2; i <= Math.sqrt(g_number); i++) {            // Only taking squareroot is changed for optimisation    
-    if (g_number % i == 0 ) {
+  for (let i = 2; i <= Math.sqrt(g_number); i++) {
+    // Only taking squareroot is changed for optimisation
+    if (g_number % i == 0) {
       isPrimeCheck = false;
     }
   }
 }
 
-if(isPrimeCheck){
-    console.log('The given number is a Prime Number');  
+if (isPrimeCheck) {
+  console.log("The given number is a Prime Number");
+} else {
+  console.log("The given number is not a Prime Number");
 }
-else{
-    console.log('The given number is not a Prime Number');  
-}
-
 
 // (11) GIVEN NUMBER IS A ODD OR EVEN :
 
-let g_numb = 8 ;
+let g_numb = 8;
 
-if(g_numb % 2 == 0 ){
-    console.log('The given number is Even'); 
-}
-else{
-    console.log('The given number is Odd');    
+if (g_numb % 2 == 0) {
+  console.log("The given number is Even");
+} else {
+  console.log("The given number is Odd");
 }
 
+// (12) HIGHEST NUMBER AMONG THE ARRAY :
+
+const gn_array = [22, 4, -10, 77, 8];
+let high = 0;
+for (let i = 0; i < gn_array.length; i++) {
+  if (gn_array[i] > high) {
+    high = gn_array[i];
+  }
+}
+
+console.log(high, "highhh");
+console.log(Math.max(...gn_array));
+
+
+// (13) SORT AN ARRAY IN ASCENDING ORDER :
+
+// const mixed_array = [4, 3, 5, 6, 1, 2, 8];
+
+// let temp = 0;
+// let asc = [];
+
+// console.log(mixed_array.sort()) ;
+
+// for (i = 0; i < mixed_array.length; i++) {
+// if(mixed_array[i]>temp){
+//   let a = mixed_array[i] ;
+//   b = a ;
+//   temp = b ;
+// }
+// asc.push(mixed_array[i])
+// }
+
+// console.log(asc,'ascccccccc');
+// console.log(temp,'temp');
+
+const mixed_array = [4, 3, 5, 6, 1, 2, 8];
+const asc = [];
+
+let arr = [...mixed_array];
+while (arr.length) {
+  let min = Math.min(...arr);
+  asc.push(min);
+  arr.splice(arr.indexOf(min), 1);
+  console.log(arr,'check :');
+  
+}
+
+console.log(asc, 'Ascending order');
+
+
+
+// (14) SORT AN ARRAY IN DESCENDING ORDER :

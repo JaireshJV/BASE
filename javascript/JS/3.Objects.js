@@ -106,3 +106,14 @@ console.log(fields,'fields');
 
 // const out = Output.map((id) => id);
 // console.log(out, "out");
+
+
+let a = {name :"Jai" , age :"29" } ;
+Object.freeze(a) ;
+let obj = a ;
+obj.name = "Arun" ;
+
+console.log(a) ;
+console.log(obj) ;
+
+

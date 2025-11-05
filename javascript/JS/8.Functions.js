@@ -1,5 +1,7 @@
 // Functions
 
+// Default function using parameter :
+
 function sum(num1,num2){
     return num1 + num2
 }
@@ -18,11 +20,22 @@ function sum(num1,num2){
 
 console.log(sum(12));
 
+
+
+
+// Getting username from mail :
+
 function getUserNameFromMail(email){
     return (email.slice(0,email.indexOf("@")))
 }
 
 console.log(getUserNameFromMail("jai@gmail.com"));
+
+
+
+
+
+// Function to convert the string into propercase :
 
 function toProperCase(name){
     return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase()
@@ -30,26 +43,20 @@ function toProperCase(name){
 
 console.log(toProperCase("jairesh"));
 
-const toProperCasee = function(name){
-    return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase()
-}
 
-console.log(toProperCasee("jairesh"));
 
-const toProperCaseee = (name) => {
-    return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase()
-}
 
-console.log(toProperCaseee("jairesh"));
+
+
 
 let x = 2 ;
 
 function myFunc(){
     if (false){
     var y = 7 ;
-        console.log(y);
+        console.log("yyy" ,y);
     }
-    console.log(x);
+    console.log("xxx" ,x);
 
 }
 
@@ -65,64 +72,83 @@ function saa(){
 saa()
 
 
+
+
+
+
+
+
 // Rock,paper and scissor game
 
-callMe()
+// callMe()
 
-function callMe(){
-    let confirmation = confirm("Are you ready to play ?")
-    console.log(confirmation,'confirmation');
+// function callMe(){
+//     let confirmation = confirm("Are you ready to play ?")
+//     console.log(confirmation,'confirmation');
 
-if(confirmation){
-    let playerChoice = prompt("Please type stone,paper or scissor")?.toLowerCase()
-    if(playerChoice === "stone"){
-        console.log("stone");
-    }
-    else if (playerChoice === "paper"){
-        console.log("paper");
-    }
-    else if (playerChoice === "scissor"){
-        console.log("scissor");
-    }
-    else{
-        console.log("Plz try other");
-    }
+// if(confirmation){
+//     let playerChoice = prompt("Please type stone,paper or scissor")?.toLowerCase()
+//     if(playerChoice === "stone"){
+//         console.log("stone");
+//     }
+//     else if (playerChoice === "paper"){
+//         console.log("paper");
+//     }
+//     else if (playerChoice === "scissor"){
+//         console.log("scissor");
+//     }
+//     else{
+//         console.log("Plz try other");
+//     }
 
-    if(playerChoice === "stone" || playerChoice === "paper" || playerChoice ===  "scissor"){
-        let computerChoice = Math.floor(Math.random() * (max - min + 1 )) + min
-        console.log(computerChoice);
+//     if(playerChoice === "stone" || playerChoice === "paper" || playerChoice ===  "scissor"){
+//         let computerChoice = Math.floor(Math.random() * (max - min + 1 )) + min
+//         console.log(computerChoice);
 
-        if(computerChoice === 1){
-            computerChoice = 'stone'
-        }
-        else if (computerChoice === 2){
-            computerChoice = 'paper'
-        }
-        else if (computerChoice === 3){
-            computerChoice = 'scissor'
-        }
-        console.log(computerChoice);
+//         if(computerChoice === 1){
+//             computerChoice = 'stone'
+//         }
+//         else if (computerChoice === 2){
+//             computerChoice = 'paper'
+//         }
+//         else if (computerChoice === 3){
+//             computerChoice = 'scissor'
+//         }
+//         console.log(computerChoice);
 
-        let result =
-        playerChoice === computerChoice ? "Tie game" :
-        playerChoice === "paper" && computerChoice === "stone" ? `${computerChoice} , You won !!!` :
-        playerChoice === "paper" && computerChoice === "scissor" ? `${computerChoice} , Sorry ,Opponent won !!` :
-        playerChoice === "scissor" && computerChoice === "paper" ? `${computerChoice} , You won !!!` :
-        playerChoice === "scissor" && computerChoice === "stone" ? `${computerChoice} , Sorry ,Opponent won !!` :
-        playerChoice === "stone"  && computerChoice === "scissor" ? `${computerChoice} , You won !!! ` :
-        playerChoice === "stone"  && computerChoice === "paper" ? `${computerChoice} , Sorry ,Opponent won !!` : "Invalid Input"
-        alert(result)
-        callMe()
-        }
-    }
-    else{
-        alert("Please enter either stone,paper or scissor only")
-        callMe()
-    }
+//         let result =
+//         playerChoice === computerChoice ? "Tie game" :
+//         playerChoice === "paper" && computerChoice === "stone" ? `${computerChoice} , You won !!!` :
+//         playerChoice === "paper" && computerChoice === "scissor" ? `${computerChoice} , Sorry ,Opponent won !!` :
+//         playerChoice === "scissor" && computerChoice === "paper" ? `${computerChoice} , You won !!!` :
+//         playerChoice === "scissor" && computerChoice === "stone" ? `${computerChoice} , Sorry ,Opponent won !!` :
+//         playerChoice === "stone"  && computerChoice === "scissor" ? `${computerChoice} , You won !!! ` :
+//         playerChoice === "stone"  && computerChoice === "paper" ? `${computerChoice} , Sorry ,Opponent won !!` : "Invalid Input"
+//         alert(result)
+//         callMe()
+//         }
+//     }
+//     else{
+//         alert("Please enter either stone,paper or scissor only")
+//         callMe()
+//     }
 
-}
+// }
 
-// Higher Order Function
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Higher Order Function ( HOF )
 
 function operate(a, b, operation) {
   return operation(a, b);
@@ -160,6 +186,15 @@ switch (operatesymbol) {
 
 console.log(operate(inputvalue1, inputvalue2, val));
 
+
+
+
+
+
+
+
+
+
 // Factorial (Recursive Function)
 
 function factorial(n) {
@@ -168,6 +203,15 @@ function factorial(n) {
 }
 
 console.log(factorial(6));
+
+
+
+
+
+
+
+
+
 
 // Generator Function
 
@@ -187,6 +231,16 @@ console.log(counter.next().value);
 console.log(counter.next().value);
 console.log(counter.next().value);
 
+
+
+
+
+
+
+
+
+
+
 // Currying function
 
 function summ(a) {
@@ -202,6 +256,15 @@ const summy = (a) => (b) => (c) => a + b + c;
 console.log(summy(2)(3)(7));
 
 console.log(summ(2)(3)(7)); // 12
+
+
+
+
+
+
+
+
+
 
 // Functions
 
@@ -223,6 +286,16 @@ const ar = (a, b) => {
 };
 
 console.log(ar(4, 7));
+
+
+
+
+
+
+
+
+
+
 
 
 // Named Function
@@ -295,6 +368,16 @@ function kootu(s) {
 
 console.log(kootu(6));
 
+
+
+
+
+
+
+
+
+
+
 // Fibonocci
 
 function fibino(n) {
@@ -304,7 +387,7 @@ function fibino(n) {
 }
 
 console.log("fibino:", fibino(8));
-console.log("substring", w.substring(18, 20));
+// console.log("substring", w.substring(18, 20));
 
 function countdown(n) {
   if (n === 0) {
@@ -316,6 +399,16 @@ function countdown(n) {
 }
 
 countdown(5);
+
+
+
+
+
+
+
+
+
+
 
 // Currying Function
 
@@ -338,6 +431,16 @@ const curyi = function (a) {
 
 console.log(curyi(18)(13)(9));
 console.log(curry(8)(3)(9));
+
+
+
+
+
+
+
+
+
+
 
 
 // Sum using recursive function
@@ -366,6 +469,16 @@ console.log('fib: ',fib(6));
 // 4   ==> 3 ;
 // 5   ==> 5 ;
 // 6   ==> 8 ;
+
+
+
+
+
+
+
+
+
+
 
 // Reverse a strring using recursion
 

@@ -99,7 +99,7 @@ console.log("Repeated Characters :", arrayy);
 const Automobiles = [
   "Car", "Auto", "Bike", "Bus", "Car", "Auto", "Bike", "Lorry", "Truck",
   "Car", "Bike", "Auto", "Truck", "Lorry", "Van", "Bus", "Van", "Auto",
-  "Bike", "Car", "Scooter", "Cycle", "Bus", "Scooter", "Cycle"
+  "Bike", "Car", "Scooter", "Cycle", "Bus", "Scooter", "Cycle","Ship"
 ];
 
 let repeated = [];
@@ -131,6 +131,10 @@ const non_repeated = Automobiles.filter((veh) => !repeated.includes(veh));
 const combined = repeated.map((elem, ind) => {
   return `${elem} : ${repeated_count[ind]}`;
 });
+
+for(let non of non_repeated){
+   combined.push(`${non} : 1`)
+}
 
 console.log("Rep :", repeated);
 console.log("Count :", repeated_count);
@@ -180,4 +184,98 @@ for(let i of Automobiles){
 // Finally, obj will contain each vehicle name with how many times it appeared in the array.
 
 console.log(obj);
+
+
+
+
+
+
+
+
+
+
+
+// (III) PROBLEMS RELATED TO OBJECT :
+
+const fruitss = [
+  "Apple",
+  "Orange",
+  "Banana",
+  "Grapes",
+  "Apple",
+  "Orange",
+  "Apple",
+];
+
+let repeated_fruits = [];
+let countss = [];
+
+// It gives two arrays of repeated elements and their counts seperatly .
+
+for (let i = 0; i < fruitss.length; i++) {
+  let count = 0;
+  for (let j = i + 1; j < fruitss.length; j++) {
+    if (fruitss[i] == fruitss[j]) {
+      count++;
+    }
+  }
+
+  let exist = false;
+
+  for (let k = 0; k < repeated_fruits.length; k++) {
+    if (repeated_fruits[k] == fruitss[i]) {
+      exist = true;
+    }
+  }
+
+  if (count > 1 && exist == false) {
+    repeated_fruits.push(fruitss[i]);
+    countss.push(count+1);
+  }
+}
+
+// It gives the non-repeated elements from the source array .
+
+const non_repeated_fruits = fruitss.filter(
+  (fruits) => !repeated_fruits.includes(fruits)
+);
+
+// Methods that we can assign the values in an object format from the combined two arrays .
+// The below three LOOPS performs the same process .
+
+const result = {};
+
+// LOOP 1 : For in loop :
+
+for (let i in repeated_fruits) {
+  result[repeated_fruits[i]] = countss[i];
+}
+
+// LOOP 2 : For of loop :
+for (let i of non_repeated_fruits) {
+  result[i] = 1;
+
+}
+
+// LOOP 3 : Traditional Loop : 
+
+for (i = 0;i<non_repeated_fruits.length;i++){
+  result[non_repeated_fruits[i]] = 1;
+}
+
+console.log("final result : ", result);
+
+
+
+
+
+// Just tried to retrieve the value from its corresponding key to wherever we need :
+// Based on the condition , if Apple doesnot have the value , 'N/A' will be the O/P .
+
+for (let key in result) {
+  console.log(`${key} : ${result[key]}`);
+}
+console.log({
+  Jai: result.Apple ?? 'N/A' 
+});
 
