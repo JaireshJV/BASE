@@ -1,5 +1,18 @@
 // // Functions
 
+// (I) DEFAULT / NAMED FUNCTION :
+
+// A named function is a function that has an explicit name assigned to it when defined. 
+// This name can be used to call the function, refer to it recursively, or debug it easily.
+
+function Jai(name) {
+  // return `My name is ${name}`;
+  return console.log(`My name is ${name}`);
+}
+
+Jai("Jairesh");
+
+
 // // Default function using parameter :
 
 // // Function 1 :
@@ -85,6 +98,24 @@
 
 
 
+// (II) ANNONYMOUS FUNCTION :
+
+// We cant call this function as named function , we can just declare and it will excecute line by line .
+ 
+(function () {
+  console.log("Annonymouse");
+})();
+
+
+
+
+
+
+
+
+
+
+
 
 // Rock,paper and scissor game
 
@@ -156,7 +187,7 @@
 
 
 
-// Higher Order Function ( HOF ) :
+// (III) HIGHER ORDER FUNCTION ( HOF ) :
 
 // A Higher-Order Function is one that takes another function as an argument or returns a function.
 
@@ -250,9 +281,163 @@ sayHello("Jairesh"); // 👉 "Hello, Jairesh!"
 
 
 
+// Examples :
+
+// (i)
+function filterArray(arr, testFunc) {
+  console.log(arr,'arrarr');
+  
+  console.log(testFunc,'testFunc');
+  
+  const result = [];
+  for (let item of arr) {
+    console.log(item,'item');
+    console.log( testFunc(item),'testtt');
+    
+    if (testFunc(item)) {
+      result.push(item);
+    }
+  }
+  return result;
+}
+
+
+// (ii)
+const numbers = [5, 10, 15, 20];
+const greaterThan10 = filterArray(numbers, num => num > 10);
+console.log(greaterThan10,'greaterThan10');
+
+function calculator(a, b, operation) {
+  console.log("Calculating...");
+  const result = operation(a, b); // calling passed function
+  console.log(result ,'result');  
+}
+
+function add(x, y) {
+  return x + y;
+}
+
+calculator(10, 20, add) ;
+
+
+//(iii)
+function checkNumber(num, callback) {
+  if (callback(num)) {
+    console.log(num, "passed the test!");
+  } else {
+    console.log(num, "failed the test!");
+  }
+}
+
+function isEven(n) {
+  return n % 2 === 0;
+}
+
+checkNumber(7, isEven);
+checkNumber(10, isEven);
+
+
+// (iv)
+function processData(data, callback) {
+  for (let item of data) {
+    callback(item);
+  }
+}
+
+function display(item) {
+  console.log("Processing:", item);
+}
+
+processData(["apple", "banana", "cherry"], display);
+
+
+// (IV) CALL BACK FUNCTION :
+
+// The function passed as an argument to a HOF, which the HOF later calls back (executes).
+
+// A callback function is a function that is passed as an argument to another function (the HOF),
+//  with the expectation that the outer function will call it later to complete some kind of routine or action. 
+
+// (i)
+function greetUser(name, callback) {
+  console.log("Hi " + name);
+  callback(); // callback executed here
+}
+
+function sayBye() {
+  console.log("Goodbye!");
+}
+
+greetUser("Jairesh", sayBye);
+
+// ✅ Callback Function: sayBye
+// ✅ Higher-Order Function: greetUser
+// 💡 The callback runs after greeting the user.
+
+// (ii) In this , the arrow function inside the SetTimeout is a callback function , as it excecutes later .
+setTimeout(() => {
+  console.log("Step 1 completed");
+
+  setTimeout(() => {
+    console.log("Step 2 completed");
+
+    setTimeout(() => {
+      console.log("Step 3 completed");
+    }, 1000);
+
+  }, 1000);
+
+}, 1000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// (V) ARROW FUNCTION :
+
+// An arrow function is a shorter and simpler way to write a function in JavaScript,
+//  introduced in ES6, using the => (arrow) syntax.
+
+
+const arrowfunct = (a, b) => a + b;
+console.log(arrowfunct(7, 3));
+
+const arrowwithreturn = (a, b) => {
+  return a * b;
+};
+console.log(arrowwithreturn(5, 6));
+
+const arrrt = (a, b) => a + b;
+console.log(arrrt(5, 9));
+
+const ar = (a, b) => {
+  return a * b;
+};
+
+console.log(ar(4, 7));
+
+
+
+
+
+
+
+
+
 
 
 // Factorial (Recursive Function)
+
 
 function factorial(n) {
   if (n == 1) return 1;
@@ -323,57 +508,10 @@ console.log(summ(2)(3)(7)); // 12
 
 
 
-// Functions
-
-// Arrow Function
-
-const arrowfunct = (a, b) => a + b;
-console.log(arrowfunct(7, 3));
-
-const arrowwithreturn = (a, b) => {
-  return a * b;
-};
-console.log(arrowwithreturn(5, 6));
-
-const arrrt = (a, b) => a + b;
-console.log(arrrt(5, 9));
-
-const ar = (a, b) => {
-  return a * b;
-};
-
-console.log(ar(4, 7));
 
 
 
 
-
-
-
-
-
-
-
-
-// Named Function
-
-// A named function is a function that has an explicit name assigned to it when defined. 
-// This name can be used to call the function, refer to it recursively, or debug it easily.
-
-
-function Jai(name) {
-  // return `My name is ${name}`;
-  return console.log(`My name is ${name}`);
-}
-
-Jai("Jairesh");
-
-
-
-// Annonyms
-(function () {
-  console.log("lalialala");
-})();
 
 // setTimeout(function(){
 //   console.log("Print After 2 Seconds")
