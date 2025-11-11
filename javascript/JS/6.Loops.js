@@ -43,3 +43,14 @@ Object.entries(colors).forEach(([key, value], position) => {
   console.log(`The key : ${key} = ${value} is placed at ${position}`);
 });
 
+
+
+// Complicated one [ Dont touch (danger) ] :
+
+for(var i=0 ; i< 6;i++){
+  setTimeout(()=>console.log(i,'varloop') ,2000 )
+}
+
+for(let i=0 ; i<3 ;i++){
+  setTimeout(()=>console.log(i,'letloop') ,1000 )
+}

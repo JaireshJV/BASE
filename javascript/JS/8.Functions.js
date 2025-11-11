@@ -10,7 +10,7 @@ function Jai(name) {
   return console.log(`My name is ${name}`);
 }
 
-Jai("Jairesh");
+// Jai("Jairesh");
 
 
 // // Default function using parameter :
@@ -99,14 +99,36 @@ Jai("Jairesh");
 
 
 // (II) ANNONYMOUS FUNCTION :
-
-// We cant call this function as named function , we can just declare and it will excecute line by line .
  
+// Basic function - It wont run and throw syntax error :
+
+// function () {
+//   console.log('Anonymous');
+// }
+
+// This will throw a SyntaxError — because JavaScript expects a function name in a standalone function declaration.
+// Function can't be run unless or untill its been called .
+
+// Calling anonymous function through several methods :
+
+// (i) IIFE ( Immediately Invoked Function Expression ) :
 (function () {
-  console.log("Annonymouse");
+  console.log("Annonymous");
 })();
 
 
+// (ii) Callback :
+setTimeout (function () {
+  console.log("Annonymous");
+}, 2000);
+
+
+// (iii) Function Expression :
+const Annonymous = function (){
+  console.log('ANONYMOUS');
+}
+
+Annonymous() ;
 
 
 
@@ -400,31 +422,70 @@ setTimeout(() => {
 
 
 
+//(V) IIFE-Immediatly Invoked Function Expression
+
+// The function below is an Immediately Invoked Function Expression (IIFE) — it’s defined and executed right away when the JavaScript code runs:
+
+(function (){
+  console.log("Immediatly Invoked Function Expression");
+})();
+
+// This means that as the JavaScript code runs line by line, this function is executed immediately at the point where it’s written.
+// You can’t call it again later because it runs automatically right where it’s declared.
 
 
 
-// (V) ARROW FUNCTION :
+
+
+
+
+
+
+
+// (VI) FUNCTION EXPRESSION :
+
+// FunEpression();               // In here , hoisting will not happen .
+
+const FunEpression = function(){
+  console.log("A function has assigned to a variable");
+}
+
+// Here, the function is stored inside the variable FunExpression.
+// This means FunExpression now acts like the function’s name, and you can call it anywhere after it has been defined, like this:
+
+FunEpression();
+
+// Unlike a function declaration, a function expression is not hoisted, so it must be defined before it’s called.
+
+
+
+
+
+
+
+
+
+
+// (VII) ARROW FUNCTION :
 
 // An arrow function is a shorter and simpler way to write a function in JavaScript,
 //  introduced in ES6, using the => (arrow) syntax.
 
 
+// (i) Method 1 : INLINE ARROW METHOD [ Arrow function without return and without curly braces ] :
+
 const arrowfunct = (a, b) => a + b;
 console.log(arrowfunct(7, 3));
+
+
+
+// (ii) Method 2 : Arrow function with return and with curly braces :
 
 const arrowwithreturn = (a, b) => {
   return a * b;
 };
 console.log(arrowwithreturn(5, 6));
 
-const arrrt = (a, b) => a + b;
-console.log(arrrt(5, 9));
-
-const ar = (a, b) => {
-  return a * b;
-};
-
-console.log(ar(4, 7));
 
 
 
@@ -436,13 +497,109 @@ console.log(ar(4, 7));
 
 
 
-// Factorial (Recursive Function)
+// (VIII) CURRYING FUNCTION :
 
+// Currying is the process of transforming a function that takes multiple arguments
+// into a sequence of functions, each taking a single argument and returning another function —
+// until all arguments are provided.
+
+//(i) Method 1 :
+const curry = a => b => c => a + b + c;
+
+console.log(curry(8)(3)(9),'currying_without()');
+
+
+//(ii) Method 2 :
+const curryy = (a) => (b) => (c) => a + b + c;
+
+console.log(curryy(81)(3)(9),'currying_with()1');
+
+
+// (iii) Method 3 :
+
+// Single value in paranthesis :
+
+  const curyii = function (a) {
+  return function (b) {
+    return function (c) {
+      return a+b+c ;
+    };
+  };
+} ;
+
+console.log(curyii(4)(13)(7),'currying_with()2');
+
+
+// Multiple values in paranthesis :
+// It is partially currying .
+// Because a true currying should have unary arguments for each function .
+
+  const curyi = function (a, b) {
+  return function (c,d) {
+    return function (e,f) {
+      return a+b+c+d+e+f ;
+    };
+  };
+} ;
+
+console.log(curyi(18,4)(13,7)(9,7),'currying_with()3');
+
+
+//(iv) Method 4 :
+
+  (function (a) {
+  return function (b) {
+    return function (c) {
+      console.log(a+b+c ,'Currying_With_IIFE');
+    };
+  };
+})(2)(3)(9)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// (IX) GENERATOR FUNCTION :
+
+// A generator function in JavaScript is a special kind of function that can pause its 
+// execution and later resume from where it left off, allowing it to produce multiple
+//  values one at a time, instead of returning them all at once.
+
+function* counts() {
+  let i = 1;
+  while (true) {
+    yield i++;
+  }
+}
+
+const counter = counts();
+console.log(counter.next().value,'generator');
+
+
+
+
+
+
+
+// (X) RECURSIVE FUNCTION :
+
+// Factorial :
 
 function factorial(n) {
   if (n == 1) return 1;
   return n * factorial(n - 1);
 }
+
 
 console.log(factorial(6));
 
@@ -455,49 +612,6 @@ console.log(factorial(6));
 
 
 
-// Generator Function
-
-function* counts() {
-  let i = 1;
-  while (true) {
-    yield i++;
-  }
-}
-
-const counter = counts();
-console.log(counter.next().value);
-console.log(counter.next().value);
-console.log(counter.next().value);
-console.log(counter.next().value);
-console.log(counter.next().value);
-console.log(counter.next().value);
-console.log(counter.next().value);
-
-
-
-
-
-
-
-
-
-
-
-// Currying function
-
-function summ(a) {
-  return function (b) {
-    return function (c) {
-      // return a+b;
-      return a + b + c;
-    };
-  };
-}
-
-const summy = (a) => (b) => (c) => a + b + c;
-console.log(summy(2)(3)(7));
-
-console.log(summ(2)(3)(7)); // 12
 
 
 
@@ -513,9 +627,11 @@ console.log(summ(2)(3)(7)); // 12
 
 
 
-// setTimeout(function(){
-//   console.log("Print After 2 Seconds")
-// }), 2000;
+
+
+
+
+
 
 function outer() {
   return function inner() {
@@ -545,37 +661,16 @@ Joe(function () {
   callback(wallback);
 });
 
-// setTimeout(function(){
-//   console.log('Itz Jai Timeout');
-// }),2000 ;
 
-const typedfunc = function (a, b) {
-  return a - b;
-};
 
-console.log(typedfunc(10, 2));
-
-function fact(n) {
-  if (n == 1) return 1;
-  return n * fact(n - 1);
-}
-
-console.log(fact(7));
+// Sum of values :
 
 function kootu(s) {
   if (s == 1) return 1;
   return s + kootu(s - 1);
 }
 
-console.log(kootu(6));
-
-
-
-
-
-
-
-
+console.log(kootu(6),'kootu');
 
 
 
@@ -586,6 +681,12 @@ function fibino(n) {
   if (n == 1) return 1;
   return fibino(n - 1) + fibino(n - 2);
 }
+
+return 7      +     8
+
+
+// 011235813
+
 
 console.log("fibino:", fibino(8));
 // console.log("substring", w.substring(18, 20));
@@ -610,28 +711,6 @@ countdown(5);
 
 
 
-
-// Currying Function
-
-const cur = (a, b) => {
-  return a + b;
-};
-console.log(cur(2, 5));
-
-const curr = (a, b) => a + b;
-console.log(curr(11, 2));
-
-const curry = (a) => (b) => (c) => a + b + c;
-const curyi = function (a) {
-  return function (b) {
-    return function (c) {
-      return a + b + c;
-    };
-  };
-};
-
-console.log(curyi(18)(13)(9));
-console.log(curry(8)(3)(9));
 
 
 
