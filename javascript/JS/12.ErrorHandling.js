@@ -92,3 +92,34 @@
 
 // const InputByUser = prompt("Enter an number")
 // console.log(InputByUser,'InputByUser');
+
+
+// Condition based setting errors with status code :
+
+const jaibala = async()=>{
+  try{
+   const res = await fetch("https://jsonplaceholder.typicode.com/users/1");
+
+   if(!res.ok){
+    // console.log("Response Status:",res.status)
+    if(res.status == 404){
+      throw new Error("User Not Found:" + `${res.status}`);
+    }else{
+    throw new Error(`Data's Fetching Failed. Status:${res.status}`);
+    }
+   }
+
+   const data = await res.json();
+   console.log(data);
+  }
+  catch(e){
+    console.log("Unexpected error", e.message);
+  }
+  finally{
+    console.log("Execution Completed");
+  }
+}
+
+jaibala();
+
+

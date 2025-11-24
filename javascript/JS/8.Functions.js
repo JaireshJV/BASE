@@ -316,6 +316,27 @@ function display(item) {
 
 processData(["apple", "banana", "cherry"], display);
 
+function outer() {
+  return function inner() {
+    console.log("I ran");
+  };
+}
+
+const run = outer();
+
+run();
+
+
+
+
+
+
+
+
+
+
+
+
 // (IV) CALL BACK FUNCTION :
 
 // The function passed as an argument to a HOF, which the HOF later calls back (executes).
@@ -352,6 +373,39 @@ setTimeout(() => {
   }, 1000);
 }, 1000);
 
+
+
+function Joe(cal) {                                 // Higher-Order Function                                              
+  console.log("I came inside");                      //Because it accepts another function (cal) as an argument
+  cal();
+}
+
+function callback(wal) {                            // Higher-Order Function        
+  console.log("Naan thaanda Call Back !!!");        //Because it accepts another function (wal) as an argument
+  wal();
+}
+
+function wallback() {                               // Normal Function
+  console.log("Na varmaten");                       // It’s just a regular function with no function arguments or returns
+}
+
+Joe(function () {                                 // Callback Function
+  callback(wallback);                             // Because it is passed into Joe and executed inside Joe
+});                                               //callback(wallback); 
+                                                  // It is passed into callback and executed inside it
+
+
+
+
+
+
+
+
+
+
+
+
+
 //(V) IIFE-Immediatly Invoked Function Expression
 
 // The function below is an Immediately Invoked Function Expression (IIFE) — it’s defined and executed right away when the JavaScript code runs:
@@ -362,6 +416,16 @@ setTimeout(() => {
 
 // This means that as the JavaScript code runs line by line, this function is executed immediately at the point where it’s written.
 // You can’t call it again later because it runs automatically right where it’s declared.
+
+
+
+
+
+
+
+
+
+
 
 // (VI) FUNCTION EXPRESSION :
 
@@ -377,6 +441,16 @@ const FunEpression = function () {
 FunEpression();
 
 // Unlike a function declaration, a function expression is not hoisted, so it must be defined before it’s called.
+
+
+
+
+
+
+
+
+
+
 
 // (VII) ARROW FUNCTION :
 
@@ -394,6 +468,16 @@ const arrowwithreturn = (a, b) => {
   return a * b;
 };
 console.log(arrowwithreturn(5, 6));
+
+
+
+
+
+
+
+
+
+
 
 // (VIII) CURRYING FUNCTION :
 
@@ -449,6 +533,16 @@ console.log(curyi(18, 4)(13, 7)(9, 7), "currying_with()3");
   };
 })(2)(3)(9);
 
+
+
+
+
+
+
+
+
+
+
 // (IX) GENERATOR FUNCTION :
 
 // A generator function in JavaScript is a special kind of function that can pause its
@@ -476,7 +570,9 @@ console.log(counter.next().value, "generator");
 
 
 // (X) RECURSIVE FUNCTION :
-// A recursive function is a function that calls itself directly or indirectly in order to solve a problem.
+
+// In recursion, a function keeps calling itself until it reaches a condition where it stops (base case)
+// and then starts returning results back step by step.
 
 // Factorial :
 
@@ -487,33 +583,7 @@ function factorial(n) {
 
 console.log(factorial(6));
 
-function outer() {
-  return function inner() {
-    console.log("I ran");
-  };
-}
 
-const run = outer();
-
-run();
-
-function Joe(cal) {
-  console.log("I came inside");
-  cal();
-}
-
-function callback(wal) {
-  console.log("Naan thaanda Call Back !!!");
-  wal();
-}
-
-function wallback() {
-  console.log("Na varmaten");
-}
-
-Joe(function () {
-  callback(wallback);
-});
 
 // Sum of values :
 
@@ -697,6 +767,10 @@ console.log(reverseString("hello"));
 // }
 
 // console.log("Final result:", reverseString("hello"));
+
+
+
+
 
 
 

@@ -16,6 +16,7 @@ console.log(myArray);
 console.log(AddElement);                       // Show the length
 
 const DelElement = myArray.pop()               // To delete last element 
+myArray.pop("Makkalae") ;                      // Its a wrong syntax because , like push("Makkalae") we cant send a particular value to do the delete process .
 console.log(myArray);
 console.log(DelElement);                       // Show the element deleted
 
@@ -24,6 +25,7 @@ console.log(myArray);
 console.log(AddElementAtFirst);                        // Show the length
 
 const DelElementAtFirst = myArray.shift()               // To delete element of first
+myArray.shift("Makkalae") ;                             // Its a wrong syntax because , like push("Makkalae") we cant send a particular value to do the delete process .
 console.log(myArray);
 console.log(DelElementAtFirst);                         // Show the element deleted
 
