@@ -1,17 +1,19 @@
-"use strict" ;
+"use strict";
 
 console.log("JAIABI");
 let w = "Welcome to JavaScript";
-
-console.log(w.substring(18, 45));
+let h = ["Welcome to JavaScript"];
+console.log(w.substring(18, 19));
+console.log(w.substr(18, 19), "substr");
 console.log(w.slice(18));
-// console.log(w.splice(18));
+console.log(h.splice(0), "jjj");
 console.log(w.length);
 console.log(w);
 
 let a = ["dog", "cat", "hen", "duck"];
-console.log(a.splice(0, "Added", "Theevu", "Vayu"));
-console.log(a);
+const b = a.splice(0,0,"Added", "Theevu", "Vayu") ;
+console.log(b,'before');
+console.log(a,'after');
 console.log(w.split("t"));
 console.log(w.length);
 
@@ -86,31 +88,29 @@ console.log("count hug :", hug);
 console.log("mAYAYA MAYA MAYA");
 
 const cut = function Outer(a) {
-  let j = 9 ;
+  let j = 9;
   return function Inner(b) {
-    console.log((a+b) - j, "jval");
+    console.log(a + b - j, "jval");
   };
-}
+};
 
 // const Count = Outer()
 // Count()
 
-cut(4)(7)
+cut(4)(7);
 // Outer()() ;
 
 // console.log(curry(5)(8)(7));
-
 
 // console.log(abi,'abiii');
 // var abi  = "sheth"
 
 // const curry =a=>b=>c=> a + b+ c;
 
-let ok = false ;
+let ok = false;
 
-if(ok){
-  console.log('truuuuuuuu');  
-}
-else{
-  console.log('falssssssss');  
+if (ok) {
+  console.log("truuuuuuuu");
+} else {
+  console.log("falssssssss");
 }
