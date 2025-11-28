@@ -246,3 +246,13 @@ var varjj = 7;
 // const data = await getData() ;
 // console.log(data,'data');
 // }
+
+
+const user = {
+  name : "Jai" ,
+  ComeInside(){
+    console.log(user.name,'name'); 
+  }
+}
+
+user.ComeInside() ;

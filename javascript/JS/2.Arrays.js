@@ -120,6 +120,55 @@ const dhuddu = [earnMoney,growMoney,giveMoney]
 console.log(dhuddu[0][0][1],dhuddu[1][1][1]);       //  Three Dimensional
 
 
+const arr = [5, 6, 0, 7, 8, 0, 9, 2, 3, 0, 4, 1, 3, 4, 0, 5, 6, 7];
+console.log(arr.length,'hugl');
+const hug = [];
+
+let n = 0;
+while (n < arr.length) {
+  if (arr[n] !== 0) {
+    hug.unshift(arr[n]);
+  } else {
+    hug.push(arr[n]);
+  }
+  n++;
+}
+
+console.log(hug.length,'lll');
+console.log(hug);
+
+
+let count = 0;
+
+let m = 0;
+while (m < hug.length) {
+  if (hug[m] == 0) {
+    console.log("ccccccccccccc");
+    count++;
+  }
+  m++;
+}
+
+console.log("count :" + count);
+
+for (let i = 0; i < count; i++) {
+  hug.pop();
+}
+
+console.log("count hug :", hug);
+
+
+
+// When we use the string to add into the array , we have to mention two limits at the beginning of the slice function .
+// If we passed only one value means , after the comma the string will become NaN and will be ignored to insert . 
+
+let aa= ["dog", "cat", "hen", "duck"];
+const b = aa.splice(0,0,"Added", "Theevu", "Vayu") ;
+
+console.log(b,'before');
+console.log(aa,'after');
+
+
 
 
 
