@@ -23,4 +23,19 @@ if (Ok) {
 }
 
 
-console.log(Array.from(w.matchAll("t"))[0].input);
+// console.log(Array.from(w.matchAll("t"))[0].input);
+
+
+// const fields = rows[0]?.column;
+
+
+
+
+        const values = Array.isArray(jsonData)
+      ? jsonData.map((row) =>
+          fields.map((f) => {
+            const value = row?.[f];
+            return value === undefined || value === null || value === "" ? null : value;
+          })
+        )
+      : [];

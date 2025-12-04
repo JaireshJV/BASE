@@ -88,6 +88,9 @@ function sings({music}) {               // Difference is in curly braces
 
 console.log(sings(movie));
 
+
+
+
 // Convert an array to object :
 
 const fields = ["username", "userage", "useremail"];

@@ -59,23 +59,21 @@
 
 // The below search function is used to find the first appearance of the index with case in-sensitive .
 // Result will be index of the character appeared first .
-// i ==> case in-sesitive 
+// i ==> case in-sesitive
 // /e/ ==> search letter
 console.log(w.search(/e/i));
 
 // The below match functions represents to find all matched values fromn a string and show result in array format.
 // /E/ ==> is matching character
- // i ==> is Case in-sensitive
- // g ==> global search
- console.log(w.match(/E/gi));
+// i ==> is Case in-sensitive
+// g ==> global search
+console.log(w.match(/E/gi));
 
-
-
- let set = "Sat and RaVar";
+let set = "Sat and RaVar";
 let find = "Var";
 
 for (let i = 0; i < set.length; i++) {
-  if (set.substr(i,find.length) == find) {
+  if (set.substr(i, find.length) == find) {
     console.log(`The value of ${find} is Existed in`, set);
     break;
   }

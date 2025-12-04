@@ -87,3 +87,41 @@ console.log(receiveJSON);    // Again gets converted into object
 // Receiving API responses from backend (usually JSON strings)
 // Fetching stored data from localStorage
 // Reading JSON from files
+
+
+
+
+
+
+
+
+// * 🚨 IMPORTANT NOTES 🚨 * 
+
+// When we pass the data in stringify format, we dont need to parse them manually because we use ,
+// express.json() to happen that automatically .
+
+
+// But when we send a data as FormData , We will face an issue between live and server code like in local
+// will be running without a need of manual json.parse() to convert them as javascript object . At the same time 
+// server approaches the formdata differently , for that only we use the manual json.parse() to convert 
+// stringified data to json format .
+
+
+// When we retrieve datas from database in an array format , the datas will be in stringified array format .
+// For converting those datas to JSObject , we use json.parse() manually . 
+
+
+
+let fields = '["id" , "name"]'
+console.log(fields,'fielssss');
+
+    if (typeof fields === "string") {
+      fields = JSON.parse(fields);
+    }
+console.log(fields,'fields');
+
+    if (!Array.isArray(fields)) {
+      throw new Error("fields is not an array");
+    } 
+    
+    
