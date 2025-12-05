@@ -159,7 +159,7 @@ console.log("count hug :", hug);
 
 
 
-// When we use the string to add into the array , we have to mention two limits at the beginning of the slice function .
+// When we use the string to add into the array , we have to mention two limits at the beginning of the splice function .
 // If we passed only one value means , after the comma the string will become NaN and will be ignored to insert . 
 
 let aa= ["dog", "cat", "hen", "duck"];
