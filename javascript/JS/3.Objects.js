@@ -120,3 +120,17 @@ console.log(a) ;
 console.log(obj) ;
 
 
+
+const person = { name: "Jai" };
+console.log(person.name);
+
+// We are doing re-assign the key value .
+// The object is mutable so it affects the base variable result .
+person.name = "Ravi";
+console.log(person.name);
+console.log('Person :' , person);
+
+// By using const , we are not able to re-assign new value to person , so we get re-assignment error .
+// person = { name: "Sam" }; // ❌ Error
+
+// console.log('Person :' , person);

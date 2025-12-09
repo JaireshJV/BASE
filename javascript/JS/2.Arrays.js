@@ -171,6 +171,16 @@ console.log(aa,'after');
 
 
 
+const array = [1,2,3] ;
+
+// By adding new value in an array , the spaces will be created between the newly added element
+// and already existed element , and it also comes under length .
+array[10] = 10 ;
+
+console.log(array.length);
+console.log(array);
+console.log(array[6]);
+
 
 
 

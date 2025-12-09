@@ -1,80 +1,32 @@
-// // // const person = { name: "Jai" };
-// // // console.log(person.name);
 
-// // // person.name = "Ravi";
-// // // console.log(person.name);
-
-// // // // person = { name: "Sam" }; // ❌ Error
-
-// // // let person1 = 6;
-
-// // // const person2 = person1 + 5;
-
-// // // console.log(person1); // 6
-// // // console.log(person2); // 11
-
-// // // const email = "Jairesh@gmail.com";
-
-// // // const peru = email.slice(0, email.indexOf("@"));
-
-// // // console.log("Hai " + peru + "!");
-
-// // // const Hai = "abI";
-
-// // // console.log(Hai.charAt(0).toUpperCase() + Hai.slice(1).toLowerCase());
-
-// // // const arr = [1,2,3]
-
-// // // arr[10] = 10
-
-// // // console.log(arr.length);
-// // // console.log(arr);
-// // // console.log(arr[6]);
-
-// // // let result = "5";
-// // // if (isFinite(result)) {
-// // //   console.log("Valid number:", result);
-// // // } else {
-// // //   console.log("Invalid or infinite result");
-// // // }
-
-// // // const check = '55'
-// // // console.log(Math.round(check));
-
-// // // console.log(typeof(NaN));
-// // // console.log(isNaN(5));
-
-// // // console.log(Number.isNaN(NaN));
-
-// // // const exarray = [2,5,6]
-
-// // // console.log(Math.min(...exarray));
-
-// // // const jai = "Maruthamalai";
-
-// // // const length = jai.length;
-
-// // // const randomCheck = jai.charAt(Math.floor(Math.random() * length));
-
-// // // console.log(randomCheck);
+let result = null ;
+if (isFinite(result)) {
+  console.log("Valid number:", result);
+} else {
+  console.log("Invalid or infinite result");
+}
 
 
 
-// // //
+console.log(typeof(NaN));
+console.log(isNaN(NaN));
+
+console.log(Number.isNaN(NaN));
 
 
-// // let num = 1;
 
-// // while (true) {
+let num = 1;
 
-// //       console.log(num);
+while (true) {
 
-// //     num++;
-// //     if(num == 7){
-// //       break;
-// //     }
+      console.log(num);
 
-// // }
+    num++;
+    if(num == 7){
+      break;
+    }
+
+}
 
 
 

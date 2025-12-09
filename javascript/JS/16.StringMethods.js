@@ -61,6 +61,10 @@ console.log('indexofsliced ' ,newArray[2]);                                     
 // As String is immutable , so the base value wont be changed by the slice .  
 console.log('String after slice ' ,a);                                                          // 987654
 
+// Getting name from email :
+const email = "Jairesh@gmail.com";
+const peru = email.slice(0, email.indexOf("@"));
+console.log("Hai " + peru + "!");
 
 
 // It is used to convert the string into Capital letters [ Uppercase ] ,
@@ -68,6 +72,10 @@ console.log('ToUppercase :' ,myVariable.toUpperCase());                         
 
 // It is used to convert the string into Small letters [ Lowercase ] ,
 console.log('ToLowercase :' ,myVariable.toLowerCase());                                         // mathematics
+
+// Making propercase :
+const Hai = "abI";
+console.log(Hai.charAt(0).toUpperCase() + Hai.slice(1).toLowerCase()) ;                         // Abi
 
 // It splits the string based on the character , the given character won't be
 // included after splitted string . It always return in array of strings .
@@ -82,6 +90,7 @@ console.log('Split without space : ' ,myVariable.split(''));                    
 
 // It replaces the given character based on the search value . (searchvalue , replacablevalue)
 console.log('Replace the character:' ,myVariable.replace("cs","z"))                             // Mathematiz
+
 
 
 

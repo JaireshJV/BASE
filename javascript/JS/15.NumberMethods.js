@@ -240,3 +240,23 @@ const randomCheck = Math.floor(Math.random() * (36)) + 40
 console.log(randomCheck,'randomCheck');
 
 
+
+const exarray = [2,5,6]
+
+console.log(Math.min(...exarray));
+
+const jair = "Maruthamalai";
+
+const length = jair.length;
+
+const CheckRandom = jair.charAt(Math.floor(Math.random() * length));
+
+console.log(CheckRandom);
+
+
+const check = '55'  ;
+// By default the type will be string .
+// After using the Math.round() , it gets converted into number format .
+console.log(typeof check ,'String');
+console.log(Math.round(check));
+console.log(typeof Math.round(check) ,"Number" );
