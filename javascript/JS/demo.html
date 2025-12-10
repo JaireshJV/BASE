@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>HIIIIII</h1>
+    <script>
+        let Obj = [] ;
+
+fetch("demo.json")
+.then((res)=> res.json())
+.then((data)=> {
+  Obj = data.dc ;
+  console.log(Obj ,'Objjjj');
+  
+}
+)
+.catch((err)=> console.log(err,'error')
+)
+
+    </script>
+</body>
+</html>

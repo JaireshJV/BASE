@@ -155,6 +155,13 @@ console.log('Search :' ,w.search(/e/i));                                        
 // g ==> global search
 console.log('Match :' ,w.match(/E/gi));                                                          // ["e","e"]
 
+const namee = 'goodyyy Good' ;
+
+// To see the converted array format after matched values in report format we use the below method .
+console.log(Array.from(namee.matchAll(/good/gi)));
+
+// To access each key values from the array , we may use index basis access .
+console.log(Array.from(namee.matchAll("good"))[0].input);
 
 // Substr method :
 
@@ -192,6 +199,9 @@ if (set.includes(find)) {
 
 let name = " Agent Tina ";
 console.log("Trim " ,name.trim());
+
+
+
 
 
 

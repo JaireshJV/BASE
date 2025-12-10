@@ -138,7 +138,7 @@ const NaNNumber = "98" ;
 console.log('NanNumber(non-strict) :' ,isNaN(NaNNumber));                                    // false
 const NaNStringg = "Abisheth" ;
 console.log('NanString(non-strict) :' ,isNaN(NaNStringg));                                   // true
-
+console.log(typeof(NaN));                                                                    // number
 
 
 // To fixed :
@@ -186,7 +186,8 @@ console.log('Round Off',Math.round(value));                                     
 console.log('Round Off' ,Math.round(3.89));                                           // 4
 
 
-// Math.ceil() takes next base value .
+// Math.ceil() , except 0  takes next base value .
+
 console.log('Ceil1 :',Math.ceil(3.008));                                              // 4(goes to next)
 
 // Here , the value -3.2 is between -3 and -4 .
@@ -194,7 +195,7 @@ console.log('Ceil1 :',Math.ceil(3.008));                                        
 console.log('Ceil2 :' ,Math.ceil(-3.2));                                              // 4(goes to next)
 
 // Math.floor() is opposite to Math.ceil() ,
-// it goes to previous base value .
+// Except 0 ,it goes to previous base value .
 console.log('Floor + : ' ,Math.floor(3.9));                                                        // 3(stays there)
 
 // Here , the value -3.7 is between -3 and -4 .
@@ -205,6 +206,14 @@ console.log('Floor - : ' ,Math.floor(-3.7));                                    
 // whereas the second parameter is the exponential or power value .
 // Eg ) 2^3 ==> 2*2*2 ==> 8 .
 console.log("Power : " ,Math.pow(2,3));                                                          // 8
+
+let nums = [2, 3, 4];
+let sum = 0;
+nums.forEach((element) => {
+  sum += Math.pow(element, 2);
+});
+
+console.log('sum :' ,sum);
 
 // Math.min() is used to find the lowest values among all . 
 console.log("Min :" ,Math.min(2,82,98,1));                                                    // 1

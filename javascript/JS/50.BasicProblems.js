@@ -235,3 +235,19 @@
 //     process.stdout.write(i + " ");
 //   }
 // }
+
+// Prob 26 :
+// Function - Based :
+
+// function palindrome(given_value) {
+//   let converted_pal = given_value.toLowerCase();
+//   let rev_given_value = converted_pal.split("").reverse().join("");
+//   if (rev_given_value === converted_pal) {
+//     console.log(`The given word : ${given_value} is a palindrome `);
+//   } else {
+//     console.log(`The given word : ${given_value} is not a palindrome `);
+//   }
+// }
+
+// const given_value = "Madam";
+// palindrome(given_value);

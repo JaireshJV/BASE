@@ -1313,69 +1313,7 @@
 // }
 // <button onClick={()=>Handle(e.target.value)}></button>
 
-// Spread Operator and Rest operator
 
-// 1. Function Parameters (Rest)
-
-// Write a function multiplyAll that accepts any number of arguments and
-// returns the product of all numbers using the rest operator.
-
-// multiplyAll(2, 3, 4); // Output: 24
-// multiplyAll(5, 10);   // Output: 50
-
-// function multiplyAll(...num) {
-//   return num.reduce((acc, cur) => acc * cur, 1);
-// }
-
-// console.log(multiplyAll(2, 3, 4));
-// console.log(multiplyAll(5, 10));
-
-// // 2. Array Copying & Merging (Spread)
-// // Given:
-
-// const arr1 = [1, 2, 3];
-// const arr2 = [4, 5];
-
-// // Use the spread operator to create a new array [1, 2, 3, 4, 5, 6] (where 6 is also added manually).
-
-// const newArray = [...arr1, ...arr2, 6];
-// console.log(newArray, "New Arr");
-
-// // 3. Object Destructuring with Rest
-
-// // Given:
-
-// const person = { name: "Jai", age: 28, city: "Chennai", country: "India" };
-
-// // Use destructuring with rest to extract name, and put the remaining properties in another object.
-
-// const { name, ...otherProp } = person;
-
-// console.log(otherProp, "otherProp");
-
-// // 4. Spread in Function Calls
-
-// // Suppose you have:
-
-// const numbers = [12, 5, 8, 21, 17];
-// // Use the spread operator to find the maximum number with Math.max.
-
-// const max = Math.max(...numbers);
-
-// console.log(max, "maxnum");
-
-// // 5. Mixing Rest & Spread
-
-// // Write a function combineArrays that:
-
-// // Takes 2 arrays as arguments.
-
-// // Uses spread to merge them.
-
-// // Uses the rest operator in parameters to allow extra arrays to be added.
-// // Example:
-// // combineArrays([1, 2], [3, 4], [5, 6]);
-// // Output: [1, 2, 3, 4, 5, 6]/
 
 // function combineArrays(...arrays) {
 //   // const flat = [...arr].flat(Infinity);

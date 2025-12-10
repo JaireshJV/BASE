@@ -54,3 +54,52 @@ for(var i=0 ; i< 6;i++){
 for(let i=0 ; i<3 ;i++){
   setTimeout(()=>console.log(i,'letloop') ,1000 )
 }
+
+
+// Advance loop methods :
+// Types of loop :
+let original = [1, 2, 3, 4] ;
+
+//(i) For Each 
+let each = original.forEach((element) => element * 2);
+console.log(each, "each");                                              // undefined
+
+// (ii) Map 
+let map = original.map((element) => element * 2);
+console.log(map, "map");                                                // [ 2, 4, 6, 8 ]
+ 
+// (iii) Filter 
+const filter = arrr.filter((e) => {
+  return e > 5;
+});
+console.log(filter, "filter"); 
+
+
+// (iv) Find 
+const findy = arrr.find((e) => {
+  return e > 5;
+});
+
+console.log(findy,"find");
+
+// (v) Some 
+const somey = arrr.some((e) => {
+  return e > 4;
+});
+console.log(somey,"some");
+
+// (vi) Every
+
+const everyy = arr.every((e) => {
+  return e > 0;
+});
+console.log(everyy,"every");
+
+// (vii) Reduce 
+const red = arrr.reduce((e, i) => {
+  return Math.abs(e - i);
+});
+console.log(red,"reduce");
+// (viii) FlatMap
+
+// (ix) FindIndex
