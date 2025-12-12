@@ -22,6 +22,18 @@ for (let i = start + 1; i < end; i++) {
 console.log("Odd :", odd);
 console.log("Even :", even);
 
+
+// // Table printing
+
+let table = 5;
+
+for (let i = 1; i <= 10; i++) {
+  let ans = table * i;
+  console.log(`${table} * ${i} =` ,ans);
+  console.log(`${i} * ${table} =` ,ans);
+}
+
+
 // (II) PROBLEMS RELATED TO STRING :
 
 // (i) Find the matching characters among the given two strings :
@@ -278,4 +290,6 @@ for (let key in result) {
 console.log({
   Jai: result.Apple ?? 'N/A' 
 });
+
+
 

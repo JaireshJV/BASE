@@ -1,5 +1,6 @@
 // Conditional Statements
 
+// One conditional :
 // if
 
 let num = "23";
@@ -23,7 +24,7 @@ if (c > big) {
 console.log("Big number : " + big);
 
 
-
+// Two conditional :
 // if else
 if (num > 9) {
   console.log(`The given ${num} is an integer`);
@@ -31,6 +32,19 @@ if (num > 9) {
   console.log(`The given ${num} is not an integer`);
 }
 
+// Alternative ( Ternary operator ) :
+
+let n = 7;
+let v = n < 0 ? -n : n;
+
+console.log(v);
+
+const prefix = "Jai" ;
+let result = prefix == "Jai" ? "Heyy" : "Poda dae" ;
+console.log(result,'result') ;
+
+
+// Multiple conditional ( Ladder if ) :
 if (num == "9") {
   console.log("They are same");
 } else if (typeof num === "number") {
@@ -61,6 +75,7 @@ if (40 > 60) {
   console.log("None of the above");
 }
 
+// Nested conditional ( nested if ) :
 let vari = "born";
 let eligiblity = 18;
 if (vari === "born") {

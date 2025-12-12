@@ -188,3 +188,46 @@
 
 // // const pet = new Dog();
 // // pet.speak();   // Dog barks (method overriding)
+
+
+
+// Method over-loading or Polymorphism
+
+// function greet(name, age) {
+//   if (age !== undefined) {
+//     console.log(`Hello ${name}, you are ${age} years old.`);
+//   } else {
+//     console.log(`Hello ${name}`);
+//   }
+
+// }
+
+// greet(34);              // Hello 34
+// greet("Bob", 25);       // Hello Bob, you are 25 years old.
+
+
+// function FunName(params) {
+// return arguments.length ;
+// }
+
+// console.log(FunName("Jai"));
+
+// function calculateArea(shape ,a, b ) {
+//   if (shape === "circle") {
+//     // Circle: πr²
+//     return Math.PI * a * a;
+//   } else if (shape === "rectangle") {
+//     // Rectangle: length × breadth
+//     return a * b;
+//   } else if (shape === "triangle") {
+//     // Triangle: ½ × base × height
+//     return 0.5 * a * b;
+//   } else {
+//     return "Invalid input";
+//   }
+// }
+
+// // // Usage
+console.log(calculateArea( "circle" ,5)); // Circle with radius 5 → 78.54...
+console.log(calculateArea( "rectangle" ,4, 6)); // Rectangle → 24
+console.log(calculateArea( "triangle" ,10, 8)); // Triangle → 40
