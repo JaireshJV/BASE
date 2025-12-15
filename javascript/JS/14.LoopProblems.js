@@ -180,7 +180,7 @@ for (let item of Automobiles) {
 
 console.log("Result" ,Result);
 
-//(ii)
+// (ii)
 let obj = {} ;
 for(let i of Automobiles){
  obj[i] = (obj[i] ?? 0) + 1

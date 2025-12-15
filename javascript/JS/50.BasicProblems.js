@@ -251,3 +251,106 @@
 
 // const given_value = "Madam";
 // palindrome(given_value);
+
+
+
+// Prob 27 :
+// Find whether a give number is Prime or Not :
+
+function prime(num){
+    for(let index = 2; index<num; index++){
+        if(num%index == 0){
+            return `The given number ${num} is an Ordinary number`
+        }
+    }return `The given number ${num} is a Prime number`
+ }console.log(prime(47)) ;
+
+
+// Prob 28 :
+// Anagram or Not :
+
+function anagram(a, b) {
+  if (a.length == b.length) {
+    let a1 = a.toLowerCase().split("").sort().join("");
+    let b1 = b.toLowerCase().split("").sort().join("");
+
+    if (a1 == b1) {
+      return "The Given Values Are Anagram";
+    } else {
+      return "The Same Lengthed values But Not a Anagram";
+    }
+  } else {
+    return "The given Values are Not Anagram";
+  }
+}
+
+const aa = "Silent";
+const bb = "listen";
+console.log(anagram(aa, bb));
+
+
+// Prob 29 :
+// Divisible or Not :
+
+// function divisible(num, divider) {
+//   const number = num;
+//   while (num > 0) {
+//     num = num - divider;
+//   }
+//   if (num == 0) return `The given number ${number} is divisibled by ${divider}`;
+//   return `The given number ${number} is not divisibled by ${divider}`;
+// }
+
+// const numm = 60;
+// const divider = 7;
+// console.log(divisible(numm, divider));
+
+
+// Prob 30 :
+// Reversing a number :
+
+// // Number Reverse Method
+
+let sum = 0;
+let rum = 638;
+
+function numreverse(num, sum) {
+  while (num > 0) {
+    sum = sum * 10 + (num % 10);
+    num = parseInt(num / 10);
+  }
+  return sum;
+}
+console.log(numreverse(rum, sum));
+
+
+// Prob 31 :
+// Vowel's count :
+
+function VowelsCount(str){
+
+let vowel = 'aeiouAEIOU' ;
+let count = 0 ;
+for(let st of str){
+  if(vowel.includes(st)){
+    count++ ;
+  }
+
+}
+return count;
+}
+
+console.log(VowelsCount('The quick brown fox')) ;
+
+// Prob 32 :
+// Proper Case
+
+function ProperCase(pro) {
+  const spl = pro.split(" ").map((elem) => {
+    if(elem.charAt(0) === 'a ') return "A" ;
+    return elem.charAt(0).toUpperCase() + elem.slice(1) ;
+  });
+  return spl.join(" ");
+}
+
+console.log(ProperCase("Write a javascript program"));

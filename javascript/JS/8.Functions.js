@@ -1,4 +1,77 @@
-// // Functions
+// Pure vs Impure Function
+
+// 🔹 Pure Function
+
+// A pure function is one that:
+
+// Always returns the same output for the same input.
+
+// Doesn’t change anything outside itself (no side effects).
+
+// Example:
+
+// function add(a, b) {
+//   return a + b;
+// }
+
+// console.log(add(2, 3)); // 5
+// console.log(add(2, 3)); // 5 (always same!)
+
+// ✅ Pure because:
+
+// Input (2,3) → always output 5.
+
+// Doesn’t modify any external data.
+
+// 🔹 Impure Function
+
+// An impure function is one that:
+
+// May give different results for the same input (depends on outside stuff like random, time, global variable).
+
+// Has side effects (changes external state, console log, DB write, etc).
+
+// Example 1 (Depends on external variable):
+
+// let counter = 0;
+
+// function increase(num) {
+//   counter += num; // modifies external state
+//   return counter;
+// }
+
+// console.log(increase(2)); // 2
+// console.log(increase(2)); // 4 (different result for same input!)
+
+// Example 2 (Uses Date → output changes every time):
+
+// function getTime() {
+//   return new Date().toLocaleTimeString();
+// }
+
+// console.log(getTime()); // different result each call
+
+// ✅ Impure because:
+
+// Output not only depends on input.
+
+// Affects/uses external stuff.
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Functions
+
+// Types of Functions :
 
 // (I) DEFAULT / NAMED FUNCTION :
 

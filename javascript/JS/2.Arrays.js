@@ -360,3 +360,23 @@ console.log("max val :", max);
 // // Example:
 // // combineArrays([1, 2], [3, 4], [5, 6]);
 // // Output: [1, 2, 3, 4, 5, 6]/
+
+
+// Combine arrays :
+
+function combineArrays(...arrays) {
+  // (i)
+  // const flat = [...arrays].flat(Infinity);
+  // return flat ;
+
+  // console.log([...arrays],'dddddddddd');
+  
+  // (ii)
+  let arry = [];
+  for (let array of arrays) {
+    arry = [...arry,...array]
+  }
+  return arry;
+}
+
+console.log(combineArrays([1, 2], [3, 4], [5, 6]));

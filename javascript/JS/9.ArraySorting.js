@@ -1,8 +1,10 @@
 // SWAPPING OR SORTING
 
 const arr = [6, 7, 8, -9, 4, 10, -88, -77, -78, 44, -5];
+const alpar = ['y','u','r','t','d','a'];
 
-console.log(arr.sort(), "sort"); // Wrong method as it works fine with only single digit
+console.log(arr.sort(), "numbersort"); // It does not suitable for more than one digit number array 
+console.log(alpar.sort(), "alphabetsort"); // Best suitable for alphabet array or character array
 
 console.log(
   arr.sort((a, b) => a - b),
