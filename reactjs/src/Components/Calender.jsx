@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 
 // Sample attendance data - this will be replaced by API calls
 const getSampleAttendanceData = (year, month) => {
@@ -12,7 +12,7 @@ const getSampleAttendanceData = (year, month) => {
       "2025-09-15": "absent", "2025-09-16": "late", "2025-09-17": "present",
       "2025-09-18": "present", "2025-09-19": "present", "2025-09-20": "present",
       "2025-09-22": "present", "2025-09-23": "present", "2025-09-24": "present",
-      "2025-09-25": "absent", "2025-09-26": "absent"
+      "2025-09-25": "absent", "2025-09-26": "absent", "2025-09-27": "leave"
     },
     '2025-08': {
       "2025-08-01": "present", "2025-08-02": "present", "2025-08-05": "late",
@@ -44,12 +44,13 @@ const months = [
   'July', 'August', 'September', 'October', 'November', 'December'
 ];
 
-const AttendanceCalendar = () => {
+export const Calendar = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [currentDate, setCurrentDate] = useState(new Date(2025, 8, 26)); // September 26, 2025
   
   const currentYear = currentDate.getFullYear();
   const currentMonth = currentDate.getMonth();
+  console.log(currentDate, currentMonth, currentYear, "==> Date Month Year");
 
   // Motivational quotes for future dates
   const motivationalQuotes = [
@@ -83,6 +84,7 @@ const AttendanceCalendar = () => {
   const availableYears = useMemo(() => {
     const years = [];
     const baseYear = new Date().getFullYear();
+    console.log(baseYear, "New Date ==> Full Year")
     for (let i = baseYear - 5; i <= baseYear + 2; i++) {
       years.push(i);
     }
@@ -93,6 +95,7 @@ const AttendanceCalendar = () => {
   const goToPreviousMonth = () => {
     setCurrentDate(prev => {
       const newDate = new Date(prev);
+      console.log(newDate, "New Month")
       newDate.setMonth(prev.getMonth() - 1);
       return newDate;
     });
@@ -204,7 +207,7 @@ const AttendanceCalendar = () => {
   return (
     <div style={{ 
       maxWidth: '500px', 
-      margin: '20px auto', 
+      margin: '0px auto', 
       fontFamily: 'Arial, sans-serif',
       border: '1px solid #e0e0e0',
       borderRadius: '8px',
@@ -214,7 +217,7 @@ const AttendanceCalendar = () => {
       {/* Header */}
       <div style={{ 
         backgroundColor: '#f5f5f5', 
-        padding: '15px 20px', 
+        padding: '5px 20px', 
         borderBottom: '1px solid #e0e0e0'
       }}>
         {/* Month/Year with Navigation */}
@@ -222,9 +225,9 @@ const AttendanceCalendar = () => {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          marginBottom: '15px'
+          marginBottom: '10px'
         }}>
-          <h2 style={{ margin: 0, fontSize: '18px', fontWeight: 'bold' }}>
+          <h2 style={{ margin: 0, fontSize: '14px', fontWeight: 'bold' }}>
             {months[currentMonth].toUpperCase()} - {currentYear}
           </h2>
           <div style={{ display: 'flex', gap: '10px' }}>
@@ -268,12 +271,12 @@ const AttendanceCalendar = () => {
           alignItems: 'center' 
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <label style={{ fontSize: '14px', fontWeight: '500' }}>Month:</label>
+            {/* <label style={{ fontSize: '14px', fontWeight: '500' }}>Month:</label> */}
             <select 
               value={currentMonth} 
               onChange={handleMonthChange}
               style={{
-                padding: '6px 10px',
+                padding: '5px 10px',
                 border: '1px solid #ccc',
                 borderRadius: '4px',
                 fontSize: '14px',
@@ -287,12 +290,12 @@ const AttendanceCalendar = () => {
           </div>
           
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <label style={{ fontSize: '14px', fontWeight: '500' }}>Year:</label>
+            {/* <label style={{ fontSize: '14px', fontWeight: '500' }}>Year:</label> */}
             <select 
               value={currentYear} 
               onChange={handleYearChange}
               style={{
-                padding: '6px 10px',
+                padding: '5px 10px',
                 border: '1px solid #ccc',
                 borderRadius: '4px',
                 fontSize: '14px',
@@ -308,22 +311,22 @@ const AttendanceCalendar = () => {
       </div>
 
       {/* Calendar */}
-      <div style={{ padding: '20px' }}>
+      <div style={{ padding: '5px' }}>
         {/* Week days header */}
         <div style={{ 
           display: 'grid', 
           gridTemplateColumns: 'repeat(7, 1fr)', 
           gap: '2px',
-          marginBottom: '10px'
+          marginBottom: '5px'
         }}>
           {weekDays.map(day => (
             <div key={day} style={{ 
               textAlign: 'center', 
               fontWeight: 'bold', 
-              padding: '8px 4px',
+              padding: '5px 4px',
               fontSize: '14px',
               color: '#666'
-            }}>
+            }}> 
               {day}
             </div>
           ))}
@@ -333,7 +336,7 @@ const AttendanceCalendar = () => {
         <div style={{ 
           display: 'grid', 
           gridTemplateColumns: 'repeat(7, 1fr)', 
-          gap: '2px'
+          gap: '5px'
         }}>
           {calendarDays.map((day, index) => {
             const isToday = selectedDateInfo && day.fullDate === selectedDateInfo.date;
@@ -344,7 +347,7 @@ const AttendanceCalendar = () => {
                 key={index}
                 onClick={() => handleDateClick(day)}
                 style={{
-                  minHeight: '40px',
+                  minHeight: '35px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -380,7 +383,7 @@ const AttendanceCalendar = () => {
           display: 'flex', 
           justifyContent: 'space-around', 
           flexWrap: 'wrap', 
-          marginTop: '20px',
+          // marginTop: '0px',
           fontSize: '12px'
         }}>
           {Object.entries(borderColors).map(([status, color]) => (
@@ -391,9 +394,9 @@ const AttendanceCalendar = () => {
               margin: '2px'
             }}>
               <div style={{ 
-                width: '16px', 
-                height: '16px', 
-                border: `2px solid ${color}`, 
+                // width: '16px', 
+                // height: '16px', 
+                border: `5px solid ${color}`, 
                 borderRadius: '50%' 
               }}></div>
               <span style={{ textTransform: 'capitalize' }}>{status}</span>
@@ -405,7 +408,7 @@ const AttendanceCalendar = () => {
       {/* Dynamic Date Info Card */}
       {selectedDateInfo && (
         <div style={{ 
-          padding: '15px 20px', 
+          padding: '10px 20px', 
           borderTop: '1px solid #e0e0e0',
           backgroundColor: '#f9f9f9'
         }}>
@@ -413,7 +416,7 @@ const AttendanceCalendar = () => {
             display: 'flex', 
             justifyContent: 'space-between', 
             alignItems: 'center',
-            marginBottom: '10px'
+            marginBottom: '5px'
           }}>
             <span style={{ fontSize: '16px', fontWeight: 'bold' }}>
               {selectedDateInfo.formattedDate}
@@ -440,12 +443,12 @@ const AttendanceCalendar = () => {
             // Future dates - Show motivational quote
             <div>
               <p style={{ 
-                margin: '0 0 15px 0', 
+                margin: '8px 0 8px 0', 
                 color: '#2196F3', 
                 fontSize: '14px',
                 fontStyle: 'italic',
                 textAlign: 'center',
-                padding: '10px',
+                // padding: '10px',
                 backgroundColor: '#e3f2fd',
                 borderRadius: '8px',
                 border: '1px solid #bbdefb'
@@ -462,7 +465,7 @@ const AttendanceCalendar = () => {
                   backgroundColor: '#9C27B0',
                   color: 'white',
                   border: 'none',
-                  padding: '10px 20px',
+                  padding: '5px 8px',
                   borderRadius: '25px',
                   cursor: 'pointer',
                   fontSize: '14px',
@@ -528,10 +531,10 @@ const AttendanceCalendar = () => {
                   backgroundColor: '#F44336',
                   color: 'white',
                   border: 'none',
-                  padding: '10px 20px',
+                  padding: '5px 10px',
                   borderRadius: '25px',
                   cursor: 'pointer',
-                  fontSize: '14px',
+                  fontSize: '12px',
                   fontWeight: 'bold'
                 }}>
                   APPLY LEAVE
@@ -540,10 +543,10 @@ const AttendanceCalendar = () => {
                   backgroundColor: '#FF9800',
                   color: 'white',
                   border: 'none',
-                  padding: '10px 20px',
+                  padding: '5px 10px',
                   borderRadius: '25px',
                   cursor: 'pointer',
-                  fontSize: '14px',
+                  fontSize: '12px',
                   fontWeight: 'bold'
                 }}>
                   REGULARISE
@@ -574,7 +577,7 @@ const AttendanceCalendar = () => {
                     backgroundColor: '#F44336',
                     color: 'white',
                     border: 'none',
-                    padding: '10px 20px',
+                    padding: '5px 10px',
                     borderRadius: '25px',
                     cursor: 'pointer',
                     fontSize: '14px',
@@ -587,7 +590,7 @@ const AttendanceCalendar = () => {
                   backgroundColor: '#FF9800',
                   color: 'white',
                   border: 'none',
-                  padding: '10px 20px',
+                  padding: '5px 10px',
                   borderRadius: '25px',
                   cursor: 'pointer',
                   fontSize: '14px',
@@ -604,4 +607,3 @@ const AttendanceCalendar = () => {
   );
 };
 
-export default AttendanceCalendar;

@@ -4,8 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
     <style>
       #jai {
         color: red;
@@ -69,6 +75,33 @@
       // Without tag , how to write content
       document.write("Jai");
       document.writeln("Jai");
+
+      // To get the user confirmation , we may have to use prompt method
+
+      var user;
+      do {
+        user = prompt(
+          user ? "Do you want to continue ?" : "Are you ready ?"
+        ).toLowerCase();
+      } while (user !== "yes");
+
+      // // Guess number
+
+      // // const secretnum = 7;
+      // // let usernum;
+      // // do {
+      // //   usernum = prompt("Type a number : ");
+      // //   if (isFinite(usernum)) {
+      // //     if (usernum == secretnum) {
+      // //       alert("Correct");
+      // //     } else {
+      // //       alert("Wrong");
+      // //     }
+      // //   } else {
+      // //     alert("Enter a valid number");
+      // //   }
+      // // } while (secretnum != usernum);
+      
     </script>
 
     <!-- Hidden -->
@@ -128,7 +161,6 @@
       <!-- <p>Itz Query Selector</p>    top  -->
     </div>
     <script>
-
       // document.querySelectorAll("#querywithid")[0].style.color = "violet";
       // document.querySelector(".querywithclass").style.color = "brown";
 
@@ -137,107 +169,92 @@
       //   byqueryall[i].style.color = "orange";
       // }
 
-      // byqueryall.forEach(el => el.style.color = "orange");   
+      // byqueryall.forEach(el => el.style.color = "orange");
 
       //  [ Additionally We can run the loop through the forEach
       //  along for loop. But in getelementclassname
       //  and getelementtagname for loop only applicable ]
-
     </script>
 
-<script>
-  console.log((Math.random()*10000).toFixed());
-  console.log((Math.PI).toFixed());
-  console.log(Math.round(Math.PI,2) );
-</script>
+    <script>
+      console.log((Math.random() * 10000).toFixed());
+      console.log(Math.PI.toFixed());
+      console.log(Math.round(Math.PI, 2));
+    </script>
 
+    <script>
+      let d1 = new Date("03-09-2003").getTime();
+      let d2 = new Date("04-10-2003").getTime();
 
-<script>
-let d1 = new Date("03-09-2003").getTime();
-let d2 = new Date("04-10-2003").getTime();
+      let df = Math.abs(d2 - d1) / (1000 * 60 * 60 * 24);
 
-let df = Math.abs(d2-d1)/(1000*60*60*24)
+      console.log(df);
+    </script>
 
-console.log(df);
-</script>
+    <button id="btn">Click me</button>
+    <button id="bttn">Click Us</button>
 
+    <div id="form" class="border border-dark">
+      <div class="d-flex">
+        <h4>Form Submission</h4>
+        <button id="cls"><i class="bi bi-x-circle"></i></button>
+      </div>
+      <form action="submit">
+        <label for="name">Name</label>
+        <input type="text" />
+      </form>
+    </div>
 
-<button id="btn">Click me</button>
-<button id="bttn">Click Us</button>
+    <script>
+      // document.getElementById("btn").onclick = function(){
+      //   alert("Clicked Me");
+      // }
 
+      document.getElementById("bttn").onclick = function () {
+        alert("Clicked Us");
+      };
 
+      document.getElementById("cls").addEventListener("click", function () {
+        document.getElementById("form").hidden = "true";
+      });
+    </script>
 
-<div id="form" class="border border-dark">
-<div class="d-flex">
-  <h4>Form Submission</h4>
-<button id="cls"><i class="bi bi-x-circle"></i></button>
-</div>
-  <form action="submit"> 
-    <label for="name">Name</label>
-    <input type="text">
-  </form>
-</div>
+    <dialog id="myDialog">
+      <p>This is a dialog</p>
+      <button id="closeBtn">Close</button>
+    </dialog>
 
-<script>
+    <button id="openBtn">Open Dialog</button>
 
-// document.getElementById("btn").onclick = function(){
-//   alert("Clicked Me");
-// }
+    <script>
+      const dialog = document.getElementById("myDialog");
+      const openBtn = document.getElementById("openBtn");
+      const closeBtn = document.getElementById("closeBtn");
 
-document.getElementById("bttn").onclick = function(){
-  alert("Clicked Us");
-}
+      openBtn.addEventListener("click", () => dialog.showModal());
 
-document.getElementById("cls").addEventListener("click",function(){
-      document.getElementById("form").hidden = "true";
-})
+      closeBtn.addEventListener("click", () => dialog.close());
 
+      dialog.addEventListener("close", () => {
+        console.log("Dialog was closed");
+        alert("Dialog closed!");
+      });
+    </script>
 
-</script>
+    <form>
+      <h1>JAI DEMO</h1>
+      <input type="text" id="demo" />
+      <input type="text" id="demo2" />
+    </form>
 
-<dialog id="myDialog">
-  <p>This is a dialog</p>
-  <button id="closeBtn">Close</button>
-</dialog>
-
-<button id="openBtn">Open Dialog</button>
-
-<script>
-  const dialog = document.getElementById("myDialog");
-  const openBtn = document.getElementById("openBtn");
-  const closeBtn = document.getElementById("closeBtn");
-
-  openBtn.addEventListener("click", () => dialog.showModal());
-
-  closeBtn.addEventListener("click", () => dialog.close());
-
-  dialog.addEventListener("close", () => {
-    console.log("Dialog was closed");
-    alert("Dialog closed!");
-  });
-
-  
-</script>
-
-<form>
-  <h1>JAI DEMO</h1>
-<input type="text" id="demo" />
-<input type="text" id="demo2" />
-
-</form>
-
-<script>
-const demo = document.querySelector('#demo');
-demo.addEventListener('focus',(event)=>{
-  console.log('Click Event',event.target.value);
-})
-
-</script>
-
+    <script>
+      const demo = document.querySelector("#demo");
+      demo.addEventListener("focus", (event) => {
+        console.log("Click Event", event.target.value);
+      });
+    </script>
   </body>
-  <button id="error_button">
-ERROR BUTTON
-  </button>
-  <script src="JS/async.js" >
-</script>
+  <button id="error_button">ERROR BUTTON</button>
+
+  <script src="JS/async.js"></script>
 </html>

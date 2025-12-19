@@ -70,7 +70,7 @@ const Task = () => {
           </button>
         </div>
       </form>
-      <TasksTable tasks={tasks} load={load}/>
+      <TasksTable tasks={tasks} load={load} />
     </div>
   );
 };

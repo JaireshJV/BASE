@@ -47,10 +47,10 @@
 
 
  1. Difference between var, let, and const
-Keyword	Scope	Re-declaration	Re-assignment	Hoisted
-var	Function-scoped	✅ Yes	✅ Yes	✅ Yes (initialized as undefined)
-let	Block-scoped	❌ No	✅ Yes	✅ Yes (not initialized → Temporal Dead Zone)
-const	Block-scoped	❌ No	❌ No	✅ Yes (not initialized → TDZ)
+Keyword	Scope	            Re-declaration	  Re-assignment	  Hoisted
+var	Function-scoped	            ✅ Yes          	✅ Yes	      ✅ Yes (initialized as undefined)
+let	Block-scoped	              ❌ No	          ✅ Yes	      ✅ Yes (not initialized → Temporal Dead Zone)
+const	Block-scoped	            ❌ No	          ❌ No	      ✅ Yes (not initialized → TDZ)
 
 👉 Use let for variables that change, const for constants, and avoid var.
 
@@ -83,6 +83,7 @@ Strict mode	undefined
 Object method	That object
 Arrow function	Lexically inherits from outer scope
 Event handler	The element that triggered the event
+
 4. Promises
 
 A Promise represents a value that may be available now, later, or never.

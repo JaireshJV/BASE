@@ -5,11 +5,18 @@ app.use(express.json());
 const mongoose = require("mongoose");
 const TaskRoute = require("./routes/taskRoutes");
 const cors = require("cors")
+
+
+
 app.use(cors())
+app.use(express.json());
+
 
 app.get("/", (req, res) => {
   res.send("Hiiiiii");
 });
+
+app.use("/api/tasks", TaskRoute);
 
 mongoose
   .connect(process.env.MONGO_URI)
@@ -22,7 +29,6 @@ mongoose
   })
   .catch((error) => console.log(error));
 
-app.use("/api/tasks", TaskRoute);
 
 
 

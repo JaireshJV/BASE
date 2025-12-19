@@ -116,7 +116,7 @@ button.addEventListener("click", () => {
     Inner DIV clicked -->
 
     <!-- 6	stopPropagation()   -->
-    <!-- <div id="outer" style="padding: 30px; background-color: lightcoral">
+    <div id="outer" style="padding: 30px; background-color: lightcoral">
       Outer
       <div id="middle" style="padding: 30px; background-color: lightgreen">
         Middle
@@ -128,9 +128,9 @@ button.addEventListener("click", () => {
     <button id="myBtn" style="margin-top: 10px">STOP PROPOGATION</button>
 
     <script>
-      document.getElementById("outer").addEventListener("click", (event) => {
+       document.getElementById("outer").addEventListener("click", (event) => {
         console.log("Outer DIV clicked");
-        // event.stopPropagation();
+        event.stopPropagation();
       });
 
       document.getElementById("middle").addEventListener("click", (event) => {
@@ -157,7 +157,7 @@ button.addEventListener("click", () => {
       btn.addEventListener("click", () => {
         console.log("Listener 3");
       });
-    </script> -->
+    </script> 
 
     <!-- 🧩 event.stopImmediatePropagation()
 🧠 Meaning:

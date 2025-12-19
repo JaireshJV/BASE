@@ -35,6 +35,7 @@ mainform.addEventListener("submit",  (e)=> {
   const entries = formData.entries();
   // [["user_name","Jai"],["age","25"],["password","admin@"]]
   const data = Object.fromEntries(entries);
+console.log(data,'data');
 
 //   const newVal = {...data,userId : 1} ;
 

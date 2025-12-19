@@ -1,5 +1,3 @@
-
-
 // // Function Based Problems
 // // I.Arrow Functions
 // // 1. Convert to Arrow Function
@@ -871,28 +869,21 @@
 // tasks.next(); // "Task 2 started"
 // tasks.next(); // "Task 3 started"
 
-
-
-
-
-
 // Difference between two dates in days ;
 
-// function differenceInDates(date1,date2) {
-//   const getTime1 = new Date(date1).getTime();
-//   const getTime2 = new Date(date2).getTime();
+export const differenceInDates =(date1, date2)=> {
+  const getTime1 = new Date(date1);
+  const getTime2 = new Date(date2);
 
-//   const diff = (getTime2 - getTime1) / (1000 * 3600 * 24) ;
-//   return diff ;
-// }
+  console.log(getTime1, getTime2, "getTime1", "getTime2");
 
-// console.log(differenceInDates("2025-08-08","2025-09-08"));
+  const millisec1 = getTime1.getTime();
+  const millisec2 = getTime2.getTime();
 
+  console.log(millisec1, millisec2, "millisec1", "millisec2");
 
-// function daydiff(stdate,eddate){
-// const start = new Date(stdate).getTime();
-// console.log(start,'start');
-// }
+  const diff = (millisec2 - millisec1) / (1000 * 3600 * 24);
+  return diff;
+}
 
-// daydiff("2025.09.04") ;
-
+console.log(differenceInDates("2025-08-08", "2025-09-08"));
