@@ -1,19 +1,20 @@
 // Server creation :
 
-const express = require("express");
-const app = express();
+// const express = require("express");
+// const app = express();
 
-require("dotenv").config();
+// require("dotenv").config();
 
-app.get("/", (req, res) => {
-  res.send("Hello World");
-});
+// app.get("/", (req, res) => {
+//   res.send("Hello World");
+// });
 
-const PORT = process.env.PORT;
+// const PORT = process.env.PORT;
 
-app.listen(PORT, () => {
-  console.log(`The app is running in ${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`The app is running in ${PORT}`);
+// });
+
 
 
 
@@ -34,3 +35,4 @@ const converttoObj = JSON.parse(converttoJSON)
 
 console.log("converttoJSON :" , converttoJSON);
 console.log("converttoObj :" , converttoObj);
+

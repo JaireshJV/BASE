@@ -1,3 +1,5 @@
+// COMPLETED
+
 const Vehicles = [
   "Car",
   "Auto",
@@ -125,7 +127,7 @@ const Vehicles = [
 
 // // (7) GIVEN NUMBER IS ARMSTRONG OR NOT :
 
-// let gn_num = 153;
+// let gn_num = 153 ;
 // let arm_num = gn_num;
 // let to_str_num = arm_num.toString();
 
@@ -139,9 +141,9 @@ const Vehicles = [
 // }
 
 // if (r == gn_num) {
-//   // console.log("The gn number is an armstrong number");
+//   console.log("The gn number is an armstrong number");
 // } else {
-//   // console.log("The gn number is not an armstrong number");
+//   console.log("The gn number is not an armstrong number");
 // }
 
 // // (8) FACTORIAL OF A GIVEN NUMBER :
@@ -152,7 +154,7 @@ const Vehicles = [
 //   factorial = factorial * i;
 // }
 
-// // console.log(factorial,'factorial');
+// console.log(factorial,'factorial');
 
 // // (9) VOWELS FROM A STRING :
 
@@ -170,8 +172,8 @@ const Vehicles = [
 //   }
 // }
 
-// // console.log(vowels,'vowels');
-// // console.log(count,'no of vowels');
+// console.log(vowels,'vowels');
+// console.log(count,'no of vowels');
 
 // // (10) GIVEN NUMBER IS A PRIME OR NOT :
 
@@ -196,28 +198,28 @@ const Vehicles = [
 //   console.log("The given number is not a prime number");
 // }
 
-// // (ii) Method 2 :
+// // // (ii) Method 2 :
 
-// let g_number = 77;
+//  
 
-// let isPrimeCheck = true;
+// (iii) Method 3 :
 
-// if (g_number <= 1) {
-//   isPrimeCheck = false;
-// } else {
-//   for (let i = 2; i <= Math.sqrt(g_number); i++) {
-//     // Only taking squareroot is changed for optimisation
-//     if (g_number % i == 0) {
-//       isPrimeCheck = false;
+// function prime(num) {
+//   for (let index = 2; index < num; index++) {
+//     if (num % index == 0) {
+//       return `The given number ${num} is an Ordinary number`;
 //     }
 //   }
+//   return `The given number ${num} is a Prime number`;
 // }
+// console.log(prime(47));
 
-// if (isPrimeCheck) {
-//   console.log("The given number is a Prime Number");
-// } else {
-//   console.log("The given number is not a Prime Number");
-// }
+
+
+
+
+
+
 
 // // (11) GIVEN NUMBER IS A ODD OR EVEN :
 
@@ -229,8 +231,16 @@ const Vehicles = [
 //   console.log("The given number is Odd");
 // }
 
+
+
+
+
+
+
+
 // // (12) HIGHEST NUMBER AMONG THE ARRAY :
 
+// (i) Method 1 :
 // const gn_array = [22, 4, -10, 77, 8];
 // let high = 0;
 // for (let i = 0; i < gn_array.length; i++) {
@@ -239,45 +249,56 @@ const Vehicles = [
 //   }
 // }
 
+// (ii) Method 2 :
 // console.log(high, "highhh");
+
 // console.log(Math.max(...gn_array));
 
+// (iii) Method 3 :
+
+// const sort_arr = gn_array.sort((a,b)=> a-b ) ;
+// console.log('Highest ' ,sort_arr[sort_arr.length-1]);
 
 // // (13) SORT AN ARRAY IN ASCENDING ORDER :
 
-// // const mixed_array = [4, 3, 5, 6, 1, 2, 8];
+const mixed_array = [4, 3, 5, 6, 1, 2, 8];
 
-// // let temp = 0;
-// // let asc = [];
+// (i) Method 1 :
 
-// // console.log(mixed_array.sort()) ;
+const asc_sort = mixed_array.sort((a, b) => a - b);
+console.log(asc_sort, "asc_sort");
 
-// // for (i = 0; i < mixed_array.length; i++) {
-// // if(mixed_array[i]>temp){
-// //   let a = mixed_array[i] ;
-// //   b = a ;
-// //   temp = b ;
-// // }
-// // asc.push(mixed_array[i])
-// // }
+// (ii) Method 2 :
 
-// // console.log(asc,'ascccccccc');
-// // console.log(temp,'temp');
+const mixed = [3, 6, 7, 1, 0];
+const ascending = [];
 
-// const mixed_array = [4, 3, 5, 6, 1, 2, 8];
-// const asc = [];
+while (mixed.length) {
+  let min = Math.min(...mixed);
+  ascending.push(min);
+  mixed.splice(mixed.indexOf(min), 1);
+}
 
-// let arr = [...mixed_array];
-// while (arr.length) {
-//   let min = Math.min(...arr);
-//   asc.push(min);
-//   arr.splice(arr.indexOf(min), 1);
-//   console.log(arr,'check :');
-  
-// }
-
-// console.log(asc, 'Ascending order');
-
-
+console.log(ascending, "Ascending order");
 
 // // (14) SORT AN ARRAY IN DESCENDING ORDER :
+
+const mixed_arrayy = [4, 3, 5, 6, 1, 2, 8];
+
+// (i) Method 1 :
+
+const des_sort = mixed_arrayy.sort((a, b) => b - a);
+console.log(des_sort, "des_sort");
+
+// (ii) Method 2 :
+
+const mixedd = [3, 6, 7, 1, 0];
+const descending = [];
+
+while (mixedd.length) {
+  let max = Math.max(...mixedd);
+  descending.push(max);
+  mixedd.splice(mixedd.indexOf(max), 1);
+}
+
+console.log(descending, "Descending order");
