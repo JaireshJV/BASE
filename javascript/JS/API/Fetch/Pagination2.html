@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .subDiv {
+        display: flex;
+        gap: 30px;
+      }
+      .main {
+        position: relative;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+      }
+      .footer {
+        position: absolute;
+        bottom: 10px;
+      }
+      .disable {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+      .prevButton{
+        background: red;
+        border: none;
+        padding: 8px 10px;
+        border-radius: 5px;
+        color: white;
+      }
+        .nextButton{
+        background: green;
+        border: none;
+        padding: 8px 10px;
+        border-radius: 5px;
+        color: white;
+      }
+
+      .active{
+        background-color: violet;
+        border: none;
+        box-shadow: 0 0 4px 1px aquamarine;
+        color:  white;
+        font-weight: bold;
+      }
+
+      .button{
+        border: none;
+        border-radius: 5px;
+        padding: 8px 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div id="content"></div>
+      <div class="footer">
+        <button id="backbutton" class="prevButton" onclick="handlePrevious()">Prev</button>
+        <span id="page"></span>
+        <button id="nextbutton" class="nextButton" onclick="handleNext()">Next</button>
+      </div>
+    </div>
+
+    <script>
+      let FetchedData = [];
+      function APIData() {
+        fetch("https://jsonplaceholder.typicode.com/posts")
+          .then((res) => res.json())
+          .then((data) => {
+            FetchedData = data;
+            console.log(FetchedData, "ffffffffff");
+            updateUI();
+          })
+          .catch((err) => console.log(err, "error"));
+      }
+
+      APIData();
+
+      function TotalPage(totalItems, Itemsperpage) {
+        const TotalPages = Math.ceil(totalItems / Itemsperpage);
+        return TotalPages;
+      }
+
+      function Paginate(data, currentPage, Itemperpage) {
+        const Start = (currentPage - 1) * Itemperpage;
+        const End = Start + Itemperpage;
+        return data.slice(Start, End);
+      }
+
+      function updateUI() {
+        Render();
+        NumberPaginate();
+        Disable();
+      }
+
+      const Itemperpage = 10;
+      let currentPage = 1;
+      function Render() {
+        const Content = document.getElementById("content");
+        Content.innerHTML = "";
+        const GnData = Paginate(FetchedData, currentPage, Itemperpage);
+
+        GnData.forEach((element) => {
+          const div = document.createElement("div");
+          div.className = "subDiv";
+
+          const id = document.createElement("p");
+          id.textContent = element.id;
+          const title = document.createElement("p");
+          title.textContent = element.title;
+          // const body = document.createElement("p");
+          // body.textContent = element.body;
+
+          div.append(id, title);
+
+          Content.appendChild(div);
+
+          // const pagenum = document.getElementById("page");
+          // pagenum.textContent = `Page ${currentPage} of ${TotalPage(FetchedData.length, Itemperpage)}`;
+        });
+      }
+
+      function handlePrevious() {
+
+        if (currentPage > 1) {
+          currentPage--;
+          backbutton.classList.add("disable");
+        }
+        updateUI();
+      }
+
+      function handleNext() {
+
+        const total = TotalPage(FetchedData.length, Itemperpage);
+        if (currentPage < total) {
+          currentPage++;
+        }
+        updateUI();
+      }
+
+function NumberPaginate(){
+        const page = document.getElementById("page");
+        page.innerHTML = "";
+
+        const totalPages = TotalPage(FetchedData.length, Itemperpage);
+        
+        for(let i = 1; i<=totalPages; i++){
+          const btn = document.createElement("button");
+          btn.textContent = i;
+          btn.className = 'button'
+          if(currentPage === i){
+            btn.classList.add("active");
+          }
+          
+            btn.onclick = ()=>{
+              currentPage = i;
+              updateUI();
+            }
+
+          page.append(btn);
+        }
+      }
+
+      function Disable() {
+        const total = TotalPage(FetchedData.length, Itemperpage);
+
+        const next = document.getElementById("nextbutton");
+        const backbutton = document.getElementById("backbutton");
+        if (currentPage === 1) {
+          backbutton.classList.add("disable");
+        } else {
+          backbutton.classList.remove("disable");
+        }
+
+        if (currentPage === total) {
+          next.classList.add("disable");
+        } else {
+          next.classList.remove("disable");
+        }
+      }
+    </script>
+  </body>
+</html>

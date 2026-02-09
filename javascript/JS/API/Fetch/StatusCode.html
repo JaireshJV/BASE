@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HTTP Status Codes – Developer Reference</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background-color: #f4f6f8;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .tables-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    .status-table {
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .status-table h2 {
+      margin: 0;
+      padding: 12px;
+      text-align: center;
+      color: #fff;
+      font-size: 18px;
+    }
+
+    .success h2 {
+      background-color: #2ecc71;
+    }
+
+    .constant h2{
+      background-color: teal;
+    }
+
+    .client-error h2 {
+      background-color: #f39c12;
+    }
+
+    .server-error h2 {
+      background-color: #e74c3c;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+
+    tr:hover {
+      background-color: #f9f9f9;
+    }
+
+    
+  </style>
+</head>
+
+<body>
+  <h1>Predominantly Used HTTP Status Codes (Developer View)</h1>
+
+  <div class="tables-container">
+
+    <!-- 200 Series -->
+    <div class="status-table success">
+      <h2>2xx – Success</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Status Code</th>
+            <th>Definition</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>200</td>
+            <td>OK</td>
+            <td>Request successful and response contains data</td>
+          </tr>
+          <tr>
+            <td>201</td>
+            <td>Created</td>
+            <td>Resource successfully created (POST requests)</td>
+          </tr>
+          <tr>
+            <td>204</td>
+            <td>No Content</td>
+            <td>Request successful but no response body</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+        <!-- 200 Series -->
+    <div class="status-table constant">
+      <h2>3xx – Not Modified</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Status Code</th>
+            <th>Definition</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>304</td>
+            <td>Not Modified</td>
+            <td>Requested data will give constant data</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 400 Series -->
+    <div class="status-table client-error">
+      <h2>4xx – Client Errors</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Status Code</th>
+            <th>Definition</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>400</td>
+            <td>Bad Request</td>
+            <td>Invalid request payload or parameters</td>
+          </tr>
+          <tr>
+            <td>401</td>
+            <td>Unauthorized</td>
+            <td>Authentication required or failed</td>
+          </tr>
+          <tr>
+            <td>403</td>
+            <td>Forbidden</td>
+            <td>Access denied despite valid authentication</td>
+          </tr>
+          <tr>
+            <td>404</td>
+            <td>Not Found</td>
+            <td>Requested resource does not exist</td>
+          </tr>
+          <tr>
+            <td>409</td>
+            <td>Conflict</td>
+            <td>Request conflicts with current server state</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 500 Series -->
+    <div class="status-table server-error">
+      <h2>5xx – Server Errors</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Status Code</th>
+            <th>Definition</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>500</td>
+            <td>Internal Server Error</td>
+            <td>Generic server-side error</td>
+          </tr>
+          <tr>
+            <td>502</td>
+            <td>Bad Gateway</td>
+            <td>Invalid response from upstream server</td>
+          </tr>
+          <tr>
+            <td>503</td>
+            <td>Service Unavailable</td>
+            <td>Server is overloaded or down for maintenance</td>
+          </tr>
+          <tr>
+            <td>504</td>
+            <td>Gateway Timeout</td>
+            <td>Upstream server failed to respond in time</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</body>
+</html>

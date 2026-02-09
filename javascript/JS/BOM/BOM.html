@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BOM Methods</title>
+  </head>
+  <body>
+    <div id="bom">
+      <h1>BOM Methods</h1>
+      <ol>
+        <li>Screen</li>
+        <li>History</li>
+        <li>Navigator</li>
+        <li>Location</li>
+        <li>Alert</li>
+        <li>Confirm</li>
+        <li>Prompt</li>
+        <li>Storages</li>
+      </ol>
+
+      <!-- Method 1 : Screen  -->
+      <div id="screen">
+        <h3>SCREEN :</h3>
+        <p>To find the screen size info</p>
+        <script>
+          console.log(screen.width, "width");
+          console.log(screen.height, "height");
+          console.log(screen.availWidth, "availwidth");
+          console.log(screen.availHeight, "availheight");
+
+          if (screen.availWidth < 500) {
+            document.getElementById("screen").style.display = "none";
+          }
+        </script>
+      </div>
+
+      <!-- Method 2 : History  -->
+      <div id="history">
+        <h3>HISTORY :</h3>
+        <p>
+          When you want to go next page or previous page from the current page .
+        </p>
+        <button id="go_to">GO TO WEBSITE</button>
+        <button id="history_button">Next</button>
+        <script>
+          document.getElementById("go_to").addEventListener("click", () => {
+            window.location.href = "History.html";
+          });
+          document
+            .getElementById("history_button")
+            .addEventListener("click", () => {
+              console.log("clicked");
+              history.forward();
+            });
+        </script>
+      </div>
+
+      <!-- Method 3 : Navigator  -->
+      <div id="navigator">
+        <h3>NAVIGATOR :</h3>
+
+        <!-- window
+             └── navigator
+                ├── userAgent
+                ├── platform
+                ├── language
+                ├── languages
+                ├── onLine
+                ├── cookieEnabled
+                ├── geolocation
+                ├── mediaDevices
+                ├── permissions
+                ├── hardwareConcurrency
+                ├── deviceMemory
+                ├── clipboard
+                └── connection -->
+        <script>
+          // (i) UserAgent / UserAgentData
+          // Returns browser + OS details as a string
+          console.log(navigator.userAgentData, "n_useragent");
+
+          // (ii) Platform
+          // Used to find the info about the working or OS platform .
+          console.log(navigator.platform, "n_platform");
+
+          // (iii) Language
+          // Returns browser UI language.
+          console.log(navigator.language, "n_language");
+
+          // (iv) onLine
+          // Checks internet connectivity.
+          console.log(navigator.onLine, "n_onLine");
+
+          // (v) cookieEnabled
+          // Checks whether cookies are enabled.
+          console.log(navigator.cookieEnabled, "n_cookieEnabled");
+
+          // (vi) Geolocation
+          // If location is permitted , we can able to get the coordinates like latitude, longitude,altitude
+          // from the given function .
+          navigator.geolocation.getCurrentPosition(
+            (position) => {
+              console.log(position.coords.latitude, "latitude");
+              console.log(position.coords.longitude, "longitude");
+              console.log(position.coords.altitude, "altitude");
+            },
+            (error) => {
+              console.log(error, "error");
+            }
+          );
+
+          // (vii) Media Devices (Camera & Mic)
+          // Used to enable camera and mic .
+          // navigator.mediaDevices
+          //   .getUserMedia({ video: true, audio: true })
+          //   .then((stream) => {
+          //     console.log("media permission granted:", stream);
+          //   })
+          //   .catch((error) => {
+          //     console.log("media permission denied:", error);
+          //   });
+
+          // (viii) Permissions
+          // Permissions to know the state of the permissions like camera, geolocation , microphone etc
+          // where granted or denied .
+          navigator.permissions
+            .query({ name: "geolocation" })
+            .then((res) => console.log(res.state, "permission"))
+            .catch((error) => console.log(error, "error"));
+
+          // (ix) Hardware concurrency
+          // Returns number of CPU cores.
+          console.log(navigator.hardwareConcurrency, "hardwareConcurrency");
+
+          // (x) Device Memory
+          // Returns approx RAM (GB) .
+          console.log(navigator.deviceMemory, "devicememory");
+
+          // (xi) Clipboard
+          // writeText => Copies to the clipboard .
+          // readText() => Displays the text which we copied in clipboard .
+          navigator.clipboard.writeText("Hello Jairesh !! ");
+          navigator.clipboard
+            .readText()
+            .then((res) => {
+              console.log(res, "readtext");
+            })
+            .catch((error) => console.log(error));
+
+          // (xii) Connection
+          // Used to know about the state of thr current network connection
+          console.log(navigator.connection.effectiveType, "connection");
+        </script>
+      </div>
+
+      <!-- Method 4 : Location  -->
+      <div>
+        <h3>LOCATION :</h3>
+      </div>
+      <script>
+        // It takes the Current URL and can decode it too .
+        // It can redirect to another URL as well .
+        // Reload can also be attained by this .
+        console.log(location.href, "loc_href");
+        console.log(location.host, "loc_host");
+        console.log(location.hostname, "loc_hostname");
+        console.log(location.pathname, "loc_pathname");
+        console.log(location.port, "loc_port");
+
+        // location.href = "https://google.com" ;
+
+        // location.reload() ;
+      </script>
+
+      <!-- Method 5 : Alert  -->
+      <div>
+        <h3>ALERT :</h3>
+      </div>
+      <script>
+        // It displays content which we give in a pop up .
+        // alert("Hi this is JAIRESH !");
+      </script>
+
+      <!-- Method 6 : Confirm  -->
+      <div>
+        <h3>CONFIRM :</h3>
+      </div>
+      <script>
+        // It displays a confirmation pop up message to get input from user to move further process .
+
+        // const response = confirm("Are you sure ? ");
+        // if(response){
+        //   console.log("Thanks for confirming ");
+        // }
+        // else{
+        //   console.log("Cancelled");
+        // }
+      </script>
+
+      <!-- Method 7 : Prompt  -->
+      <div>
+        <h3>PROMPT :</h3>
+        <div id="prompt"></div>
+      </div>
+      <script>
+        // Used to get the user input in a pop up .
+        // const EnteredValue = prompt("Enter your name");
+        // const value = document.createElement("p");
+        // value.innerText = EnteredValue;
+        // document.getElementById("prompt").appendChild(value);
+      </script>
+    </div>
+
+    <!-- Method 8 : Storage  -->
+    <div>
+      <h3>STORAGE :</h3>
+      <ul>
+        <li>Cookies</li>
+        <li>Session Storage</li>
+        <li>Local Storage</li>
+
+        <button id="logout" > LOGOUT </button>
+      </ul>
+      <script>
+        // (i) Cookie
+        document.cookie =
+          "user=Jairesh; expires=Fri, 10 Jan 2026 12:00:00 UTC; path=/";
+        console.log(document.cookie);
+        document.cookie =
+          "user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+
+        // (ii) Session Storage
+        sessionStorage.setItem("user", "Jai");
+        sessionStorage.setItem("password", "Admin");
+        console.log(sessionStorage.getItem("user"), "session");
+        // sessionStorage.removeItem("user");
+        // sessionStorage.clear();
+
+        // (iii) Local Storage
+        localStorage.setItem("user", "Abi");
+        localStorage.setItem("password", "AbiPassword");
+        console.log(localStorage.getItem("user"), "session");
+        // localStorage.removeItem("user");
+      
+        function Logout(){
+
+          console.log('clickedlogout');
+          localStorage.clear()
+        }
+        document.getElementById("logout").addEventListener('click',Logout) ;
+      </script>
+    </div>
+  </body>
+</html>
