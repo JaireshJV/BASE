@@ -1,0 +1,306 @@
+HOOK 
+
+Hooks are special tools React gives function components to remember things, handle side-effects, and reuse logic.
+
+Hooks are special functions that let you “hook into” React features (like state, lifecycle, context) inside function components.
+👉 Before Hooks, these features were only available in class components.
+
+
+
+🔹 Rules of Hooks (VERY IMPORTANT)
+
+✅ Only call hooks at the top level
+
+❌ Don’t call hooks inside loops or conditions
+
+✅ Only call hooks inside React function components or custom hooks
+
+
+
+
+
+(i) UseState : 
+useState lets a component remember a value and update it.
+
+import { useState } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>+</button>
+    </>
+  );
+}
+
+📦 Use when:
+
+Counting
+Form inputs
+Toggle (true/false)
+Storing fetched data
+
+
+
+
+
+
+
+
+(ii) useEffect :
+
+useEffect runs side effects in a component.
+“Hey React, do something after rendering.”
+
+.. Syntax .. 
+useEffect(() => {
+  // code
+}, [dependencies]);
+
+🧩 Dependency Array Meaning :
+
+Dependency	                   When it runs
+
+[]	                        Only once (on mount)
+[value]	                     When value changes
+No array	                   Every render
+
+
+
+
+
+(iii)useContext :
+useContext lets you use data from a context without prop drilling.
+Instead of passing props parent → child → grandchild, everyone can directly take data.
+
+const ThemeContext = createContext();
+
+function Child() {
+  const theme = useContext(ThemeContext);
+  return <p>{theme}</p>;
+}
+
+📦 Use when:
+
+Auth user
+Theme (dark/light)
+Language
+Global settings
+
+
+
+
+
+(iv) useRef :
+useRef stores a value without re-rendering the component.
+
+const inputRef = useRef() ;
+
+<input ref={inputRef} />
+
+<button onClick={()=> inputRef.current.focus()}>FOCUS </button>
+ 
+
+ 📦 Use when:
+Access DOM elements
+Store previous values
+Timers
+
+
+
+
+
+(v) useReducer :
+
+useReducer manages complex state logic using a reducer function.
+Like useState, but more powerful and organized.
+
+const reducer = (state, action) => {
+  if (action.type === "inc") return state + 1;
+  if (action.type === "dec") return state - 1;
+};
+
+const [count, dispatch] = useReducer(reducer, 0);
+
+
+📦 Use when:
+
+Multiple related state values
+Redux-like logic
+
+
+
+
+
+
+
+(vi) useCallback :
+
+useCallback remembers a function, so it doesn’t get recreated.
+“React, don’t recreate this function again and again.”
+
+const handleClick = useCallback(() => {
+  console.log("Clicked");
+}, []);
+
+
+📦 Use when:
+
+Passing functions to child components
+Performance optimization
+
+
+
+
+
+(vii) useMemo :
+
+useMemo remembers a calculated value.
+“Only recalculate when needed.”
+
+const result = useMemo(() => {
+  return slowCalculation(num);
+}, [num]);
+
+
+
+📦 Use when:
+
+Heavy calculations
+Performance improvement
+
+
+
+
+
+
+(viii) useLayoutEffect :
+
+Runs before the browser paints the screen.
+Like useEffect, but blocks painting until done.
+
+import { useLayoutEffect } from "react";
+
+useLayoutEffect(() => {
+  console.log("Before paint");
+}, []);
+
+📦 Use when:
+
+Measuring DOM size
+Layout adjustments
+
+
+
+
+
+
+(ix) useImperativeHandle :
+
+Customizes what parent can access using ref.
+“Control what the parent is allowed to touch.”
+
+📦 Use when:
+
+Advanced ref control
+Libraries
+
+
+
+
+
+
+(x) useDebugValue :
+
+Used to label custom hooks in React DevTools.
+Only for developers, not UI.
+
+
+
+
+
+
+ADVANCED / SPECIAL HOOKS :
+
+(xi) useId :
+
+Generates unique IDs
+Useful for forms & accessibility
+
+import { useId } from "react";
+
+const id = useId();
+<input id={id} />
+
+
+
+
+
+(xii) useTransition :
+
+Helps with non-blocking UI updates
+
+import { useTransition } from "react";
+
+const [isPending, startTransition] = useTransition();
+
+startTransition(() => {
+  setValue(bigData);
+});
+
+
+
+
+
+(xiii) useDeferredValue :
+
+Delays updating a value for better UX
+
+import { useDeferredValue } from "react";
+
+const deferredValue = useDeferredValue(value);
+
+
+
+(xiv) useSyncExternalStore :
+
+Used for external state libraries
+
+
+
+(xv) Custom Hooks :
+
+A function that uses other hooks.
+
+function useCounter() {
+  const [count, setCount] = useState(0);
+  return { count, setCount };
+}
+
+
+
+
+
+
+
+
+
+
+SUMMARY / POINTS TO REMEMBER :
+
+Hook	                               Purpose
+
+useState	                            State
+useEffect	                          Side effects
+useContext	                          Global data
+useRef	                             DOM / no re-render
+useReducer	                          Complex state
+useCallback                     	Memoize function
+useMemo	                              Memoize value
+useLayoutEffect                 	DOM before paint
+useImperativeHandle	                  Control refs
+useId	                              Unique IDs
+useTransition	                      Smooth UI
+useDeferredValue	                 Delay updates

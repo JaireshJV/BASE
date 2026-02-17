@@ -2,14 +2,13 @@ import mongoose from "mongoose";
 
 
 const CustomerSchema = new mongoose.Schema({
-title : {
-    type : String ,
+employeeid :{
+type : String,
+require : true
 },
-name : {
- type: String
-},
-age : {
-    type  : Number 
+password : {
+    type : String,
+    require : true
 }
 })
 

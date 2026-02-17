@@ -5,18 +5,23 @@ import { Form } from "./BasicTasks/Form";
 import { CartByRedux } from "./Redux/CartByRedux";
 import AttendanceCalendar, { Calendar } from "./Components/Calender";
 import APIFetch from "./BasicTasks/APIFetch";
+import UseStatePage from "./AllHooks/1.useState";
+import UseEffectPage from "./AllHooks/2.useEffect" ;
+
 const LazyForm = lazy(() =>
   import("./BasicTasks/Form").then((module) => ({ default: module.Form }))
 ); // or change to default export
 const LazyTaskForm = lazy(() => import("./BasicTasks/TaskForm"));
 const FormClarity = lazy(()=> import("./BasicTasks/FormClarity"));
 
+
+
 function App() {
   return (
     <div>
       {/* <Counter /> */}
       {/* <CartByRedux/> */}
-      <Form />
+      {/* <Form /> */}
       {/* <Suspense fallback={<h1>Loading ...</h1>}>
         <LazyForm />
       </Suspense> */}
@@ -27,6 +32,11 @@ function App() {
       {/* <AttendanceCalendar /> */}
       {/* <Calendar /> */}
       {/* <APIFetch /> */}
+
+
+
+      {/* <UseStatePage /> */}
+      <UseEffectPage />
     </div>
   );
 }
