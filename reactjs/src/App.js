@@ -31,12 +31,12 @@ function App() {
       </Suspense> */}
       {/* <AttendanceCalendar /> */}
       {/* <Calendar /> */}
-      {/* <APIFetch /> */}
+      <APIFetch />
 
 
 
       {/* <UseStatePage /> */}
-      <UseEffectPage />
+      {/* <UseEffectPage /> */}
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import axios from "axios"
 
 const APIFetch = () => {
   const [data, setData] = useState([]);
@@ -14,6 +15,24 @@ const APIFetch = () => {
   }, []);
 
   console.log(data, "datadata");
+
+    const [count, setCount] = useState(0)
+  
+  const FetchAPI =async()=>{
+    try{
+      const response = await axios.get("https://jsonplaceholder.typicode.com/users") ;
+      const dataa = response.data ;
+      console.log(dataa,'daaaaaaaa')
+      return setCount(dataa) ;
+    }
+    catch(error){
+      console.error(error,'error')
+    }
+  }
+  
+useEffect(()=>{
+  FetchAPI() ;
+},[])
 
   return <>
   <h1> HI ABISHETH !</h1>
